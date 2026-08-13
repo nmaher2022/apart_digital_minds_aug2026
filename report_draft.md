@@ -1,0 +1,81 @@
+# Persona vs. Known-Optimal Play in Iterated Prisoner's Dilemma
+
+*Digital Minds Research Sprint (Apart) · 14–16 Aug 2026 · Track 5 — "The Assistant Persona & Model Identity" (Track 1 crossover)*
+
+> **Status:** skeleton draft. Introduction is fully drafted below. Remaining sections (Related Work, Methods, Results, Discussion, Limitations, Conclusion, References) are stubbed with pointers to the source material so whoever picks them up isn't starting blank — fill in once Saturday's data exists. See `HANDOFF.md` for full project history and open decisions.
+
+---
+
+## 1. Introduction
+
+### 1.1 What we mean by "persona"
+
+We use *persona* to mean a behaviour pattern induced from outside a model — typically via a system prompt — such that the same underlying weights produce systematically different outputs in different contexts. This is a deliberately thin, operational definition: it makes no claim that a "true self" exists underneath the persona, waiting to be concealed or revealed. That stronger claim is neither testable with this design nor one we make.
+
+This framing follows recent work that treats persona as something *measured* rather than presupposed. Lu et al. (2026, "The Assistant Axis," arXiv:2601.10387) operationalise persona induction directly in activation space: prompting a model to role-play one of 275 named roles produces a displacement from a "default Assistant" activation vector, and the first principal component of that displacement (the "Assistant Axis") ranks roles by their distance from the model's undirected default. Personas near the axis's origin (e.g. *consultant*, *analyst*, *tutor*) are behaviourally close to the plain Assistant; personas far from it (e.g. *bard*, *ghost*, *oracle*) diverge sharply, regardless of whether their content is pro- or anti-social. Berczi, Kim, Requeima, Black & Ududec (2026, "Personascope") give a complementary, behavioural operationalisation, scoring induced personas along two independent axes — *depth of character* (how consistently the model stays in role) and *behaviour-change* (how much the persona actually shifts downstream outputs) — and find the "stay in character" instruction, not the role name alone, is what moves behaviour (a paraphrase test moved their behaviour-change score from 0.18 to 0.64). Ududec, Berczi & Kim (2026) show the effect does not require an explicit persona instruction at all: placing benign biographical facts consistent with a target persona in context is sufficient to shift a model's later behaviour, with alignment on unrelated questions degrading on a sigmoid curve after roughly five to ten facts — evidence that persona effects in current models are closer to *inferred role-play* than to switching a hidden internal mode on or off.
+
+A specific complication for any study of persona in a production assistant is that the "no persona" condition is not obviously neutral. Nostalgebraist's essay "the void" (2026, assigned Track 5 reading) argues that the Assistant character itself — the persona a model like Claude or GPT presents by default — was never persona-free. It originates in a fictional role a base model was prompted to role-play (Anthropic's 2021 "HHH" prompt), later reinforced by post-training until the character became the model's default rather than one option among many. On this view, a model asked to "just answer normally, no persona" is not stepping outside of character; it is executing its most rehearsed one. We adopt this framing explicitly: the plain-Assistant condition in this study is treated as a fifth persona, not a zero baseline the other four are compared against, and its own deviation rate is reported as a result in its own right.
+
+### 1.2 The Prisoner's Dilemma and its iterated form
+
+The Prisoner's Dilemma (PD) is a canonical two-player simultaneous game. Each player independently chooses to *cooperate* (C) or *defect* (D); payoffs are ordered so that mutual defection is each player's individually dominant strategy even though mutual cooperation would leave both better off. Using the standard temptation/reward/punishment/sucker labels (T, R, P, S), the defining payoff ordering is T > R > P > S, with the additional constraint 2R > T + S so that alternating exploitation cannot outperform sustained mutual cooperation. In a single-shot game, rational self-interested play converges on mutual defection — the game's central, counter-intuitive result.
+
+The *iterated* Prisoner's Dilemma (IPD) repeats this stage game against the same opponent across many rounds. Once players can condition their move on the opponent's history, cooperation can become individually rational as a *sustained equilibrium*, provided the game has no known final round: a player who might face retaliation next round has an incentive to cooperate now. This is why horizon matters mechanically, not just as a design nicety — against a *known*, finite number of rounds, backward induction from the last round unravels cooperation even between two calculating players, whereas an indefinite or probabilistic horizon preserves a genuine incentive to cooperate throughout. This result, and strategies built around it such as tit-for-tat, trace to the classic tournament work of Axelrod and Hamilton (1981, "The Evolution of Cooperation") and underlie the opponent design used in this study (§1.3).
+
+**IPD as a probe of LLM/agent behaviour.** A growing empirical line uses repeated games — IPD prominent among them — as a behavioural probe for large language models, treating the game as a controlled environment for studying strategic reasoning, cooperation, and susceptibility to framing, independent of any single downstream application. Akata, Schulz, Coda-Forno, Oh, Bethge & Schulz (2023/2025, *Nature Human Behaviour*, arXiv:2305.16867) is the foundational paper in this space: it runs GPT-3, GPT-3.5 and GPT-4 through a battery of finitely repeated 2×2 games, including the IPD family, against algorithmic opponents, other LLMs, and humans, and finds LLMs — GPT-4 especially — play self-interested games like IPD competently while struggling with coordination games, with prompted reasoning strategies and opponent information both able to shift cooperation. Lorè & Heydari (2023/2024, *Scientific Reports*, arXiv:2309.05898) extend this to show PD play in GPT-3.5/GPT-4/LLaMA-2 is highly sensitive to contextual framing (e.g. a diplomatic vs. casual framing of the relationship between players) independent of the payoff structure itself — establishing that framing effects on PD play are already a known phenomenon, distinct from (but adjacent to) persona effects.
+
+A smaller set of studies moves from framing to persona specifically. Guo (2023, "GPT in Game Theory Experiments," arXiv:2305.05516) prompts GPT-3.5/GPT-4 with "fair" vs. "selfish" trait personas across the Ultimatum game and one-shot/iterated PD, finding PD cooperation stays high only when both sides carry a fairness-prompted persona — an early precedent that persona content measurably moves PD play, though without any separate elicitation of what the model itself would call optimal. Leon, Rodrigues, Gamito & Parsons (2026, "How Personas Can Influence Agents to Play Split or Steal," arXiv:2607.05398) run Big-Five-derived personas (Prosocial, Principled, Analytical) through an iterated trust game structurally close to PD against a fixed scripted opponent, finding prosocial/principled personas sustain cooperation while analytical personas turn more exploitative — methodologically the closest prior design to our Stage B (persona × repeated cooperate/defect game against a fixed opponent), but again without a knowledge-gate step. Ong, Lye, Nguyen, Cho & Pérez-Campanero Antolín (2025, arXiv:2503.12722) induce Big Five traits via activation steering rather than prompting in Axelrod-style IPD tournaments, finding higher Agreeableness/Conscientiousness produces more cooperative but more exploitable play — evidence the persona-cooperation link is not an artefact of prompting specifically, but it uses a different induction channel (steering vectors) than the system-prompt persona induction used here.
+
+Two further papers are close enough to warrant direct comparison rather than a survey mention. Manoranjan & Gaikwad (2026, "When Identity Overrides Incentives," accepted FAccT'26, arXiv:2601.10102) show, in a bespoke single-round multi-agent policy game (not PD), that persona induction suppresses payoff-optimal (Nash) play even when the full payoff table is visible in-prompt — the mirror image of this project's hypothesis, and the closest existing precedent for "persona overrides *known* optimal play," though the paper's notion of "known" is payoff-visibility rather than a separate elicitation step. Sobotka, Karabag & Topcu (2026, "Why Do LLMs Struggle in Strategic Play?," arXiv:2605.00226) study one game structurally identical in form to our design — repeated 2×2 normal-form games against a fixed opponent — but from a purely mechanistic angle with no persona axis: they show a model's own verbalised belief about a hidden opponent's strategy is markedly less accurate than what is linearly decodable from its internal activations, and that even accurate beliefs do not reliably convert into best-response actions (an "observation-belief gap" and a "belief-action gap" respectively). Their finding that verbalised belief about an *undisclosed* opponent is unreliable is the direct justification, in this study's design, for disclosing each opponent's strategy in Stage A rather than asking the model to infer it (§1.3) — without disclosure, a failure to state the optimal move would be confounded between "doesn't know the rule" and "can't infer it from limited history."
+
+No prior work combines all three features of this design jointly: canonical iterated PD played against named, fixed-strategy opponents; a genuine two-stage same-model knowledge gate, in which a separate no-persona run first elicits the model's own stated-optimal policy as ground truth before a persona-driven run is checked against it; and personas anchored to a validated model-internal taxonomy (Lu et al.'s Assistant Axis) rather than ad hoc trait labels or occupational identities. This gap is what the present study addresses: whether an induced persona causes a model to deviate from play it itself has already identified as optimal, and whether any such deviation tracks the persona's *content* (cooperative vs. adversarial) or simply its *distance* from the model's default Assistant character.
+
+### 1.3 Opponents
+
+Each game is played against one of four fixed, mechanical opponent strategies, chosen to span the classic space of exploitable, aggressive, reciprocating, and probing counterparts and to each pin down a single, well-defined optimal reply under an indefinite horizon (§1.2). The opponent's strategy is disclosed to the model in Stage A, following the design rationale in §1.2: disclosure keeps Stage A a test of stated *knowledge* of the optimal rule rather than a noisier test of *inference* from a history the model has not yet seen.
+
+| Opponent | Rule | Optimal reply (indefinite horizon) |
+|---|---|---|
+| **Cooperator** | Always cooperates. | Exploit: always defect. |
+| **Cheater** | Always defects. | Always defect. |
+| **Copycat** (tit-for-tat) | Cooperates on round 1, then mirrors the model's previous move. | Cooperate every round — defection invites sustained retaliation, lowering long-run payoff below the cooperative return. |
+| **Detective** | Runs a fixed four-move probe (Cooperate, Defect, Cooperate, Cooperate); if the model ever retaliates during the probe it switches to Copycat thereafter, otherwise it switches to Always-Defect and exploits the model for the rest of the game. | Retaliate on the probe's second round (defect immediately after Detective's defection), then cooperate for the remainder — failing to retaliate marks the model as exploitable and triggers permanent defection. |
+
+Cooperator, Cheater and Copycat are the three canonical strategy archetypes from the Axelrod tournament tradition (§1.2) — a pure pushover, a pure aggressor, and a pure reciprocator, respectively — chosen because each admits a single stationary optimal response that holds for every round of an indefinite-horizon game, with no dependence on round count. Detective adds a diagnostic fourth case: it is the only opponent whose behaviour is *conditional on the model's own play*, requiring the model to correctly execute an early, costly punishment (round-2 retaliation) in order to secure better treatment for the remainder of the game. This makes Detective the most diagnostic opponent in the set for the study's core question — optimal play here is the case most likely to be overridden by a persona that either refuses to retaliate on principle (e.g. an altruist persona) or over-reacts and defects beyond what is optimal (e.g. an adversarial persona), so any persona-driven deviation from stated-optimal play should be most visible here.
+
+---
+
+## 2. Related Work & Novelty *(stub)*
+
+Draft the comparison table from `digital_minds_team_brief_full.md` §"Related work & novelty" directly — the three-legs novelty argument (canonical PD + named opponents / two-stage same-model knowledge gate / Assistant-Axis-anchored personas) is already written and full-text-verified against Manoranjan & Gaikwad (2026) and Sobotka et al. (2026). Pull the persona-induction methodology citations (Personascope, the ICL weird-generalisation note) into their own paragraph distinguishing "how do you induce a persona" literature from "does persona change PD play" literature — these are different bodies of work and the brief already keeps them in separate tables.
+
+## 3. Methods *(stub — fill in from data-collection reality, not the brief's plan)*
+
+- Two-stage design: Stage A (no-persona knowledge gate, disclosed opponent, elicits stated-optimal policy) → Stage B (persona-induced play, same opponent, same underlying model).
+- 5 personas × 4 opponents × (fresh vs. same context) × ~5–10 reps/cell — confirm actual reps run, don't copy the planned number.
+- Payoff matrix (Appendix B of the brief: T=5, R=3, P=1, S=0), round count / continuation probability actually used, model(s) actually used.
+- Manipulation check (Personascope pre-flight scores per persona) and eval-awareness debrief — report actual scores, not the predicted ones.
+- Cite `digital_minds_team_brief_full.html` Appendices A–C for exact prompts once frozen.
+
+## 4. Results *(stub — nothing to report until Saturday's runs exist)*
+
+Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell.
+
+## 5. Discussion & Limitations *(stub)*
+
+Pull directly from the brief's "Threats to validity — rival explanations" table (failed induction, eval-awareness, position bias, recency/anchoring, surface role-play, unreliable Stage-A self-report) and the "Evaluation awareness" open question — both already drafted, just need the actual results plugged in.
+
+## 6. Conclusion *(stub)*
+
+## References *(build incrementally — see note below)*
+
+---
+
+### Note for the team (remove before final submission)
+
+Citation-safety status, per `HANDOFF.md`'s "Literature survey" tracking — **don't add anything to §1 beyond what's below without a full-text check first**:
+
+- **Full-text verified, safe to cite as described:** Lu et al. 2026 (Assistant Axis), nostalgebraist "the void," Manoranjan & Gaikwad 2026, Sobotka, Karabag & Topcu 2026.
+- **Abstract/comment-thread level only (real, but not full-text read):** Personascope (Berczi et al. 2026), Ududec/Berczi/Kim 2026, Guo 2023, Leon et al. 2026, Akata et al. 2023/2025, Lorè & Heydari 2023/2024, Ong et al. 2025.
+- **Not yet verified at all — do not cite without checking first:** anything else in `literature_survey.md`'s 21-paper list.
+- Axelrod & Hamilton (1981) is standard game-theory background knowledge, not sourced from a file in this folder — worth grabbing the actual citation (*Science* 211(4489), 1390–1396) and confirming it before it goes in the final bibliography.
