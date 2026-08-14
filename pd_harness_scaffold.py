@@ -305,6 +305,13 @@ API_KEY = None  # str or None -- None means "don't send an Authorization header"
                 # (Ollama's local OpenAI-compatible endpoint needs no key)
 
 
+HTTP_TIMEOUT = 120  # seconds per attempt; overridable via --http-timeout for
+                     # slow backends (e.g. CPU-only local Ollama, where a
+                     # verbose reasoning model can exceed the 120s default on
+                     # a single large-budget call -- see the 2026-08-14/15
+                     # qwen3:1.7b local smoke-test timeout in HANDOFF.md).
+
+
 def call_model(model: str, messages: list[dict], temperature: float = 0.7,
                 max_tokens: int = 800, reasoning_tokens: int = 0,
                 retries: int = 4) -> ModelResponse:
@@ -338,7 +345,7 @@ def call_model(model: str, messages: list[dict], temperature: float = 0.7,
     last_err = None
     for attempt in range(retries):
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT) as resp:
                 raw = resp.read().decode("utf-8")
             try:
                 data = json.loads(raw)
@@ -903,6 +910,7 @@ def _resolve_seed(out_dir: Path, cli_seed: Optional[int]) -> int:
 # ---------------------------------------------------------------------------
 
 def main():
+    global API_BASE_URL, API_KEY, HTTP_TIMEOUT
     ap = argparse.ArgumentParser(description=__doc__,
                                   formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True,
@@ -924,11 +932,16 @@ def main():
     ap.add_argument("--api-key-env", default="OPENROUTER_API_KEY",
                      help="env var to read the API key from. Not required if --base-url "
                           "points at a local Ollama server (no auth needed there).")
+    ap.add_argument("--http-timeout", type=int, default=HTTP_TIMEOUT,
+                     help="per-attempt HTTP timeout in seconds (default 120). Raise this "
+                          "for slow backends -- e.g. CPU-only local Ollama, where a "
+                          "verbose reasoning model can take well over 120s on a single "
+                          "large-budget call (Stage A's ~3800-token budget, in particular).")
     args = ap.parse_args()
 
-    global API_BASE_URL, API_KEY
     API_BASE_URL = args.base_url
     API_KEY = os.environ.get(args.api_key_env)
+    HTTP_TIMEOUT = args.http_timeout
     if API_BASE_URL == OPENROUTER_URL and not API_KEY:
         print(f"ERROR: set {args.api_key_env} first (or pass --base-url for a local "
               f"server like Ollama that doesn't need a key).", file=sys.stderr)
