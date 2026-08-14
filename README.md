@@ -21,6 +21,34 @@ Does inducing a persona (via system prompt) cause an LLM to deviate from the str
 | [`assistant_axis_role_instructions_selected.json`](assistant_axis_role_instructions_selected.json) | Source data: per-role system prompts, probe questions, and judge rubrics for the 5 personas, pulled from Lu et al.'s "Assistant Axis" repo. |
 | [`literature_survey.md`](literature_survey.md), [`design_scenarios_matrix.md`](design_scenarios_matrix.md), [`openrouter_model_candidates.md`](openrouter_model_candidates.md) | Supporting research: literature survey, design-option comparison, candidate-model shortlist. |
 
+## Code
+
+| File | What it is |
+|---|---|
+| [`pd_harness_scaffold.py`](pd_harness_scaffold.py) | The trial harness — runs the full Stage A / Stage B / manipulation-check / persistence-fork / debrief procedure against any OpenAI-compatible chat-completions endpoint. Stdlib-only (no third-party dependencies). Checkpoint/resume-safe: each `(model, persona, opponent)` cell writes to its own folder, so a rerun against the same `--out-dir` never overwrites prior results and skips already-completed reps automatically. |
+| [`analysis_deviation_gap.py`](analysis_deviation_gap.py) | The primary DV — compares Stage B's actual per-round moves against an objectively optimal ground-truth policy per opponent, reported as a deviation rate (overall + early/mid/late-binned) alongside each cell's manipulation-check result. No API calls needed for the core metric; an optional `--judge-stage-a` flag adds a face-validity check on Stage A's stated strategy (costs one judge call per trial). |
+| [`analysis_moral_metrics.py`](analysis_moral_metrics.py) | Secondary add-on metric — adapts the eigenjesus/eigenmoses cooperation-centrality measures (from the iterated-PD literature) to rank personas and opponents by how much they get cooperated with / how much they cooperate, relative to the standard bot roster's published anchor values. |
+
+Usage:
+
+```bash
+# Run a sweep (OpenRouter; needs an API key in the env var named by --api-key-env)
+python3 pd_harness_scaffold.py --model qwen/qwen3-32b --out-dir runs/qwen3-32b --reps 5
+
+# Or against a local Ollama server (no API key needed)
+python3 pd_harness_scaffold.py --model llama3.3 --out-dir runs/llama3.3 \
+    --base-url http://localhost:11434/v1/chat/completions
+
+# Re-running the same command resumes: completed (model,persona,opponent) cells are
+# skipped, failed reps are retried, new personas/opponents/reps are added incrementally.
+
+# Analyze results
+python3 analysis_deviation_gap.py --out-dir runs/qwen3-32b
+python3 analysis_moral_metrics.py runs/qwen3-32b
+```
+
+API keys are read from a local environment variable only (`--api-key-env`, default `OPENROUTER_API_KEY`) — never written to a file, log, or commit.
+
 ## Core design (short version)
 
 - **5 personas** (Lu et al.'s Assistant-Axis role inventory): Baseline Assistant (no system prompt), Consultant, Saboteur, Altruist, Bard.

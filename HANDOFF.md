@@ -374,12 +374,12 @@ You caught a bug in `horizon_fixed_line()`'s output ("6 and 6 rounds does not ma
 
 **2. `analysis_moral_metrics.py` fixed for the new per-cell layout.** This script (built 2026-08-14, morning) predates the per-cell output layout built later the same day and its `load_trials()` only read a single flat `trials.jsonl` path — incompatible with the new `out_dir/<model>/<persona>/<opponent>/trials.jsonl` structure, which would have silently broken it the first time anyone tried to run it against real checkpoint/resume data. Fixed: `load_trials()` now accepts either a single file (old behavior, unchanged) or a directory, in which case it globs `*/*/*/trials.jsonl` under it. The CLI's positional arg still takes either. Verified against a synthetic per-cell fixture — correctly aggregates and prints the eigenjesus-lite/eigenmoses-lite report.
 
-**Neither script has been committed yet** — both are new/modified, untracked or modified-but-unstaged as of this entry. Needs an explicit commit/push instruction.
+**Committed and pushed** — commit `7819268`, pushed to `origin/main` on top of `434e59c`.
 
 ## Current status (end of day, 2026-08-14)
 
 - **Harness (`pd_harness_scaffold.py`)**: built, bug-reviewed three times, checkpoint/resume verified live against OpenRouter (fresh run / exact-rerun-skip / retry-plus-new-cell, all three scenarios pass). Committed and pushed as `434e59c`. This is the piece the team would actually run tomorrow to collect real data — it's in a runnable state right now.
-- **Analysis (`analysis_deviation_gap.py`, new; `analysis_moral_metrics.py`, fixed)**: both work against synthetic fixtures; neither has run against real model output yet, because no real sweep has been collected yet. Not committed/pushed.
+- **Analysis (`analysis_deviation_gap.py`, new; `analysis_moral_metrics.py`, fixed)**: both work against synthetic fixtures; neither has run against real model output yet, because no real sweep has been collected yet. Committed and pushed as `7819268`.
 - **No real data collected yet.** Everything so far is unit tests, synthetic fixtures, and small live smoke tests (2 opponents × 1 persona × `qwen/qwen3-32b`, just to prove the harness doesn't crash) — not an actual run of the study design. That's the biggest remaining gap before there's anything to write up.
 - **Ollama** was discussed (works via `--base-url http://localhost:11434/v1/chat/completions`, no API key needed) but not actually tried by either instance yet.
 - Two Claude Code instances have been working this file concurrently this session (this one, plus a teammate's, paused mid-session after a bug was found in their concurrent refactor, since fixed and reconciled) — worth confirming before tomorrow's session whether that instance should stay paused, resume, or the team wants to consolidate to one active session per file to avoid this again.
@@ -400,7 +400,7 @@ You caught a bug in `horizon_fixed_line()`'s output ("6 and 6 rounds does not ma
 
 If starting a fresh Claude Code session after a `/clear`, paste this:
 
-> Continuing the Digital Minds Apart hackathon project (deadline 2026-08-16 11:59pm AoE). Read HANDOFF.md in full first, especially the "Current status" and "Open questions for designing tomorrow" sections near the end — that's where things stand. Harness (`pd_harness_scaffold.py`) is built, tested, checkpoint/resume verified, committed/pushed. Two new/modified analysis scripts (`analysis_deviation_gap.py`, `analysis_moral_metrics.py`) work against synthetic fixtures but are NOT yet committed and have NOT been run against real data — no real sweep has been collected yet, that's the main remaining gap. Ask me what to prioritize before doing anything, since today's open-questions list (model choice, reps/cell, track assignments) needs team decisions I can't make unilaterally.
+> Continuing the Digital Minds Apart hackathon project (deadline 2026-08-16 11:59pm AoE). Read HANDOFF.md in full first, especially the "Current status" and "Open questions for designing tomorrow" sections near the end — that's where things stand. Harness (`pd_harness_scaffold.py`) is built, tested, checkpoint/resume verified, committed/pushed (`434e59c`). Two analysis scripts (`analysis_deviation_gap.py`, new; `analysis_moral_metrics.py`, fixed for the per-cell layout) are also committed/pushed (`7819268`) but only verified against synthetic fixtures — NOT yet run against real data, because no real sweep has been collected yet. That's the main remaining gap. Ask me what to prioritize before doing anything, since today's open-questions list (model choice, reps/cell, track assignments) needs team decisions I can't make unilaterally.
 
 ## Key decisions still open (not yet made by the team)
 
