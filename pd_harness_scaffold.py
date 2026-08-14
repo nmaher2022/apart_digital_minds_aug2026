@@ -34,6 +34,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import http.client
 import json
 import os
@@ -53,21 +54,32 @@ ROLE_DATA_PATH = ROOT / "assistant_axis_role_instructions_selected.json"
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Token budgets. Generous, not tight -- reasoning models (e.g. qwen3-32b) spend a
-# variable, often large, share of max_tokens on hidden chain-of-thought before any
-# visible content; a too-tight budget silently yields content: null/"" (handled
-# defensively in call_model, but that just means a wasted call and a parse_failure
-# rather than a crash). Confirmed empirically on 2026-08-14: a short 2+2 test needed
-# ~185 reasoning tokens against a 400-token budget; a full-history round-6 decision
-# and the Stage-A strategy question both exhausted 400/600 with nothing left for
-# content. Team: reasoning-token overhead is a real added cost/latency line beyond
-# what openrouter_model_candidates.md's per-model pricing table accounts for --
-# worth weighing when the model choice is finalized.
+# Token budgets. Two separate pools per call: *_TOKENS is the visible-content
+# budget, *_REASONING_TOKENS is a dedicated hidden chain-of-thought budget passed
+# via OpenRouter's `reasoning.max_tokens` (see call_model). We used to send a
+# single inflated max_tokens and hope hidden reasoning left enough room for the
+# visible answer -- that's what caused the 2026-08-14 "reasoning-token
+# starvation" bug (a short 2+2 test needed ~185 reasoning tokens against a
+# 400-token budget; a full-history round-6 decision and the Stage-A strategy
+# question both exhausted 400/600 with nothing left for content). Splitting the
+# budgets fixes that structurally: call_model sends
+# max_tokens = content budget + reasoning budget, so the reasoning pool can't
+# eat into the content pool. It also means the hidden reasoning text is now
+# requested back (`reasoning.exclude: False`) and saved, not just paid for and
+# discarded. Team: reasoning-token overhead is a real added cost/latency line
+# beyond what openrouter_model_candidates.md's per-model pricing table accounts
+# for -- worth checking actual usage.cost once the model choice is finalized.
 JUDGE_TOKENS = 300      # single-digit/short-label judge calls
 SHORT_ANSWER_TOKENS = 800   # single-turn probe/identification answers
-ROUND_TOKENS = 1200     # a Stage-B round's reasoning + move
+ROUND_TOKENS = 1200     # a Stage-B round's visible reasoning + move
 STRATEGY_TOKENS = 1800  # Stage A's "describe your strategy" elicitation
 DEBRIEF_TOKENS = 800    # end-of-game eval-awareness debrief
+
+JUDGE_REASONING_TOKENS = 500
+SHORT_ANSWER_REASONING_TOKENS = 1000
+ROUND_REASONING_TOKENS = 1500
+STRATEGY_REASONING_TOKENS = 2000
+DEBRIEF_REASONING_TOKENS = 1000
 
 # ---------------------------------------------------------------------------
 # Payoffs (Appendix B, prompts_personas_opponents_payoffs.md SS3.1)
@@ -280,6 +292,12 @@ class ApiError(RuntimeError):
     pass
 
 
+@dataclass
+class ModelResponse:
+    content: str
+    reasoning: str = ""  # hidden chain-of-thought, if the provider returned any
+
+
 # Set once by main() before any calls are made. Defaults keep the module usable
 # from a Python REPL/tests without going through the CLI.
 API_BASE_URL = OPENROUTER_URL
@@ -288,13 +306,26 @@ API_KEY = None  # str or None -- None means "don't send an Authorization header"
 
 
 def call_model(model: str, messages: list[dict], temperature: float = 0.7,
-                max_tokens: int = 800, retries: int = 4) -> str:
-    body = json.dumps({
+                max_tokens: int = 800, reasoning_tokens: int = 0,
+                retries: int = 4) -> ModelResponse:
+    payload = {
         "model": model,
         "messages": messages,
         "temperature": temperature,
-        "max_tokens": max_tokens,
-    }).encode("utf-8")
+        # Reasoning draws from a separate pool (below), so the visible-content
+        # budget the caller asked for is never competing with it.
+        "max_tokens": max_tokens + reasoning_tokens,
+    }
+    if reasoning_tokens > 0:
+        # OpenRouter's unified reasoning API: cap hidden chain-of-thought at
+        # reasoning_tokens and ask for it back instead of discarding it
+        # (exclude: False is the default, set explicitly for clarity). Models
+        #/providers that don't support reasoning ignore this field rather than
+        # erroring, so it's safe to send unconditionally whenever a caller asks
+        # for a reasoning budget -- including local Ollama models that pass
+        # `messages` straight through their own OpenAI-compatible endpoint.
+        payload["reasoning"] = {"max_tokens": reasoning_tokens, "exclude": False}
+    body = json.dumps(payload).encode("utf-8")
     headers = {"Content-Type": "application/json"}
     if API_KEY:
         headers["Authorization"] = f"Bearer {API_KEY}"
@@ -311,19 +342,20 @@ def call_model(model: str, messages: list[dict], temperature: float = 0.7,
                 raw = resp.read().decode("utf-8")
             try:
                 data = json.loads(raw)
-                content = data["choices"][0]["message"].get("content")
+                message = data["choices"][0]["message"]
+                content = message.get("content")
+                reasoning = message.get("reasoning")
             except (json.JSONDecodeError, KeyError, IndexError, TypeError) as e:
                 # A 200 with a malformed/unexpected body is still an API-layer
                 # failure, not a code bug -- surface it as ApiError (skippable by
                 # main()'s per-cell handler) rather than letting it propagate as
                 # an uncaught exception that kills the whole multi-hour run.
                 raise ApiError(f"malformed response body: {e}: {raw[:500]}") from e
-            # Reasoning models (e.g. qwen3-32b on OpenRouter) can spend the whole
-            # max_tokens budget on hidden reasoning and return content: null,
-            # especially on short judge-style calls. Never let that crash the
-            # harness -- treat it as an empty answer, visible downstream via
+            # Reasoning models (e.g. qwen3-32b on OpenRouter) can still return
+            # content: null on a badly-undersized budget. Never let that crash
+            # the harness -- treat it as an empty answer, visible downstream via
             # parse_failure / a None judge score, not a raised exception.
-            return content or ""
+            return ModelResponse(content=content or "", reasoning=reasoning or "")
         except urllib.error.HTTPError as e:
             last_err = e
             detail = e.read().decode("utf-8", errors="replace")
@@ -346,7 +378,7 @@ def call_model(model: str, messages: list[dict], temperature: float = 0.7,
 
 
 def chat(model: str, system_prompt: str, history: list[dict], user_msg: str,
-         **kw) -> str:
+         **kw) -> ModelResponse:
     messages = []
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
@@ -464,19 +496,25 @@ def run_manipulation_check(model: str, persona: str, personas: dict,
     id_qs = rng.sample(IDENTIFICATION_QUESTIONS, 2)
 
     def _score_role_question(system_prompt: str, q: str) -> dict:
-        answer = chat(model, system_prompt, [], q, temperature=0.7, max_tokens=SHORT_ANSWER_TOKENS)
+        resp = chat(model, system_prompt, [], q, temperature=0.7,
+                     max_tokens=SHORT_ANSWER_TOKENS, reasoning_tokens=SHORT_ANSWER_REASONING_TOKENS)
+        answer = resp.content
         judge_prompt = eval_prompt_tpl.format(question=q, answer=answer)
         # max_tokens is generous, not tight, even though the answer is a single
         # digit -- reasoning models spend hidden tokens before the visible
         # content, and a too-tight budget yields content: null (see call_model).
-        judge_raw = chat(model, "", [], judge_prompt, temperature=0.0, max_tokens=JUDGE_TOKENS)
-        return {"question": q, "answer": answer, "judge_raw": judge_raw,
+        judge_resp = chat(model, "", [], judge_prompt, temperature=0.0,
+                           max_tokens=JUDGE_TOKENS, reasoning_tokens=JUDGE_REASONING_TOKENS)
+        judge_raw = judge_resp.content
+        return {"question": q, "answer": answer, "answer_reasoning": resp.reasoning,
+                "judge_raw": judge_raw, "judge_reasoning": judge_resp.reasoning,
                 "score": parse_judge_score(judge_raw)}
 
     def _score_id_question(system_prompt: str, q: str) -> dict:
-        answer = chat(model, system_prompt, [], q, temperature=0.7, max_tokens=SHORT_ANSWER_TOKENS)
-        return {"question": q, "answer": answer,
-                "hit": identification_hit(answer, is_baseline=is_baseline)}
+        resp = chat(model, system_prompt, [], q, temperature=0.7,
+                     max_tokens=SHORT_ANSWER_TOKENS, reasoning_tokens=SHORT_ANSWER_REASONING_TOKENS)
+        return {"question": q, "answer": resp.content, "answer_reasoning": resp.reasoning,
+                "hit": identification_hit(resp.content, is_baseline=is_baseline)}
 
     is_baseline = persona == "baseline"
     log = []
@@ -520,10 +558,11 @@ def run_manipulation_check(model: str, persona: str, personas: dict,
 # ---------------------------------------------------------------------------
 
 def persistence_fork(model: str, system_prompt: str, transcript: list[dict],
-                      probe: str = IDENTIFICATION_QUESTIONS[0]) -> tuple[str, bool]:
+                      probe: str = IDENTIFICATION_QUESTIONS[0]) -> tuple[str, str, bool]:
     branch = list(transcript)  # shallow copy -- caller's transcript is untouched
-    text = chat(model, system_prompt, branch, probe, temperature=0.7, max_tokens=SHORT_ANSWER_TOKENS)
-    return text, not text.strip()
+    resp = chat(model, system_prompt, branch, probe, temperature=0.7,
+                max_tokens=SHORT_ANSWER_TOKENS, reasoning_tokens=SHORT_ANSWER_REASONING_TOKENS)
+    return resp.content, resp.reasoning, not resp.content.strip()
 
 
 # ---------------------------------------------------------------------------
@@ -537,14 +576,14 @@ STAGE_A_QUESTION = (
 )
 
 
-def run_stage_a(model: str, opponent: str, horizon_line: str) -> tuple[str, bool]:
+def run_stage_a(model: str, opponent: str, horizon_line: str) -> tuple[str, str, bool]:
     preamble = GAME_PREAMBLE.format(
         horizon_line=horizon_line,
         opponent_description=OPPONENT_DESCRIPTIONS[opponent],
     )
-    text = chat(model, "", [], preamble + "\n\n" + STAGE_A_QUESTION,
-                temperature=0.7, max_tokens=STRATEGY_TOKENS)
-    return text, not text.strip()
+    resp = chat(model, "", [], preamble + "\n\n" + STAGE_A_QUESTION,
+                temperature=0.7, max_tokens=STRATEGY_TOKENS, reasoning_tokens=STRATEGY_REASONING_TOKENS)
+    return resp.content, resp.reasoning, not resp.content.strip()
 
 
 # ---------------------------------------------------------------------------
@@ -581,6 +620,7 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
     cum_you, cum_opp = 0, 0
     mid_round = max(1, n_rounds // 2)
     mid_persistence_response = None
+    mid_persistence_reasoning = None
     mid_persistence_parse_failure = None
 
     for t in range(n_rounds):
@@ -597,8 +637,12 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
             "response with exactly one line: 'MOVE: COOPERATE' or 'MOVE: DEFECT'."
         )
 
-        answer = chat(model, system_prompt, transcript, round_prompt,
-                       temperature=0.7, max_tokens=ROUND_TOKENS)
+        resp = chat(model, system_prompt, transcript, round_prompt,
+                    temperature=0.7, max_tokens=ROUND_TOKENS, reasoning_tokens=ROUND_REASONING_TOKENS)
+        answer = resp.content
+        # Only visible content goes back into the replayed transcript -- hidden
+        # reasoning is saved separately below (rounds_log["reasoning"]), not fed
+        # back as conversation history (most providers don't expect/accept it there).
         transcript.append({"role": "user", "content": round_prompt})
         transcript.append({"role": "assistant", "content": answer})
 
@@ -622,6 +666,7 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
             "cumulative_opp": cum_opp,
             "parse_failure": parse_failure,
             "raw_response": answer,
+            "reasoning": resp.reasoning,
         })
 
         # Skip the mid-fork when it would coincide with the final round (e.g.
@@ -629,25 +674,29 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
         # end persistence forks pull from the identical transcript, turning
         # an early/late comparison into a duplicate.
         if t + 1 == mid_round and mid_round < n_rounds:
-            mid_persistence_response, mid_persistence_parse_failure = persistence_fork(
-                model, system_prompt, transcript)
+            mid_persistence_response, mid_persistence_reasoning, mid_persistence_parse_failure = (
+                persistence_fork(model, system_prompt, transcript))
 
-    end_persistence_response, end_persistence_parse_failure = persistence_fork(
-        model, system_prompt, transcript)
+    end_persistence_response, end_persistence_reasoning, end_persistence_parse_failure = (
+        persistence_fork(model, system_prompt, transcript))
 
     debrief_prompt = EVAL_AWARENESS_QUESTION
-    debrief = chat(model, system_prompt, transcript, debrief_prompt,
-                   temperature=0.7, max_tokens=DEBRIEF_TOKENS)
+    debrief_resp = chat(model, system_prompt, transcript, debrief_prompt,
+                         temperature=0.7, max_tokens=DEBRIEF_TOKENS, reasoning_tokens=DEBRIEF_REASONING_TOKENS)
+    debrief = debrief_resp.content
     debrief_parse_failure = not debrief.strip()
 
     return {
         "n_rounds": n_rounds,
         "rounds": rounds_log,
         "mid_persistence_response": mid_persistence_response,
+        "mid_persistence_reasoning": mid_persistence_reasoning,
         "mid_persistence_parse_failure": mid_persistence_parse_failure,
         "end_persistence_response": end_persistence_response,
+        "end_persistence_reasoning": end_persistence_reasoning,
         "end_persistence_parse_failure": end_persistence_parse_failure,
         "eval_awareness_debrief": debrief,
+        "eval_awareness_debrief_reasoning": debrief_resp.reasoning,
         "eval_awareness_debrief_parse_failure": debrief_parse_failure,
         "final_cumulative_you": cum_you,
         "final_cumulative_opp": cum_opp,
@@ -658,16 +707,35 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
 # Trial orchestration
 # ---------------------------------------------------------------------------
 
+def _derive_rng(base_seed: Optional[int], *parts: object) -> random.Random:
+    """Independent, order-agnostic RNG for one (model,persona) check or one
+    (model,persona,opponent,rep) trial, derived from base_seed + identity.
+
+    A single shared sequential random.Random desyncs on resume: skipping
+    cells that were already completed on disk consumes a different number
+    of rng draws than a fresh uninterrupted run would, so every cell after
+    the first resume point would sample different round counts / question
+    subsets than a from-scratch run with the same --seed. Hashing the
+    identity tuple instead means each cell's draws depend only on its own
+    (model,persona[,opponent,rep]) identity, never on what ran before it or
+    in what order -- resumed and from-scratch runs agree cell-for-cell.
+    """
+    key = "|".join(str(p) for p in (base_seed, *parts))
+    digest = hashlib.sha256(key.encode("utf-8")).digest()
+    return random.Random(int.from_bytes(digest[:8], "big"))
+
+
 def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
-              horizon_mode: str, max_rounds: int, rng: random.Random,
+              horizon_mode: str, max_rounds: int, base_seed: Optional[int],
               persona_check_cache: dict, on_check_computed=None) -> dict:
     horizon_line = horizon_fixed_line(max_rounds) if horizon_mode == "fixed" else HORIZON_PROBABILISTIC
 
-    stage_a_response, stage_a_parse_failure = run_stage_a(model, opponent, horizon_line)
+    stage_a_response, stage_a_reasoning, stage_a_parse_failure = run_stage_a(model, opponent, horizon_line)
 
     cache_key = (model, persona)
     if cache_key not in persona_check_cache:
-        persona_check_cache[cache_key] = run_manipulation_check(model, persona, personas, rng)
+        check_rng = _derive_rng(base_seed, "check", model, persona)
+        persona_check_cache[cache_key] = run_manipulation_check(model, persona, personas, check_rng)
         if on_check_computed is not None:
             on_check_computed(cache_key, persona_check_cache[cache_key])
     check = persona_check_cache[cache_key]
@@ -682,6 +750,7 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         "persona_check_a_mean": check.check_a_mean,
         "persona_check_passed": check.passed,
         "stage_a_response": stage_a_response,
+        "stage_a_reasoning": stage_a_reasoning,
         "stage_a_parse_failure": stage_a_parse_failure,
     }
 
@@ -691,10 +760,125 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         # can't interpret. Record the skip, don't play Stage B.
         return {**base_row, "stage_b_skipped": True, "skip_reason": "persona_check_failed"}
 
-    n_rounds = sample_round_count(horizon_mode, rng, max_rounds=max_rounds)
+    trial_rng = _derive_rng(base_seed, "trial", model, persona, opponent, rep)
+    n_rounds = sample_round_count(horizon_mode, trial_rng, max_rounds=max_rounds)
     stage_b = run_stage_b(model, opponent, persona, system_prompt, horizon_line, n_rounds)
 
     return {**base_row, "stage_b_skipped": False, **stage_b}
+
+
+# ---------------------------------------------------------------------------
+# Output layout + checkpoint/resume
+# ---------------------------------------------------------------------------
+
+def _sanitize_path_component(s: str) -> str:
+    """Model slugs like 'qwen/qwen3-32b' contain '/', which would otherwise
+    be read as a directory separator."""
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", s)
+
+
+def cell_dir(out_dir: Path, model: str, persona: str, opponent: str) -> Path:
+    """Each (model,persona,opponent) cell gets its own directory, so a rerun
+    against the same --out-dir (a different model, an added persona, a retry
+    of one opponent) can never overwrite another cell's results -- and so
+    resume can check a single cell's completeness by reading one small file
+    instead of filtering one shared trials.jsonl for the whole sweep."""
+    return out_dir / _sanitize_path_component(model) / persona / opponent
+
+
+def persona_check_file(out_dir: Path, model: str, persona: str) -> Path:
+    return out_dir / _sanitize_path_component(model) / persona / "persona_check.json"
+
+
+def _load_jsonl(path: Path) -> list[dict]:
+    """Tolerates a truncated final line -- e.g. a crash/kill mid-write left
+    trials_f.flush()'d rows intact but the very last one half-written."""
+    if not path.exists():
+        return []
+    rows = []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            rows.append(json.loads(line))
+        except json.JSONDecodeError:
+            break  # only the last line should ever be truncated; stop there
+    return rows
+
+
+def _append_jsonl(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a") as f:
+        f.write(json.dumps(obj) + "\n")
+        f.flush()
+
+
+def _load_completed_reps(trials_path: Path) -> set[int]:
+    """Reps with a real result on disk. Rows with trial_error are NOT
+    counted as done -- a prior API failure should be retried, not skipped."""
+    return {row["rep"] for row in _load_jsonl(trials_path) if "trial_error" not in row}
+
+
+def _write_persona_check(path: Path, model: str, persona: str, check: "PersonaCheckResult") -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({
+        "model": model,
+        "persona": persona,
+        "variant_used": check.variant_used,
+        "check_a_mean": check.check_a_mean,
+        "identification_hits": check.identification_hits,
+        "identification_n": check.identification_n,
+        "passed": check.passed,
+        "log": check.log,
+    }))
+
+
+def _load_persona_check(path: Path, persona: str) -> Optional["PersonaCheckResult"]:
+    if not path.exists():
+        return None
+    try:
+        d = json.loads(path.read_text())
+    except json.JSONDecodeError:
+        return None  # truncated by a crash mid-write; recompute instead of trusting it
+    return PersonaCheckResult(
+        persona=persona, variant_used=d["variant_used"], check_a_mean=d["check_a_mean"],
+        identification_hits=d["identification_hits"], identification_n=d["identification_n"],
+        passed=d["passed"], log=d.get("log", []),
+    )
+
+
+def _resolve_seed(out_dir: Path, cli_seed: Optional[int]) -> int:
+    """Persists the seed actually used to out_dir/run_meta.json so a resumed
+    run (re-invoked without --seed, e.g. after a crash) derives the same
+    per-cell RNG streams as the original run instead of silently diverging."""
+    meta_path = out_dir / "run_meta.json"
+    prev_seed = None
+    if meta_path.exists():
+        try:
+            prev_seed = json.loads(meta_path.read_text()).get("seed")
+        except json.JSONDecodeError:
+            prev_seed = None
+
+    if cli_seed is not None:
+        effective_seed = cli_seed
+        if prev_seed is not None and prev_seed != cli_seed:
+            print(f"WARNING: {meta_path} records seed={prev_seed} from a previous run in "
+                  f"this --out-dir, but --seed={cli_seed} was given this time. Already-"
+                  f"completed cells are unaffected, but any new cells this run samples "
+                  f"will diverge from a from-scratch run at either seed.", file=sys.stderr)
+    elif prev_seed is not None:
+        effective_seed = prev_seed
+        print(f"Resuming with seed={effective_seed} (recorded in {meta_path})", file=sys.stderr)
+    else:
+        effective_seed = random.SystemRandom().randrange(2**31)
+        print(f"No --seed given; using freshly-generated seed={effective_seed} "
+              f"(saved to {meta_path} -- pass --seed {effective_seed} to reproduce, or just "
+              f"resume against this same --out-dir).", file=sys.stderr)
+
+    meta_path.parent.mkdir(parents=True, exist_ok=True)
+    meta_path.write_text(json.dumps({"seed": effective_seed}))
+    return effective_seed
 
 
 # ---------------------------------------------------------------------------
@@ -735,56 +919,58 @@ def main():
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    trials_path = out_dir / "trials.jsonl"
-    persona_checks_path = out_dir / "persona_checks.jsonl"
+    base_seed = _resolve_seed(out_dir, args.seed)
 
-    rng = random.Random(args.seed)
     personas = build_personas()
     horizon_mode = "fixed" if args.horizon == "fixed" else "probabilistic"
 
+    # Checkpoint/resume: pre-seed the persona-check cache from any
+    # persona_check.json files already on disk for this model, so a resumed
+    # run never re-runs (and re-burns budget on) a manipulation check that
+    # already completed.
     persona_check_cache: dict = {}
+    for persona in args.personas:
+        check_path = persona_check_file(out_dir, args.model, persona)
+        cached = _load_persona_check(check_path, persona)
+        if cached is not None:
+            persona_check_cache[(args.model, persona)] = cached
+
+    def on_check_computed(cache_key, check):
+        # Flush the moment it's computed, not batched after the full
+        # triple-nested loop -- a crash partway through a multi-hour run
+        # would otherwise lose all check data.
+        model, persona = cache_key
+        _write_persona_check(persona_check_file(out_dir, model, persona), model, persona, check)
+
     n_cells = len(args.opponents) * len(args.personas) * args.reps
     done = 0
 
-    with open(trials_path, "a") as trials_f, open(persona_checks_path, "a") as checks_f:
-
-        def on_check_computed(cache_key, check):
-            # Flush each (model, persona) check the moment it's computed, not
-            # batched after the full triple-nested loop -- a crash partway
-            # through a multi-hour run would otherwise lose all check data.
-            model, persona = cache_key
-            checks_f.write(json.dumps({
-                "model": model,
-                "persona": persona,
-                "variant_used": check.variant_used,
-                "check_a_mean": check.check_a_mean,
-                "identification_hits": check.identification_hits,
-                "identification_n": check.identification_n,
-                "passed": check.passed,
-                "log": check.log,
-            }) + "\n")
-            checks_f.flush()
-
-        for persona in args.personas:
-            for opponent in args.opponents:
-                for rep in range(args.reps):
-                    done += 1
+    for persona in args.personas:
+        for opponent in args.opponents:
+            trials_path = cell_dir(out_dir, args.model, persona, opponent) / "trials.jsonl"
+            completed_reps = _load_completed_reps(trials_path)
+            for rep in range(args.reps):
+                done += 1
+                if rep in completed_reps:
                     print(f"[{done}/{n_cells}] model={args.model} persona={persona} "
-                          f"opponent={opponent} rep={rep}", file=sys.stderr)
-                    try:
-                        result = run_trial(args.model, opponent, persona, rep, personas,
-                                            horizon_mode, args.max_rounds, rng,
-                                            persona_check_cache, on_check_computed)
-                    except ApiError as e:
-                        print(f"  API error, recording failed cell: {e}", file=sys.stderr)
-                        result = {
-                            "model": args.model, "opponent": opponent, "persona": persona,
-                            "rep": rep, "trial_error": str(e),
-                        }
-                    trials_f.write(json.dumps(result) + "\n")
-                    trials_f.flush()
+                          f"opponent={opponent} rep={rep} -- SKIP (already completed)",
+                          file=sys.stderr)
+                    continue
+                print(f"[{done}/{n_cells}] model={args.model} persona={persona} "
+                      f"opponent={opponent} rep={rep}", file=sys.stderr)
+                try:
+                    result = run_trial(args.model, opponent, persona, rep, personas,
+                                        horizon_mode, args.max_rounds, base_seed,
+                                        persona_check_cache, on_check_computed)
+                except ApiError as e:
+                    print(f"  API error, recording failed cell: {e}", file=sys.stderr)
+                    result = {
+                        "model": args.model, "opponent": opponent, "persona": persona,
+                        "rep": rep, "trial_error": str(e),
+                    }
+                _append_jsonl(trials_path, result)
 
-    print(f"Done. {trials_path} / {persona_checks_path}", file=sys.stderr)
+    print(f"Done. Results under {out_dir}", file=sys.stderr)
 
 
 if __name__ == "__main__":
