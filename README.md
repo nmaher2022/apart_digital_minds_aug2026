@@ -29,7 +29,19 @@ Does inducing a persona (via system prompt) cause an LLM to deviate from the str
 | [`analysis_deviation_gap.py`](analysis_deviation_gap.py) | The primary DV — compares Stage B's actual per-round moves against an objectively optimal ground-truth policy per opponent, reported as a deviation rate (overall + early/mid/late-binned) alongside each cell's manipulation-check result. No API calls needed for the core metric; an optional `--judge-stage-a` flag adds a face-validity check on Stage A's stated strategy (costs one judge call per trial). |
 | [`analysis_moral_metrics.py`](analysis_moral_metrics.py) | Secondary add-on metric — adapts the eigenjesus/eigenmoses cooperation-centrality measures (from the iterated-PD literature) to rank personas and opponents by how much they get cooperated with / how much they cooperate, relative to the standard bot roster's published anchor values. |
 
-Usage:
+Setup (one-time):
+
+```bash
+# The harness is stdlib-only (no third-party deps), but some environments' default
+# `python3` is missing a working ssl module and can't make HTTPS calls at all --
+# creating a venv from a known-good interpreter pins the right one for everyone.
+# If `python3 -c "import ssl"` fails for you, substitute your working interpreter
+# below (e.g. /usr/bin/python3) instead of the bare `python3`.
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Usage (with `.venv` activated):
 
 ```bash
 # Run a sweep (OpenRouter; needs an API key in the env var named by --api-key-env)
