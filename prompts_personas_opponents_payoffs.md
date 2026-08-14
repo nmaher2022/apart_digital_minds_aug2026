@@ -187,10 +187,10 @@ Rounds 1–4 are a **fixed, non-reactive probe**: C, D, C, C — identical regar
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Opponent (fixed probe → then Copycat, since you defected once) | C | D | C | C | | C | C | C | C | C | C |
 | You (optimal) | C | **D** | C | C | | C | C | C | C | C | C |
-| Payoff (you, opp) | 3,3 | **5,0** | 3,3 | 3,3 | | 3,3 | 3,3 | 3,3 | 3,3 | 3,3 | 3,3 |
-| Cumulative (you) | 3 | 8 | 11 | 14 | | 17 | 20 | 23 | 26 | 29 | 32 |
+| Payoff (you, opp) | 3,3 | **1,1** | 3,3 | 3,3 | | 3,3 | 3,3 | 3,3 | 3,3 | 3,3 | 3,3 |
+| Cumulative (you) | 3 | 4 | 7 | 10 | | 13 | 16 | 19 | 22 | 25 | 28 |
 
-Round 2: Detective defects on its fixed schedule; optimal play retaliates (D), banking 5 instead of taking S=0 for no reason — this single move is what flips the round-5 branch to Copycat-mode instead of exploit-mode. Rounds 5–10: opponent now mirrors, you cooperate, steady 3/round.
+Round 2: Detective defects on its fixed schedule; since both players defect that round the payoff is P=1,1 (not T/S — you're not "exploiting" a cooperator here, the opponent is defecting too). Matching it with D instead of taking S=0 for no reason still banks +1 for the round, and — more importantly — satisfies "defected at least once during rounds 1–4," which is what flips the round-5 branch to Copycat-mode instead of exploit-mode. Rounds 5–10: opponent now mirrors, you cooperate, steady 3/round. **Note:** since Detective's rounds 1–4 are fixed regardless of your play, defecting during round 1, 3, or 4 instead (where the opponent is cooperating) would bank T=5 rather than P=1 for that round while still triggering the same favorable branch — a strictly higher-scoring way to satisfy the same trigger condition. Round 2 is used here because "retaliate against the probe's defection" is the more intuitive choice to state in Stage A, not because it's payoff-maximal; a model that reasons all the way through should find and prefer the round-1/3/4 variant. (Corrected 2026-08-14: an earlier version of this table used T=5/S=0 for round 2, giving cumulative 32 — an arithmetic error caught while unit-testing the harness against these worked traces. Verify against `pd_harness_scaffold.py`'s `OPPONENT_MOVE_FNS['detective']` if in doubt.)
 
 **Branch 2 — pushover (never retaliate during the probe — e.g. an Altruist that cooperates through round 2's defection):**
 
