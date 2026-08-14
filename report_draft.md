@@ -43,11 +43,15 @@ Each game is played against one of four fixed, mechanical opponent strategies, c
 
 Cooperator, Cheater and Copycat are the three canonical strategy archetypes from the Axelrod tournament tradition (§1.2) — a pure pushover, a pure aggressor, and a pure reciprocator, respectively — chosen because each admits a single stationary optimal response that holds for every round of an indefinite-horizon game, with no dependence on round count. Detective adds a diagnostic fourth case: it is the only opponent whose behaviour is *conditional on the model's own play*, requiring the model to correctly execute an early, costly punishment (round-2 retaliation) in order to secure better treatment for the remainder of the game. This makes Detective the most diagnostic opponent in the set for the study's core question — optimal play here is the case most likely to be overridden by a persona that either refuses to retaliate on principle (e.g. an altruist persona) or over-reacts and defects beyond what is optimal (e.g. an adversarial persona), so any persona-driven deviation from stated-optimal play should be most visible here.
 
+Three of these four opponents are also literal bots in Singer-Clark's (2014) IPD "morality metrics" tournament — Cooperator = ALL C, Cheater = ALL D, Copycat = TIT FOR TAT — run under the identical payoff matrix used here (T=5, R=3, P=1, S=0); Detective's closest structural analog in that roster is TESTER (defect-to-probe, then reciprocate-or-exploit depending on retaliation), flagged as approximate rather than exact. See §2 and §3 for how this becomes a secondary analysis axis.
+
 ---
 
 ## 2. Related Work & Novelty *(stub)*
 
 Draft the comparison table from `digital_minds_team_brief_full.md` §"Related work & novelty" directly — the three-legs novelty argument (canonical PD + named opponents / two-stage same-model knowledge gate / Assistant-Axis-anchored personas) is already written and full-text-verified against Manoranjan & Gaikwad (2026) and Sobotka et al. (2026). Pull the persona-induction methodology citations (Personascope, the ICL weird-generalisation note) into their own paragraph distinguishing "how do you induce a persona" literature from "does persona change PD play" literature — these are different bodies of work and the brief already keeps them in separate tables.
+
+A third, orthogonal citation for this section (not persona/game-theory, and pre-LLM): **Singer-Clark (2014), "Morality Metrics On Iterated Prisoner's Dilemma Players"** (`morality.pdf`, fully read) — defines *eigenjesus rating* and *eigenmoses rating*, two PageRank-style recursive scores over an IPD tournament's cooperation matrix (eigenjesus = unconditional-kindness morality, rewards cooperation more when the partner is itself high-rated; eigenmoses = reciprocal-justice morality, cooperating with a negatively-rated partner *lowers* your own rating). No persona axis and no LLMs — bots are hand-coded strategies — so it doesn't touch the novelty claim's three legs (§ above), but it's a directly reusable methodology: its tournament ran the identical payoff matrix used here (T=5, R=3, P=1, S=0), and three of our four opponents are literal matches to bots in its published results (Cooperator=ALL C, Cheater=ALL D, Copycat=TIT FOR TAT; Detective≈TESTER, approximate). See §3 for the resulting analysis add-on.
 
 ## 3. Methods *(stub — fill in from data-collection reality, not the brief's plan)*
 
@@ -56,10 +60,11 @@ Draft the comparison table from `digital_minds_team_brief_full.md` §"Related wo
 - Payoff matrix (Appendix B of the brief: T=5, R=3, P=1, S=0), round count / continuation probability actually used, model(s) actually used.
 - Manipulation check (Personascope pre-flight scores per persona) and eval-awareness debrief — report actual scores, not the predicted ones.
 - Cite `digital_minds_team_brief_full.html` Appendices A–C for exact prompts once frozen.
+- **Eigenjesus-lite / eigenmoses-lite** (`analysis_moral_metrics.py`, new 2026-08-14) — a post-hoc, no-new-API-calls add-on run on `trials.jsonl`. Adapts Singer-Clark (2014)'s metric to this project's bipartite design (personas never play each other, opponents never play each other — the paper's design is round-robin, ours isn't) by building a 9-node cooperation matrix (5 personas + 4 opponents) from measured per-round cooperation rates and taking its dominant eigenvector. Report alongside the primary deviation-gap DV, not instead of it — see the script's module docstring for the exact adaptation and its scale caveats.
 
 ## 4. Results *(stub — nothing to report until Saturday's runs exist)*
 
-Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell.
+Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell. Also report eigenjesus-lite/eigenmoses-lite per persona (§3) as a secondary framing — flag any persona×opponent cell with zero observed rounds (the script warns on these) before trusting its number.
 
 ## 5. Discussion & Limitations *(stub)*
 
@@ -75,7 +80,7 @@ Pull directly from the brief's "Threats to validity — rival explanations" tabl
 
 Citation-safety status, per `HANDOFF.md`'s "Literature survey" tracking — **don't add anything to §1 beyond what's below without a full-text check first**:
 
-- **Full-text verified, safe to cite as described:** Lu et al. 2026 (Assistant Axis), nostalgebraist "the void," Manoranjan & Gaikwad 2026, Sobotka, Karabag & Topcu 2026.
+- **Full-text verified, safe to cite as described:** Lu et al. 2026 (Assistant Axis), nostalgebraist "the void," Manoranjan & Gaikwad 2026, Sobotka, Karabag & Topcu 2026, Singer-Clark 2014 (Morality Metrics on IPD Players).
 - **Abstract/comment-thread level only (real, but not full-text read):** Personascope (Berczi et al. 2026), Ududec/Berczi/Kim 2026, Guo 2023, Leon et al. 2026, Akata et al. 2023/2025, Lorè & Heydari 2023/2024, Ong et al. 2025.
 - **Not yet verified at all — do not cite without checking first:** anything else in `literature_survey.md`'s 21-paper list.
 - Axelrod & Hamilton (1981) is standard game-theory background knowledge, not sourced from a file in this folder — worth grabbing the actual citation (*Science* 211(4489), 1390–1396) and confirming it before it goes in the final bibliography.

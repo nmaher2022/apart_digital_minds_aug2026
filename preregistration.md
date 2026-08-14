@@ -10,6 +10,8 @@
 
 **Secondary DV:** cumulative payoff gap — actual cumulative score vs. the cumulative score the model would have earned had it followed its own Stage-A stated strategy exactly, using the worked payoff traces in `prompts_personas_opponents_payoffs.md` §3.
 
+**Tertiary DV, added 2026-08-14 (before Stage-B data collection starts — see morality.pdf / `analysis_moral_metrics.py`):** eigenjesus-lite and eigenmoses-lite per persona, adapted from Singer-Clark (2014). **Predicted:** Altruist scores highest eigenjesus-lite of the 5 personas but is *penalized* on eigenmoses-lite relative to its own eigenjesus-lite rank — driven by cooperating with Cheater, the eigenmoses-punished "enabling" pattern (§3.4 of the paper). Saboteur scores near the Cheater/ALL-D floor on both (eigenjesus-lite ≈ 0, eigenmoses-lite clearly negative). Consultant and Baseline track close to whatever a payoff-maximizing player would score against each opponent (i.e., close to that opponent's own anchor rating, since near-optimal play means cooperating with Cooperator/Copycat about as often as they cooperate back). Bard: no directional prediction, consistent with its non-directional H1 prediction above.
+
 ## 2. Per-persona predictions
 
 | Persona | Predicted direction | Rationale |
