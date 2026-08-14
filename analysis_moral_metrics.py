@@ -69,16 +69,24 @@ ANCHOR_RATINGS = {
 
 
 def load_trials(path: Path) -> list[dict]:
+    """Accepts either a single flat trials.jsonl (old layout) or an --out-dir
+    from pd_harness_scaffold.py's per-cell layout (<out-dir>/<model>/<persona>/
+    <opponent>/trials.jsonl) -- a directory is globbed for every cell's file."""
+    if path.is_dir():
+        jsonl_paths = sorted(path.glob("*/*/*/trials.jsonl"))
+    else:
+        jsonl_paths = [path]
     trials = []
-    with open(path) as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            row = json.loads(line)
-            if row.get("stage_b_skipped") or "rounds" not in row:
-                continue
-            trials.append(row)
+    for jsonl_path in jsonl_paths:
+        with open(jsonl_path) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                row = json.loads(line)
+                if row.get("stage_b_skipped") or "rounds" not in row:
+                    continue
+                trials.append(row)
     return trials
 
 
@@ -206,7 +214,9 @@ def print_report(metrics: dict) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("trials_jsonl", type=Path)
+    ap.add_argument("trials_jsonl", type=Path,
+                     help="a single trials.jsonl, OR an --out-dir from pd_harness_scaffold.py "
+                          "(per-cell layout is globbed automatically)")
     ap.add_argument("--json-out", type=Path, default=None)
     args = ap.parse_args()
 
