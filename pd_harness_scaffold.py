@@ -347,10 +347,17 @@ def call_model(model: str, messages: list[dict], temperature: float = 0.7,
                 reasoning = message.get("reasoning")
             except (json.JSONDecodeError, KeyError, IndexError, TypeError) as e:
                 # A 200 with a malformed/unexpected body is still an API-layer
-                # failure, not a code bug -- surface it as ApiError (skippable by
-                # main()'s per-cell handler) rather than letting it propagate as
-                # an uncaught exception that kills the whole multi-hour run.
-                raise ApiError(f"malformed response body: {e}: {raw[:500]}") from e
+                # failure, not a code bug. Treat it as transient and retry with
+                # the same backoff as the HTTP/connection error clauses below --
+                # a one-off garbled body from a flaky gateway shouldn't
+                # permanently fail the whole trial when a second attempt would
+                # likely succeed. Only becomes a raised ApiError (skippable by
+                # main()'s per-cell handler) after retries are exhausted.
+                last_err = ApiError(f"malformed response body: {e}: {raw[:500]}")
+                if attempt < retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise last_err from e
             # Reasoning models (e.g. qwen3-32b on OpenRouter) can still return
             # content: null on a badly-undersized budget. Never let that crash
             # the harness -- treat it as an empty answer, visible downstream via
@@ -730,8 +737,6 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
               persona_check_cache: dict, on_check_computed=None) -> dict:
     horizon_line = horizon_fixed_line(max_rounds) if horizon_mode == "fixed" else HORIZON_PROBABILISTIC
 
-    stage_a_response, stage_a_reasoning, stage_a_parse_failure = run_stage_a(model, opponent, horizon_line)
-
     cache_key = (model, persona)
     if cache_key not in persona_check_cache:
         check_rng = _derive_rng(base_seed, "check", model, persona)
@@ -739,7 +744,6 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         if on_check_computed is not None:
             on_check_computed(cache_key, persona_check_cache[cache_key])
     check = persona_check_cache[cache_key]
-    system_prompt = personas[persona]["variants"][check.variant_used]
 
     base_row = {
         "model": model,
@@ -749,16 +753,29 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         "persona_variant_used": check.variant_used,
         "persona_check_a_mean": check.check_a_mean,
         "persona_check_passed": check.passed,
-        "stage_a_response": stage_a_response,
-        "stage_a_reasoning": stage_a_reasoning,
-        "stage_a_parse_failure": stage_a_parse_failure,
     }
 
     if not check.passed:
         # Persona never installed across any of the 5 phrasing variants --
         # running the full scored game would burn budget on a condition we
-        # can't interpret. Record the skip, don't play Stage B.
-        return {**base_row, "stage_b_skipped": True, "skip_reason": "persona_check_failed"}
+        # can't interpret. Skip Stage A too, not just Stage B: Stage A takes
+        # no persona/system prompt (spec step 2 -- it's elicited before any
+        # persona is installed) so it doesn't depend on this check at all, but
+        # its result would go entirely unused once Stage B is skipped anyway.
+        # Once a persona is known to fail for this model, every remaining rep
+        # across every opponent would otherwise burn a ~3800-token Stage-A
+        # call (STRATEGY_TOKENS + STRATEGY_REASONING_TOKENS) for nothing.
+        return {**base_row, "stage_a_response": None, "stage_a_reasoning": None,
+                "stage_a_parse_failure": None, "stage_b_skipped": True,
+                "skip_reason": "persona_check_failed"}
+
+    system_prompt = personas[persona]["variants"][check.variant_used]
+    stage_a_response, stage_a_reasoning, stage_a_parse_failure = run_stage_a(model, opponent, horizon_line)
+    base_row.update({
+        "stage_a_response": stage_a_response,
+        "stage_a_reasoning": stage_a_reasoning,
+        "stage_a_parse_failure": stage_a_parse_failure,
+    })
 
     trial_rng = _derive_rng(base_seed, "trial", model, persona, opponent, rep)
     n_rounds = sample_round_count(horizon_mode, trial_rng, max_rounds=max_rounds)

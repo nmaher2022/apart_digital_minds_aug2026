@@ -376,9 +376,21 @@ You caught a bug in `horizon_fixed_line()`'s output ("6 and 6 rounds does not ma
 
 **Committed and pushed** — commit `7819268`, pushed to `origin/main` on top of `434e59c`.
 
+## Fourth code review: 2 more issues found and fixed (2026-08-14, same day)
+
+Full re-read of the harness end to end (977 lines), on request, now that the checkpoint/resume work and the peer's `ModelResponse` refactor are both settled and reconciled. No new correctness bugs in the payoff/opponent/parsing logic — that's been reviewed three times already and held up. Two real cost/robustness gaps found and fixed:
+
+**1. `call_model()` didn't retry a malformed response body.** A 200 status with garbled/truncated JSON (e.g. from a flaky gateway) raised `ApiError` immediately, skipping the retry-with-backoff loop that already covers 429/5xx and connection errors — one bad response permanently failed that call instead of getting a second try. Fixed: the malformed-body case now retries with the same backoff as the other transient-failure clauses, only raising after the retry budget is exhausted.
+
+**2. Stage A ran even after a persona's manipulation check was already known to have failed.** `run_trial()` called `run_stage_a()` (a ~3800-token call: `STRATEGY_TOKENS` + `STRATEGY_REASONING_TOKENS`) *before* checking the cached persona-check result. Stage A takes no persona/system prompt at all (spec step 2 — elicited before any persona is installed), so it never depended on the check to begin with, but once a persona is known to fail for a model, the row is marked `stage_b_skipped` and Stage A's result goes completely unused — every remaining rep × opponent for that persona was burning a full Stage-A call for nothing. Fixed: the check-cache lookup now happens first; a cached failure skips Stage A entirely and returns immediately (`stage_a_response`/`stage_a_reasoning`/`stage_a_parse_failure` are `None` on these rows instead of a real-but-discarded response).
+
+**Compatibility verified**: both `analysis_deviation_gap.py` and `analysis_moral_metrics.py` already filter on `stage_b_skipped` before touching `stage_a_response`, so the new `None` shape doesn't break either script (checked directly — `compute_trial_deviation()` returns `None` for the row, `load_trials()` filters it out, `_load_completed_reps()` still correctly counts it as a completed rep for resume purposes). `py_compile` clean. Not yet re-run against a live API smoke test (the change is a pure reordering/retry-scope change, not new logic on the request/response path itself) — worth a quick live check before the real sweep, not blocking.
+
+**Not yet committed/pushed** — needs an explicit commit/push instruction.
+
 ## Current status (end of day, 2026-08-14)
 
-- **Harness (`pd_harness_scaffold.py`)**: built, bug-reviewed three times, checkpoint/resume verified live against OpenRouter (fresh run / exact-rerun-skip / retry-plus-new-cell, all three scenarios pass). Committed and pushed as `434e59c`. This is the piece the team would actually run tomorrow to collect real data — it's in a runnable state right now.
+- **Harness (`pd_harness_scaffold.py`)**: built, bug-reviewed four times now, checkpoint/resume verified live against OpenRouter (fresh run / exact-rerun-skip / retry-plus-new-cell, all three scenarios pass). Committed and pushed as `434e59c`; the fourth review's 2 fixes (above) are local-only, not yet committed. This is the piece the team would actually run tomorrow to collect real data — it's in a runnable state right now.
 - **Analysis (`analysis_deviation_gap.py`, new; `analysis_moral_metrics.py`, fixed)**: both work against synthetic fixtures; neither has run against real model output yet, because no real sweep has been collected yet. Committed and pushed as `7819268`.
 - **No real data collected yet.** Everything so far is unit tests, synthetic fixtures, and small live smoke tests (2 opponents × 1 persona × `qwen/qwen3-32b`, just to prove the harness doesn't crash) — not an actual run of the study design. That's the biggest remaining gap before there's anything to write up.
 - **Ollama** was discussed (works via `--base-url http://localhost:11434/v1/chat/completions`, no API key needed) but not actually tried by either instance yet.
