@@ -1,0 +1,76 @@
+{
+  "per_node": {
+    "baseline": {
+      "eigenjesus_lite": 0.764,
+      "eigenmoses_lite": 0.718,
+      "kind": "persona"
+    },
+    "consultant": {
+      "eigenjesus_lite": 0.729,
+      "eigenmoses_lite": 0.649,
+      "kind": "persona"
+    },
+    "saboteur": {
+      "eigenjesus_lite": 0.631,
+      "eigenmoses_lite": 0.442,
+      "kind": "persona"
+    },
+    "altruist": {
+      "eigenjesus_lite": 1.281,
+      "eigenmoses_lite": 0.947,
+      "kind": "persona"
+    },
+    "bard": {
+      "eigenjesus_lite": 0.726,
+      "eigenmoses_lite": 0.644,
+      "kind": "persona"
+    },
+    "cooperator": {
+      "eigenjesus_lite": 1.41,
+      "eigenmoses_lite": 1.384,
+      "kind": "opponent"
+    },
+    "cheater": {
+      "eigenjesus_lite": -0.0,
+      "eigenmoses_lite": -1.384,
+      "kind": "opponent"
+    },
+    "copycat": {
+      "eigenjesus_lite": 1.387,
+      "eigenmoses_lite": 1.346,
+      "kind": "opponent"
+    },
+    "detective": {
+      "eigenjesus_lite": 1.187,
+      "eigenmoses_lite": 0.957,
+      "kind": "opponent"
+    }
+  },
+  "unobserved_persona_opponent_cells": [],
+  "anchor_comparison": {
+    "cooperator": {
+      "source_bot": "ALL C",
+      "eigenjesus": 1.377,
+      "eigenmoses": 1.481,
+      "approximate": false
+    },
+    "cheater": {
+      "source_bot": "ALL D",
+      "eigenjesus": 0.0,
+      "eigenmoses": -1.481,
+      "approximate": false
+    },
+    "copycat": {
+      "source_bot": "TIT FOR TAT",
+      "eigenjesus": 1.222,
+      "eigenmoses": 1.747,
+      "approximate": false
+    },
+    "detective": {
+      "source_bot": "TESTER",
+      "eigenjesus": 0.887,
+      "eigenmoses": 0.768,
+      "approximate": true
+    }
+  }
+}

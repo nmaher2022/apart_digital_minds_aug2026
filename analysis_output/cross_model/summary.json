@@ -1,0 +1,105 @@
+{
+  "models": [
+    "llama-3.3-70b",
+    "gemini-2.5-flash",
+    "qwen3-32b",
+    "qwen3-8b"
+  ],
+  "personas": [
+    "baseline",
+    "bard",
+    "consultant",
+    "altruist",
+    "saboteur"
+  ],
+  "deviation_rate_literal_mean": {
+    "llama-3.3-70b": {
+      "baseline": 0.157,
+      "bard": 0.093,
+      "consultant": 0.193,
+      "altruist": 0.412,
+      "saboteur": 0.134
+    },
+    "gemini-2.5-flash": {
+      "baseline": 0.033,
+      "bard": 0.04,
+      "consultant": 0.055,
+      "altruist": 0.564,
+      "saboteur": 0.057
+    },
+    "qwen3-32b": {
+      "baseline": 0.016,
+      "bard": 0.05,
+      "consultant": 0.011,
+      "altruist": 0.541,
+      "saboteur": 0.043
+    },
+    "qwen3-8b": {
+      "baseline": 0.115,
+      "bard": 0.099,
+      "consultant": 0.119,
+      "altruist": 0.404,
+      "saboteur": 0.036
+    }
+  },
+  "eigenjesus_lite_literal_same": {
+    "llama-3.3-70b": {
+      "baseline": 0.715,
+      "bard": 0.66,
+      "consultant": 0.76,
+      "altruist": 1.27,
+      "saboteur": 0.698
+    },
+    "gemini-2.5-flash": {
+      "baseline": 0.768,
+      "bard": 0.635,
+      "consultant": 0.779,
+      "altruist": 1.257,
+      "saboteur": 0.666
+    },
+    "qwen3-32b": {
+      "baseline": 0.764,
+      "bard": 0.726,
+      "consultant": 0.729,
+      "altruist": 1.281,
+      "saboteur": 0.631
+    },
+    "qwen3-8b": {
+      "baseline": 0.709,
+      "bard": 0.812,
+      "consultant": 0.694,
+      "altruist": 1.225,
+      "saboteur": 0.739
+    }
+  },
+  "eigenmoses_lite_literal_same": {
+    "llama-3.3-70b": {
+      "baseline": 0.585,
+      "bard": 0.502,
+      "consultant": 0.541,
+      "altruist": 1.31,
+      "saboteur": 0.54
+    },
+    "gemini-2.5-flash": {
+      "baseline": 0.745,
+      "bard": 0.433,
+      "consultant": 0.769,
+      "altruist": 0.773,
+      "saboteur": 0.508
+    },
+    "qwen3-32b": {
+      "baseline": 0.718,
+      "bard": 0.644,
+      "consultant": 0.649,
+      "altruist": 0.947,
+      "saboteur": 0.442
+    },
+    "qwen3-8b": {
+      "baseline": 0.58,
+      "bard": 0.747,
+      "consultant": 0.502,
+      "altruist": 1.044,
+      "saboteur": 0.632
+    }
+  }
+}
