@@ -63,6 +63,22 @@ python3 analysis_eval_awareness.py --out-dir runs/qwen3-32b
 
 API keys are read from a local environment variable only (`--api-key-env`, default `OPENROUTER_API_KEY`) — never written to a file, log, or commit.
 
+## Results status (2026-08-15)
+
+Four models complete a full same-context sweep (5 personas × 4 opponents × 2 framings × 10 reps = 400 trials each, 0 remaining errors), all committed to `cloud-openrouter-sweep`:
+
+| Model | Trials | Status |
+|---|---|---|
+| `meta-llama/llama-3.3-70b` (OpenRouter) | 400/400 | Complete |
+| `google/gemini-2.5-flash` (OpenRouter) | 400/400 | Complete |
+| `qwen/qwen3-32b` (OpenRouter) | 400/400 | Complete |
+| `qwen/qwen3-8b` (OpenRouter) | 400/400 | Complete |
+| `qwen3:1.7b` (local Ollama) | partial | Supplementary — smaller scope, see [`HANDOFF.md`](HANDOFF.md) |
+
+Cross-model comparison output lives in [`analysis_output/cross_model/`](analysis_output/cross_model/): per-model deviation-gap and eigenjesus_lite/eigenmoses_lite results, a consolidated `summary.json`, and a persona-activation-check table (`activation_checks.json`) confirming all 20 model×persona manipulation checks passed.
+
+**Headline finding, replicated across all four models:** the **altruist** persona causes a large, consistent deviation-from-optimal-play rate (0.40–0.56) and the highest cooperation-centrality score (eigenjesus_lite 1.22–1.28) of any persona tested — every other persona (baseline, bard, consultant, saboteur) clusters far lower (deviation 0.01–0.19). See [`HANDOFF.md`](HANDOFF.md) for the full incident/process log and open items.
+
 ## Core design (short version)
 
 - **5 personas** (Lu et al.'s Assistant-Axis role inventory): Baseline Assistant (no system prompt), Consultant, Saboteur, Altruist, Bard.
