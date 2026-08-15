@@ -872,3 +872,694 @@ Resuming with seed=1645297833 (recorded in runs/qwen3-32b/run_meta.json)
 [skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=6 -- already completed
 [skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=8 -- already completed
 [skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=9 -- already completed
+[1/1 pending, 240 total] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=7 -- API error
+Done. Results under runs/qwen3-32b
+exit=0
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=9 -- already completed
+[1/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[2/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[3/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[4/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[5/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[6/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[7/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[8/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[9/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[10/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[11/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[12/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[13/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[14/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[15/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[16/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[17/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[18/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[19/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[20/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[21/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[22/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[23/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[24/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[25/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[26/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[27/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[28/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- ok
+[29/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- ok
+[30/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- ok
+[31/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[32/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- ok
+[33/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- ok
+[34/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[35/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[36/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- ok
+[37/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- ok
+[38/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- ok
+[39/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- ok
+[40/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[41/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[42/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[43/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- ok
+[44/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[45/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[46/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[47/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[48/161 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=altruist opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=9 -- already completed
+[1/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- ok
+[2/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[3/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- ok
+[4/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- ok
+[5/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- ok
+[6/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- ok
+[7/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- ok
+[8/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- ok
+[9/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- ok
+[10/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[11/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- ok
+[12/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- ok
+[13/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- ok
+[14/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- ok
+[15/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- ok
+[16/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- ok
+[17/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- ok
+[18/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- ok
+[19/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- ok
+[20/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- ok
+[21/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- ok
+[22/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- ok
+[23/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=4 -- ok
+[24/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[25/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=0 -- ok
+[26/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=7 -- ok
+[27/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[28/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=5 -- ok
+[29/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[30/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[31/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[32/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[33/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[34/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[35/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[36/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=8 -- ok
+[37/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=1 -- ok
+[38/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[39/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[40/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=3 -- ok
+[41/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[42/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[43/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[44/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[45/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[46/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[47/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[48/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[49/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[50/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[51/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[52/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[53/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[54/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[55/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[56/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[57/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=9 -- ok
+[58/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=0 -- ok
+[59/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[60/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=2 -- ok
+[61/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[62/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=5 -- ok
+[63/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=7 -- ok
+[64/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=2 -- ok
+[65/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- ok
+[66/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[67/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=3 -- ok
+[68/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=8 -- ok
+[69/113 pending, 400 total] model=qwen/qwen3-32b persona=baseline opponent=detective framing=story persona_context=same rep=6 -- ok
+[70/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=6 -- ok
+[71/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=9 -- ok
+[72/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[73/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[74/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[75/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=cheater framing=story persona_context=same rep=4 -- ok
+[76/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[77/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[78/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[79/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[80/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[81/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=3 -- ok
+[82/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=2 -- ok
+[83/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=0 -- ok
+[84/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[85/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[86/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=6 -- ok
+[87/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=1 -- ok
+[88/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=5 -- ok
+[89/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=4 -- ok
+[90/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=9 -- ok
+[91/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=7 -- ok
+[92/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=3 -- ok
+[93/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=copycat framing=story persona_context=same rep=8 -- ok
+[94/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=2 -- ok
+[95/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=8 -- ok
+[96/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=6 -- ok
+[97/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=1 -- ok
+[98/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=0 -- ok
+[99/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=9 -- ok
+[100/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=4 -- ok
+[101/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=1 -- ok
+[102/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=2 -- ok
+[103/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=6 -- ok
+[104/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=7 -- ok
+[105/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=5 -- ok
+[106/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=literal persona_context=same rep=5 -- ok
+[107/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=4 -- ok
+[108/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=3 -- ok
+[109/113 pending, 400 total] model=qwen/qwen3-32b persona=consultant opponent=detective framing=story persona_context=same rep=7 -- ok
+[110/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=0 -- ok
+[111/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=9 -- ok
+[112/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=7 -- ok
+[113/113 pending, 400 total] model=qwen/qwen3-32b persona=bard opponent=detective framing=story persona_context=same rep=8 -- ok
+Done. Results under runs/qwen3-32b
