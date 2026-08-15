@@ -28,6 +28,7 @@ Does inducing a persona (via system prompt) cause an LLM to deviate from the str
 | [`pd_harness_scaffold.py`](pd_harness_scaffold.py) | The trial harness — runs the full Stage A / Stage B / manipulation-check / persistence-fork / debrief procedure against any OpenAI-compatible chat-completions endpoint. Stdlib-only (no third-party dependencies). Checkpoint/resume-safe: each `(model, persona, opponent)` cell writes to its own folder, so a rerun against the same `--out-dir` never overwrites prior results and skips already-completed reps automatically. |
 | [`analysis_deviation_gap.py`](analysis_deviation_gap.py) | The primary DV — compares Stage B's actual per-round moves against an objectively optimal ground-truth policy per opponent, reported as a deviation rate (overall + early/mid/late-binned) alongside each cell's manipulation-check result. No API calls needed for the core metric; an optional `--judge-stage-a` flag adds a face-validity check on Stage A's stated strategy (costs one judge call per trial). |
 | [`analysis_moral_metrics.py`](analysis_moral_metrics.py) | Secondary add-on metric — adapts the eigenjesus/eigenmoses cooperation-centrality measures (from the iterated-PD literature) to rank personas and opponents by how much they get cooperated with / how much they cooperate, relative to the standard bot roster's published anchor values. |
+| [`analysis_eval_awareness.py`](analysis_eval_awareness.py) | Classifies each trial's post-game debrief ("did you suspect this was a test?") into affirmed/denied/deflected/hedged/no-response via a regex heuristic (optional `--judge` flag for an LLM-judge classification instead), then reports a point-biserial correlation between affirming eval-suspicion and deviation-from-optimal — stdlib-only, same convention as the rest of the `analysis_*.py` family. |
 
 Setup (one-time):
 
@@ -57,6 +58,7 @@ python3 pd_harness_scaffold.py --model llama3.3 --out-dir runs/llama3.3 \
 # Analyze results
 python3 analysis_deviation_gap.py --out-dir runs/qwen3-32b
 python3 analysis_moral_metrics.py runs/qwen3-32b
+python3 analysis_eval_awareness.py --out-dir runs/qwen3-32b
 ```
 
 API keys are read from a local environment variable only (`--api-key-env`, default `OPENROUTER_API_KEY`) — never written to a file, log, or commit.
