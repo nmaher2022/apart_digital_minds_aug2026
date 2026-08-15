@@ -73,7 +73,10 @@ def load_trials(path: Path) -> list[dict]:
     from pd_harness_scaffold.py's per-cell layout (<out-dir>/<model>/<persona>/
     <opponent>/trials.jsonl) -- a directory is globbed for every cell's file."""
     if path.is_dir():
-        jsonl_paths = sorted(path.glob("*/*/*/trials.jsonl"))
+        # 3-level: literal-framing cells (pd_harness_scaffold.py's cell_dir()
+        # default). 4-level: story-framing cells (their own subdirectory, so
+        # they never collide with a literal cell's trials.jsonl).
+        jsonl_paths = sorted(path.glob("*/*/*/trials.jsonl")) + sorted(path.glob("*/*/*/*/trials.jsonl"))
     else:
         jsonl_paths = [path]
     trials = []
@@ -218,11 +221,19 @@ def main() -> None:
                      help="a single trials.jsonl, OR an --out-dir from pd_harness_scaffold.py "
                           "(per-cell layout is globbed automatically)")
     ap.add_argument("--json-out", type=Path, default=None)
+    ap.add_argument("--framing", choices=["literal", "story"], default="literal",
+                     help="which framing's trials to include (default: literal). This "
+                          "script pools rounds by (persona,opponent) only -- if an --out-dir "
+                          "has both framings' trials.jsonl on disk, mixing them into one "
+                          "cooperation-rate estimate would silently conflate two different "
+                          "conditions, so exactly one framing is selected per run instead.")
     args = ap.parse_args()
 
     trials = load_trials(args.trials_jsonl)
+    trials = [t for t in trials if t.get("framing", "literal") == args.framing]
     if not trials:
-        raise SystemExit(f"No completed Stage-B trials found in {args.trials_jsonl}")
+        raise SystemExit(f"No completed Stage-B trials found in {args.trials_jsonl} for "
+                          f"framing={args.framing}")
 
     metrics = compute_moral_metrics(trials)
     print_report(metrics)

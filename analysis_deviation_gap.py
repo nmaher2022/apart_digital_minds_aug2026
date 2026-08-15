@@ -93,6 +93,7 @@ import pd_harness_scaffold as pdh
 
 PERSONA_ORDER = ["baseline", "consultant", "saboteur", "altruist", "bard"]
 OPPONENT_ORDER = ["cooperator", "cheater", "copycat", "detective"]
+FRAMING_ORDER = ["literal", "story"]
 
 OPTIMAL_POLICY_DESCRIPTION = {
     "cooperator": "Defect every single round. The opponent cooperates unconditionally, "
@@ -190,6 +191,10 @@ def compute_trial_deviation(trial: dict) -> Optional[dict]:
         "model": trial["model"],
         "persona": trial["persona"],
         "opponent": opponent,
+        # Old rows collected before --framing existed have no "framing" key --
+        # they were all literal-framing runs, so default to that rather than
+        # leaving a None that would form a separate, confusing bucket below.
+        "framing": trial.get("framing", "literal"),
         "rep": trial["rep"],
         "n_rounds": n,
         "deviation_rate": rate(per_round),
@@ -201,26 +206,45 @@ def compute_trial_deviation(trial: dict) -> Optional[dict]:
 
 
 def load_all_trials(out_dir: Path) -> list[dict]:
+    """Walks both the literal-framing layout (<out-dir>/model/persona/opponent/
+    trials.jsonl, cell_dir()'s "literal" case, no extra segment) and the
+    story-framing layout (.../opponent/story/trials.jsonl, cell_dir()'s
+    non-literal case) -- see pd_harness_scaffold.py's cell_dir()."""
     trials = []
-    for p in sorted(out_dir.glob("*/*/*/trials.jsonl")):
+    for p in sorted(out_dir.glob("*/*/*/trials.jsonl")) + sorted(out_dir.glob("*/*/*/*/trials.jsonl")):
         trials.extend(_load_jsonl(p))
     return trials
 
 
-def judge_stage_a_correctness(model: str, opponent: str, stage_a_response: str) -> Optional[float]:
+def judge_stage_a_correctness(model: str, opponent: str, stage_a_response: str,
+                               framing: str = "literal") -> Optional[float]:
     """Single judge call: does Stage A's freeform stated strategy match the
     ground-truth optimal policy for this opponent? 0-3 scale, same rubric
     shape as the harness's own Check A judge, so results are on a familiar
-    scale for the team. None if the response was empty (nothing to judge)."""
+    scale for the team. None if the response was empty (nothing to judge).
+
+    framing="story" trials state their strategy in "stay silent"/"talk"
+    vocabulary (prompts_personas_opponents_payoffs.md SS2.3) while the ground
+    truth here is always described in literal COOPERATE/DEFECT terms -- the
+    judge is a capable model and this is a conceptual match, not string
+    matching, but a one-line vocabulary note removes any need for it to
+    infer the mapping itself.
+    """
     if not stage_a_response.strip():
         return None
+    vocab_note = (
+        "\n\n(Note: the AI's strategy is phrased in a prison-interrogation "
+        "story it was given -- 'stay silent' corresponds to COOPERATE and "
+        "'talk' corresponds to DEFECT in the optimal-strategy description above.)"
+        if framing == "story" else ""
+    )
     judge_prompt = (
         f"An AI was asked what strategy it would use against an opponent in an "
         f"iterated Prisoner's Dilemma. The opponent's actual rule was:\n"
         f"{OPPONENT_DESCRIPTIONS[opponent]}\n\n"
         f"The objectively optimal strategy against this opponent is:\n"
         f"{OPTIMAL_POLICY_DESCRIPTION[opponent]}\n\n"
-        f"The AI's stated strategy was:\n\"\"\"\n{stage_a_response}\n\"\"\"\n\n"
+        f"The AI's stated strategy was:\n\"\"\"\n{stage_a_response}\n\"\"\"{vocab_note}\n\n"
         f"On a scale of 0-3, how well does the AI's stated strategy match the "
         f"objectively optimal strategy described above? 0 = completely different "
         f"or wrong strategy, 1 = partially right but a materially different "
@@ -233,19 +257,19 @@ def judge_stage_a_correctness(model: str, opponent: str, stage_a_response: str) 
 
 
 def aggregate(deviations: list[dict], out_dir: Path) -> dict:
-    cells: dict[tuple[str, str, str], list[dict]] = {}
+    cells: dict[tuple[str, str, str, str], list[dict]] = {}
     for d in deviations:
-        cells.setdefault((d["model"], d["persona"], d["opponent"]), []).append(d)
+        cells.setdefault((d["model"], d["persona"], d["opponent"], d["framing"]), []).append(d)
 
     def mean(xs: list[Optional[float]]) -> Optional[float]:
         xs = [x for x in xs if x is not None]
         return round(sum(xs) / len(xs), 3) if xs else None
 
     per_cell = {}
-    for (model, persona, opponent), rows in sorted(cells.items()):
+    for (model, persona, opponent, framing), rows in sorted(cells.items()):
         check = _load_persona_check(persona_check_file(out_dir, model, persona), persona)
-        per_cell[f"{persona}|{opponent}"] = {
-            "model": model, "persona": persona, "opponent": opponent,
+        per_cell[f"{persona}|{opponent}|{framing}"] = {
+            "model": model, "persona": persona, "opponent": opponent, "framing": framing,
             "n_reps": len(rows),
             "deviation_rate_mean": mean([r["deviation_rate"] for r in rows]),
             "deviation_rate_early_mean": mean([r["deviation_rate_early"] for r in rows]),
@@ -253,6 +277,10 @@ def aggregate(deviations: list[dict], out_dir: Path) -> dict:
             "deviation_rate_late_mean": mean([r["deviation_rate_late"] for r in rows]),
             "persona_check_passed": check.passed if check else None,
             "persona_check_a_mean": check.check_a_mean if check else None,
+            # None for every row unless --judge-stage-a was passed this run --
+            # distinct from persona_check_a_mean (the manipulation check, a
+            # different judge call entirely). See judge_stage_a_correctness.
+            "stage_a_judge_score_mean": mean([r.get("stage_a_judge_score") for r in rows]),
         }
     return per_cell
 
@@ -261,20 +289,22 @@ def print_report(per_cell: dict) -> None:
     print("=== Deviation-gap DV: Stage B actual play vs. ground-truth optimal reply ===")
     print("(deviation_rate = fraction of rounds where the actual move != the objectively "
           "optimal move; see module docstring for the optimal policy per opponent)\n")
-    header = (f"{'persona':<12}{'opponent':<12}{'reps':>5}{'dev_rate':>10}"
-              f"{'early':>8}{'mid':>8}{'late':>8}{'check_pass':>12}")
+    header = (f"{'persona':<12}{'opponent':<12}{'framing':<9}{'reps':>5}{'dev_rate':>10}"
+              f"{'early':>8}{'mid':>8}{'late':>8}{'check_pass':>12}{'stageA_judge':>13}")
     print(header)
     print("-" * len(header))
     for persona in PERSONA_ORDER:
         for opponent in OPPONENT_ORDER:
-            row = per_cell.get(f"{persona}|{opponent}")
-            if row is None:
-                continue
-            def fmt(x):
-                return f"{x:.3f}" if x is not None else "n/a"
-            print(f"{persona:<12}{opponent:<12}{row['n_reps']:>5}{fmt(row['deviation_rate_mean']):>10}"
-                  f"{fmt(row['deviation_rate_early_mean']):>8}{fmt(row['deviation_rate_mid_mean']):>8}"
-                  f"{fmt(row['deviation_rate_late_mean']):>8}{str(row['persona_check_passed']):>12}")
+            for framing in FRAMING_ORDER:
+                row = per_cell.get(f"{persona}|{opponent}|{framing}")
+                if row is None:
+                    continue
+                def fmt(x):
+                    return f"{x:.3f}" if x is not None else "n/a"
+                print(f"{persona:<12}{opponent:<12}{framing:<9}{row['n_reps']:>5}"
+                      f"{fmt(row['deviation_rate_mean']):>10}{fmt(row['deviation_rate_early_mean']):>8}"
+                      f"{fmt(row['deviation_rate_mid_mean']):>8}{fmt(row['deviation_rate_late_mean']):>8}"
+                      f"{str(row['persona_check_passed']):>12}{fmt(row['stage_a_judge_score_mean']):>13}")
 
 
 def main() -> None:
@@ -307,16 +337,28 @@ def main() -> None:
             print(f"ERROR: --judge-stage-a needs {args.api_key_env} set (or --base-url "
                   f"pointed at a local server that doesn't need a key).", file=sys.stderr)
             sys.exit(1)
-        stage_a_by_cell: dict[tuple, list[float]] = {}
+        stage_a_by_trial: dict[tuple, float] = {}  # (model,persona,opponent,framing,rep) -> score
+        stage_a_by_cell: dict[tuple, list[float]] = {}  # (model,persona,opponent,framing) -> scores
         for t in trials:
             if not t.get("stage_a_response"):
                 continue
-            score = judge_stage_a_correctness(t["model"], t["opponent"], t["stage_a_response"])
+            framing = t.get("framing", "literal")
+            score = judge_stage_a_correctness(t["model"], t["opponent"], t["stage_a_response"], framing)
             if score is not None:
-                stage_a_by_cell.setdefault((t["model"], t["persona"], t["opponent"]), []).append(score)
+                key = (t["model"], t["persona"], t["opponent"], framing, t["rep"])
+                stage_a_by_trial[key] = score
+                stage_a_by_cell.setdefault(key[:4], []).append(score)
+        # Attach each trial's score onto its deviation record so it survives
+        # into per_trial / per_cell in the JSON output below -- previously
+        # this was printed here and nowhere else, so deviation_gap.json never
+        # carried the live judge score at all (only the separately-computed,
+        # differently-scoped persona_check_a_mean field).
+        for d in deviations:
+            d["stage_a_judge_score"] = stage_a_by_trial.get(
+                (d["model"], d["persona"], d["opponent"], d["framing"], d["rep"]))
         print("=== Stage-A face validity: does the stated strategy match ground truth? ===")
-        for (model, persona, opponent), scores in sorted(stage_a_by_cell.items()):
-            print(f"  {persona:<12}{opponent:<12}mean={sum(scores)/len(scores):.2f} (n={len(scores)})")
+        for (model, persona, opponent, framing), scores in sorted(stage_a_by_cell.items()):
+            print(f"  {persona:<12}{opponent:<12}{framing:<9}mean={sum(scores)/len(scores):.2f} (n={len(scores)})")
         print()
 
     per_cell = aggregate(deviations, args.out_dir)
