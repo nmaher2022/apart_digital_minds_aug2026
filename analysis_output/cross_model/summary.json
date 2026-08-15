@@ -28,8 +28,8 @@
       "saboteur": 0.057
     },
     "qwen3-32b": {
-      "baseline": 0.016,
-      "bard": 0.05,
+      "baseline": 0.009,
+      "bard": 0.014,
       "consultant": 0.011,
       "altruist": 0.541,
       "saboteur": 0.043

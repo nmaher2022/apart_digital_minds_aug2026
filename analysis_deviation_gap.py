@@ -195,6 +195,7 @@ def compute_trial_deviation(trial: dict) -> Optional[dict]:
         # they were all literal-framing runs, so default to that rather than
         # leaving a None that would form a separate, confusing bucket below.
         "framing": trial.get("framing", "literal"),
+        "persona_context": trial.get("persona_context", "fresh"),
         "rep": trial["rep"],
         "n_rounds": n,
         "deviation_rate": rate(per_round),
@@ -206,13 +207,18 @@ def compute_trial_deviation(trial: dict) -> Optional[dict]:
 
 
 def load_all_trials(out_dir: Path) -> list[dict]:
-    """Walks both the literal-framing layout (<out-dir>/model/persona/opponent/
-    trials.jsonl, cell_dir()'s "literal" case, no extra segment) and the
-    story-framing layout (.../opponent/story/trials.jsonl, cell_dir()'s
-    non-literal case) -- see pd_harness_scaffold.py's cell_dir()."""
+    """Walks every cell_dir() layout pd_harness_scaffold.py can produce:
+    <out-dir>/model/persona/opponent/trials.jsonl (literal, fresh -- 3 segments
+    under model/), .../opponent/story/trials.jsonl or .../opponent/same/trials.jsonl
+    (either framing or persona-context alone -- 4 segments), and
+    .../opponent/story/same/trials.jsonl (both non-default -- 5 segments). Each
+    row's own "framing"/"persona_context" fields (not the path) are the source of
+    truth for grouping -- see pd_harness_scaffold.py's cell_dir()."""
     trials = []
-    for p in sorted(out_dir.glob("*/*/*/trials.jsonl")) + sorted(out_dir.glob("*/*/*/*/trials.jsonl")):
-        trials.extend(_load_jsonl(p))
+    patterns = ["*/*/*/trials.jsonl", "*/*/*/*/trials.jsonl", "*/*/*/*/*/trials.jsonl"]
+    for pattern in patterns:
+        for p in sorted(out_dir.glob(pattern)):
+            trials.extend(_load_jsonl(p))
     return trials
 
 
@@ -313,6 +319,12 @@ def main() -> None:
                      help="the --out-dir a pd_harness_scaffold.py run wrote to "
                           "(walks <out-dir>/*/*/*/trials.jsonl)")
     ap.add_argument("--json-out", type=Path, default=None)
+    ap.add_argument("--persona-context", choices=["fresh", "same", "all"], default="fresh",
+                     help="which persona-context condition to include (default: fresh, "
+                          "matching analysis_moral_metrics.py's default). 'all' pools both "
+                          "-- only use this for a deliberate fresh-vs-same comparison, since "
+                          "some cells (e.g. qwen3-32b baseline/bard) have real trials under "
+                          "both and pooling them silently mixes two different conditions.")
     ap.add_argument("--judge-stage-a", action="store_true",
                      help="also score Stage A's stated strategy against ground truth via "
                           "an LLM judge call per trial (costs API calls; needs an API key)")
@@ -324,6 +336,11 @@ def main() -> None:
     if not trials:
         raise SystemExit(f"No trials found under {args.out_dir} (expected "
                           f"<out-dir>/<model>/<persona>/<opponent>/trials.jsonl)")
+    if args.persona_context != "all":
+        trials = [t for t in trials if t.get("persona_context", "fresh") == args.persona_context]
+        if not trials:
+            raise SystemExit(f"No trials found under {args.out_dir} with "
+                              f"persona_context={args.persona_context!r}")
 
     deviations = [d for d in (compute_trial_deviation(t) for t in trials) if d is not None]
     if not deviations:

@@ -1,0 +1,127 @@
+{
+  "models": [
+    "llama-3.3-70b",
+    "gemini-2.5-flash",
+    "qwen3-32b",
+    "qwen3-8b"
+  ],
+  "personas": [
+    "baseline",
+    "bard",
+    "consultant",
+    "altruist",
+    "saboteur"
+  ],
+  "framings": [
+    "literal",
+    "story"
+  ],
+  "deviation_rate_by_persona_and_framing": {
+    "llama-3.3-70b": {
+      "baseline": {
+        "literal": 0.157,
+        "story": 0.209
+      },
+      "bard": {
+        "literal": 0.093,
+        "story": 0.182
+      },
+      "consultant": {
+        "literal": 0.193,
+        "story": 0.19
+      },
+      "altruist": {
+        "literal": 0.412,
+        "story": 0.368
+      },
+      "saboteur": {
+        "literal": 0.134,
+        "story": 0.181
+      }
+    },
+    "gemini-2.5-flash": {
+      "baseline": {
+        "literal": 0.033,
+        "story": 0.229
+      },
+      "bard": {
+        "literal": 0.04,
+        "story": 0.086
+      },
+      "consultant": {
+        "literal": 0.055,
+        "story": 0.218
+      },
+      "altruist": {
+        "literal": 0.564,
+        "story": 0.598
+      },
+      "saboteur": {
+        "literal": 0.057,
+        "story": 0.185
+      }
+    },
+    "qwen3-32b": {
+      "baseline": {
+        "literal": 0.009,
+        "story": 0.057
+      },
+      "bard": {
+        "literal": 0.014,
+        "story": 0.057
+      },
+      "consultant": {
+        "literal": 0.011,
+        "story": 0.04
+      },
+      "altruist": {
+        "literal": 0.541,
+        "story": 0.329
+      },
+      "saboteur": {
+        "literal": 0.043,
+        "story": 0.058
+      }
+    },
+    "qwen3-8b": {
+      "baseline": {
+        "literal": 0.115,
+        "story": 0.082
+      },
+      "bard": {
+        "literal": 0.099,
+        "story": 0.11
+      },
+      "consultant": {
+        "literal": 0.119,
+        "story": 0.131
+      },
+      "altruist": {
+        "literal": 0.404,
+        "story": 0.241
+      },
+      "saboteur": {
+        "literal": 0.036,
+        "story": 0.118
+      }
+    }
+  },
+  "deviation_rate_overall_by_framing": {
+    "llama-3.3-70b": {
+      "literal": 0.198,
+      "story": 0.226
+    },
+    "gemini-2.5-flash": {
+      "literal": 0.15,
+      "story": 0.263
+    },
+    "qwen3-32b": {
+      "literal": 0.124,
+      "story": 0.108
+    },
+    "qwen3-8b": {
+      "literal": 0.155,
+      "story": 0.137
+    }
+  }
+}

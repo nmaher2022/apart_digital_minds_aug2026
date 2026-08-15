@@ -245,6 +245,10 @@ def main() -> None:
     ap.add_argument("--out-dir", required=True, type=Path,
                      help="the --out-dir a pd_harness_scaffold.py run wrote to")
     ap.add_argument("--json-out", type=Path, default=None)
+    ap.add_argument("--persona-context", choices=["fresh", "same", "all"], default="fresh",
+                     help="which persona-context condition to include (default: fresh, "
+                          "matching analysis_deviation_gap.py/analysis_moral_metrics.py's "
+                          "own --persona-context default)")
     ap.add_argument("--judge", action="store_true",
                      help="classify each debrief with an LLM judge call instead of the "
                           "keyword heuristic (costs API calls; needs an API key). Uses "
@@ -258,6 +262,11 @@ def main() -> None:
     trials = load_all_trials(args.out_dir)
     if not trials:
         raise SystemExit(f"No trials found under {args.out_dir}")
+    if args.persona_context != "all":
+        trials = [t for t in trials if t.get("persona_context", "fresh") == args.persona_context]
+        if not trials:
+            raise SystemExit(f"No trials found under {args.out_dir} with "
+                              f"persona_context={args.persona_context!r}")
 
     if args.judge:
         pdh.API_BASE_URL = args.base_url
