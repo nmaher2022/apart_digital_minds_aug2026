@@ -1,0 +1,145 @@
+{
+  "per_node": {
+    "baseline": {
+      "eigenjesus_lite": 0.414,
+      "eigenmoses_lite": 1.383,
+      "kind": "persona"
+    },
+    "consultant": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": 0.0,
+      "kind": "persona"
+    },
+    "saboteur": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": 0.0,
+      "kind": "persona"
+    },
+    "altruist": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": 0.0,
+      "kind": "persona"
+    },
+    "bard": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": 0.0,
+      "kind": "persona"
+    },
+    "cooperator": {
+      "eigenjesus_lite": 2.957,
+      "eigenmoses_lite": 1.639,
+      "kind": "opponent"
+    },
+    "cheater": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": -1.639,
+      "kind": "opponent"
+    },
+    "copycat": {
+      "eigenjesus_lite": 0.296,
+      "eigenmoses_lite": -1.311,
+      "kind": "opponent"
+    },
+    "detective": {
+      "eigenjesus_lite": 0.0,
+      "eigenmoses_lite": 0.0,
+      "kind": "opponent"
+    }
+  },
+  "unobserved_persona_opponent_cells": [
+    [
+      "baseline",
+      "detective"
+    ],
+    [
+      "consultant",
+      "cooperator"
+    ],
+    [
+      "consultant",
+      "cheater"
+    ],
+    [
+      "consultant",
+      "copycat"
+    ],
+    [
+      "consultant",
+      "detective"
+    ],
+    [
+      "saboteur",
+      "cooperator"
+    ],
+    [
+      "saboteur",
+      "cheater"
+    ],
+    [
+      "saboteur",
+      "copycat"
+    ],
+    [
+      "saboteur",
+      "detective"
+    ],
+    [
+      "altruist",
+      "cooperator"
+    ],
+    [
+      "altruist",
+      "cheater"
+    ],
+    [
+      "altruist",
+      "copycat"
+    ],
+    [
+      "altruist",
+      "detective"
+    ],
+    [
+      "bard",
+      "cooperator"
+    ],
+    [
+      "bard",
+      "cheater"
+    ],
+    [
+      "bard",
+      "copycat"
+    ],
+    [
+      "bard",
+      "detective"
+    ]
+  ],
+  "anchor_comparison": {
+    "cooperator": {
+      "source_bot": "ALL C",
+      "eigenjesus": 1.377,
+      "eigenmoses": 1.481,
+      "approximate": false
+    },
+    "cheater": {
+      "source_bot": "ALL D",
+      "eigenjesus": 0.0,
+      "eigenmoses": -1.481,
+      "approximate": false
+    },
+    "copycat": {
+      "source_bot": "TIT FOR TAT",
+      "eigenjesus": 1.222,
+      "eigenmoses": 1.747,
+      "approximate": false
+    },
+    "detective": {
+      "source_bot": "TESTER",
+      "eigenjesus": 0.887,
+      "eigenmoses": 0.768,
+      "approximate": true
+    }
+  }
+}

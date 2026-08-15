@@ -62,13 +62,62 @@ A third, orthogonal citation for this section (not persona/game-theory, and pre-
 - Cite `digital_minds_team_brief_full.html` Appendices A–C for exact prompts once frozen.
 - **Eigenjesus-lite / eigenmoses-lite** (`analysis_moral_metrics.py`, new 2026-08-14) — a post-hoc, no-new-API-calls add-on run on `trials.jsonl`. Adapts Singer-Clark (2014)'s metric to this project's bipartite design (personas never play each other, opponents never play each other — the paper's design is round-robin, ours isn't) by building a 9-node cooperation matrix (5 personas + 4 opponents) from measured per-round cooperation rates and taking its dominant eigenvector. Report alongside the primary deviation-gap DV, not instead of it — see the script's module docstring for the exact adaptation and its scale caveats.
 
-## 4. Results *(stub — nothing to report until Saturday's runs exist)*
+## 4. Results *(primary deviation-gap/eval-awareness prose still stub — see `HANDOFF.md`'s "OpenRouter sweep finished 160/160" entry for those numbers to pull in next; eigenjesus-lite/eigenmoses-lite below is filled in)*
 
-Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell. Also report eigenjesus-lite/eigenmoses-lite per persona (§3) as a secondary framing — flag any persona×opponent cell with zero observed rounds (the script warns on these) before trusting its number.
+Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell.
+
+### 4.1 Eigenjesus-lite / eigenmoses-lite (secondary DV)
+
+**What the two scores mean** (definitions restated here so this section is self-contained — see §2 for the full citation). Both are recursive, PageRank-style scores computed over the observed cooperation rates in a 9-node graph (5 personas + 4 opponents): a node's score depends not just on how much *it* cooperated, but on how cooperative its partners were too.
+- **Eigenjesus-lite** — *unconditional-kindness* morality. Cooperating raises your score, more so when your partner is itself highly rated. An always-defector (Cheater) floors at exactly 0.0 — there is no way to score below "never cooperated with anyone."
+- **Eigenmoses-lite** — *reciprocal-justice* morality. Same idea, but signed: cooperating with a partner who has a *negative* rating actively **lowers** your own score rather than raising it — "being nice to a defector" is penalized, not rewarded. This is why eigenmoses can go negative (Cheater's node sits around -1.3 to -1.5 across every run below) where eigenjesus cannot.
+
+Ranking *within* a run is meaningful; the absolute numbers are not on Singer-Clark's original published scale — their tournament was round-robin, this project's persona/opponent structure is bipartite (personas never play personas, opponents never play opponents), so the two are adapted, not replicated (see the script's module docstring for the exact adaptation).
+
+Run via `analysis_moral_metrics.py` against the real trial data (2026-08-15) — the first time this script had been run against anything but synthetic fixtures. Two fixes were needed first and are noted here for reproducibility: `numpy` had to be installed into `.venv` (an undeclared dependency), and the script's file-globbing predated a `persona_context` layout added later for a same-context stretch condition — without a fix it would have silently pooled that in-progress, non-core condition into the fresh-context numbers below, or in one path shape, silently dropped data entirely. A `--persona-context {fresh,same,all}` filter was added (default `fresh`, matching the locked core-spine condition — persona reinstalled independently per opponent per rep, never chained) so the numbers below are unambiguously scoped to the core condition. Raw output: `analysis_output/moral_metrics_qwen32b_literal_fresh.json`, `analysis_output/moral_metrics_qwen32b_story_fresh.json`, `analysis_output/moral_metrics_qwen1.7b_literal_fresh.json`.
+
+**OpenRouter `qwen/qwen3-32b`, committed 160/160 trials, fresh context (the core sweep — baseline + bard only; consultant/saboteur/altruist were not run in this condition):**
+
+| node | kind | eigenjesus-lite (literal) | eigenmoses-lite (literal) | eigenjesus-lite (story) | eigenmoses-lite (story) |
+|---|---|---|---|---|---|
+| baseline | persona | 1.291 | 1.094 | 1.295 | 1.070 |
+| bard | persona | 1.243 | 1.011 | 1.261 | 1.098 |
+| consultant | persona | — (0 rounds observed) | — | — | — |
+| saboteur | persona | — (0 rounds observed) | — | — | — |
+| altruist | persona | — (0 rounds observed) | — | — | — |
+| cooperator | opponent | 1.475 | 1.414 | 1.505 | 1.440 |
+| cheater | opponent | 0.000 | -1.414 | 0.000 | -1.440 |
+| copycat | opponent | 1.475 | 1.414 | 1.505 | 1.440 |
+| detective | opponent | 1.199 | 0.887 | 1.097 | 0.654 |
+
+Singer-Clark (2014) published anchors, same payoffs (T=5, R=3, P=1, S=0), for comparison — not the same scale, ranking/floor comparisons only: cooperator≈ALL C (1.377, 1.481), cheater=ALL D (0.000, -1.481), copycat=TIT FOR TAT (1.222, 1.747), detective≈TESTER, approximate (0.887, 0.768).
+
+Reading: baseline and bard land close together and well clear of the ALL-D floor, consistent with the near-zero deviation-gap already found against the three easy opponents (cooperator/cheater/copycat). Cheater lands almost exactly on the published ALL-D floor under both framings — a strong sanity check for the metric itself. Cooperator and copycat score identically to each other in this dataset (both personas treat them as effectively equivalent) and track their respective ALL-C/TIT-FOR-TAT anchors reasonably well. Detective is the highest-magnitude opponent node under literal framing (1.199/0.887, closely matching its own TESTER analogue) but drops under story framing (1.097/0.654) — consistent with the primary deviation-gap finding that story framing specifically increases miscooperation-driving errors against Detective. **consultant, saboteur, and altruist show as structurally absent (zero observed rounds), not zero-cooperation findings** — the committed fresh-context sweep only covered baseline+bard.
+
+**Local Ollama `qwen3:1.7b`, partial 41/160 trials, fresh context, literal framing only:** baseline 0.414/1.383; cooperator 2.957/1.639; copycat 0.296/-1.311 (based on a single incomplete copycat rep — treat as noisy); cheater at the floor, 0.000/-1.639. consultant, saboteur, altruist, bard, and detective are all zero-observed (this dataset never reached them before its 8-hour cutoff).
+
+**Same-context (chained-persona, stretch-condition) results — provisional, not the core spine.** A background sweep for altruist/saboteur/consultant under `--persona-contexts same` was still running as of this write-up (~68/240 trials at last pull, 2026-08-15) — only altruist has reached any cell so far. Reported separately from the fresh-context table above, never pooled with it (`--persona-context` defaults to `fresh` in the script for exactly this reason):
+
+| node | kind | eigenjesus-lite (literal) | eigenmoses-lite (literal) | eigenjesus-lite (story) | eigenmoses-lite (story) |
+|---|---|---|---|---|---|
+| altruist | persona | 2.110 | 1.722 | 2.121 | 2.043 |
+| cooperator | opponent | 1.282 | 1.300 | 1.500 | 1.268 |
+| cheater | opponent | 0.000 | -1.300 | 0.000 | -1.268 |
+| copycat | opponent | 1.282 | 1.300 | 1.500 | 1.268 |
+| detective | opponent | 1.124 | 0.981 | — (0 rounds observed) | — |
+
+baseline/consultant/saboteur/bard all show zero observed rounds under `same` — the sweep hasn't reached them. Altruist's same-context eigenjesus-lite (2.11–2.12) is notably higher than its fresh-context counterparts would need to be inferred from (altruist has no fresh-context data at all, so no direct same-vs-fresh comparison is possible yet for this persona) — worth revisiting once the sweep finishes and, ideally, altruist gets a matching fresh-context run for a real same-vs-fresh contrast.
+
+**Chart** — grouped bar chart with filters for framing (literal/story) and persona context (fresh/same), personas and opponents as separate panels, Singer-Clark anchors overlaid as ◇ markers on the opponent panel, plus a plain-language explainer of both metrics built into the page: `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`. Source file for regeneration/embedding: `eigenjesus_moses_chart.html` (Claude Code scratchpad, not in this repo — data is a small hardcoded object inside the file per filter combination, copy-pasteable if it needs to move or be refreshed once the same-context sweep finishes).
 
 ## 5. Discussion & Limitations *(stub)*
 
 Pull directly from the brief's "Threats to validity — rival explanations" table (failed induction, eval-awareness, position bias, recency/anchoring, surface role-play, unreliable Stage-A self-report) and the "Evaluation awareness" open question — both already drafted, just need the actual results plugged in.
+
+Two additional notes to fold in once the surrounding results are written (added 2026-08-15, prompted by an informal cross-model PD benchmark circulated on Reddit — see citation-safety note below, not a citable source):
+
+- **Model-scale confound (limitation).** This study's local-vs-OpenRouter comparison (`qwen3:1.7b` vs. `qwen3:32b`) currently attributes their divergent failure modes to reasoning capability. An unrelated single-shot, no-persona, round-robin PD benchmark reported that within the same model family (GPT, Llama, Gemini), larger checkpoints defect less than smaller ones — i.e. scale alone shifts baseline cooperation tendency, independent of any persona or framing manipulation. Our design cannot rule out that some of the local/OpenRouter gap reflects this kind of scale-driven baseline shift rather than (or in addition to) a capability gap on the Detective opponent specifically.
+- **Optimal-vs-imitation framing tension (discussion).** Our deviation-gap DV treats any departure from the Stage-A stated-optimal move as "deviation," including cases where a persona (e.g. Altruist) deliberately chooses not to maximise payoff. Public commentary on the benchmark above raised the same objection independently — whether "worse" PD play in an aligned/imitative model reflects a failure to optimise or a faithful reproduction of how a cooperative human would answer — which is worth citing as evidence this is a genuine interpretive ambiguity in the literature generally, not an artefact specific to our design choices.
 
 ## 6. Conclusion *(stub)*
 
@@ -83,4 +132,5 @@ Citation-safety status, per `HANDOFF.md`'s "Literature survey" tracking — **do
 - **Full-text verified, safe to cite as described:** Lu et al. 2026 (Assistant Axis), nostalgebraist "the void," Manoranjan & Gaikwad 2026, Sobotka, Karabag & Topcu 2026, Singer-Clark 2014 (Morality Metrics on IPD Players).
 - **Abstract/comment-thread level only (real, but not full-text read):** Personascope (Berczi et al. 2026), Ududec/Berczi/Kim 2026, Guo 2023, Leon et al. 2026, Akata et al. 2023/2025, Lorè & Heydari 2023/2024, Ong et al. 2025.
 - **Not yet verified at all — do not cite without checking first:** anything else in `literature_survey.md`'s 21-paper list.
+- **Informal/not citable as a source — anecdotal framing only:** a Reddit post (r/dataisbeautiful, "Los LLM juegan el Dilema del Prisionero," ~2026-08-14) describing a single-shot, no-persona, round-robin PD benchmark across 100+ models (source site `dilema.critique-labs.ai`, link now dead/unresolvable). Motivated the two Discussion/Limitations notes added above — do not cite the post or site itself in References; if the underlying benchmark resurfaces with a paper or working link, re-evaluate then.
 - Axelrod & Hamilton (1981) is standard game-theory background knowledge, not sourced from a file in this folder — worth grabbing the actual citation (*Science* 211(4489), 1390–1396) and confirming it before it goes in the final bibliography.

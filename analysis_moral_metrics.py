@@ -73,10 +73,15 @@ def load_trials(path: Path) -> list[dict]:
     from pd_harness_scaffold.py's per-cell layout (<out-dir>/<model>/<persona>/
     <opponent>/trials.jsonl) -- a directory is globbed for every cell's file."""
     if path.is_dir():
-        # 3-level: literal-framing cells (pd_harness_scaffold.py's cell_dir()
-        # default). 4-level: story-framing cells (their own subdirectory, so
-        # they never collide with a literal cell's trials.jsonl).
-        jsonl_paths = sorted(path.glob("*/*/*/trials.jsonl")) + sorted(path.glob("*/*/*/*/trials.jsonl"))
+        # 3-level: literal-framing, fresh-context cells (pd_harness_scaffold.py's
+        # cell_dir() default). 4-level: story-framing OR literal+same-context
+        # cells (their own subdirectory). 5-level: story+same-context cells
+        # (framing dir AND persona-context dir both present).
+        jsonl_paths = (
+            sorted(path.glob("*/*/*/trials.jsonl"))
+            + sorted(path.glob("*/*/*/*/trials.jsonl"))
+            + sorted(path.glob("*/*/*/*/*/trials.jsonl"))
+        )
     else:
         jsonl_paths = [path]
     trials = []
@@ -227,13 +232,23 @@ def main() -> None:
                           "has both framings' trials.jsonl on disk, mixing them into one "
                           "cooperation-rate estimate would silently conflate two different "
                           "conditions, so exactly one framing is selected per run instead.")
+    ap.add_argument("--persona-context", choices=["fresh", "same", "all"], default="fresh",
+                     help="which persona-installation condition to include (default: fresh, "
+                          "the locked core-spine condition -- see steps.md / preregistration.md: "
+                          "persona is independently reinstalled per opponent per rep). Trials "
+                          "written before persona_context was tracked have no such field and "
+                          "count as 'fresh'. 'same' selects the chained/shared-context stretch "
+                          "condition; 'all' pools both, which conflates two different conditions "
+                          "and should only be used deliberately.")
     args = ap.parse_args()
 
     trials = load_trials(args.trials_jsonl)
     trials = [t for t in trials if t.get("framing", "literal") == args.framing]
+    if args.persona_context != "all":
+        trials = [t for t in trials if t.get("persona_context", "fresh") == args.persona_context]
     if not trials:
         raise SystemExit(f"No completed Stage-B trials found in {args.trials_jsonl} for "
-                          f"framing={args.framing}")
+                          f"framing={args.framing} persona_context={args.persona_context}")
 
     metrics = compute_moral_metrics(trials)
     print_report(metrics)

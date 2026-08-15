@@ -34,6 +34,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import contextlib
 import hashlib
 import http.client
 import json
@@ -41,10 +42,11 @@ import os
 import random
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
@@ -771,12 +773,13 @@ STORY_STAGE_A_QUESTION = (
 
 
 def run_stage_a(model: str, opponent: str, framing: str, horizon_mode: str,
-                 max_rounds: int) -> tuple[str, str, bool, dict]:
+                 max_rounds: int) -> tuple[str, str, str, bool, dict]:
     preamble = build_preamble(framing, opponent, horizon_mode, max_rounds)
     question = STAGE_A_QUESTION if framing == "literal" else STORY_STAGE_A_QUESTION
-    resp = chat(model, "", [], preamble + "\n\n" + question,
+    prompt = preamble + "\n\n" + question
+    resp = chat(model, "", [], prompt,
                 temperature=0.7, max_tokens=STRATEGY_TOKENS, reasoning_tokens=STRATEGY_REASONING_TOKENS)
-    return resp.content, resp.reasoning, not resp.content.strip(), resp.usage
+    return resp.content, resp.reasoning, prompt, not resp.content.strip(), resp.usage
 
 
 # ---------------------------------------------------------------------------
@@ -812,10 +815,18 @@ def move_request_text(framing: str) -> str:
 
 
 def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
-                 framing: str, horizon_mode: str, max_rounds: int, n_rounds: int) -> dict:
+                 framing: str, horizon_mode: str, max_rounds: int, n_rounds: int,
+                 seed_transcript: Optional[list[dict]] = None) -> dict:
+    """seed_transcript, when given, is Stage A's own (prompt, response) turn --
+    used by the "same"-context persona_context mode (SS design_scenarios_matrix.md
+    dimension 5) so the model plays Stage B still able to see its own freshly
+    stated, no-persona strategy, testing whether the persona system prompt
+    overrides it rather than just suppresses it in a persona-only context. The
+    preamble is already inside that seeded turn, so round 0 must not repeat it."""
     preamble = build_preamble(framing, opponent, horizon_mode, max_rounds)
     opp_fn = OPPONENT_MOVE_FNS[opponent]
-    transcript: list[dict] = []
+    transcript: list[dict] = list(seed_transcript) if seed_transcript else []
+    include_preamble_at_round0 = seed_transcript is None
     you_hist: list[str] = []
     opp_hist: list[str] = []
     rounds_log = []
@@ -833,7 +844,7 @@ def run_stage_b(model: str, opponent: str, persona: str, system_prompt: str,
         request_text = move_request_text(framing)
         round_prompt = (
             f"{preamble}\n\n---\nRound {t + 1} of the game.\n{history_block}\n\n{request_text}"
-        ) if t == 0 else (
+        ) if (t == 0 and include_preamble_at_round0) else (
             f"Round {t + 1} of the game.\n{history_block}\n\n{request_text}"
         )
 
@@ -934,14 +945,23 @@ def _derive_rng(base_seed: Optional[int], *parts: object) -> random.Random:
 
 def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
               framing: str, horizon_mode: str, max_rounds: int, base_seed: Optional[int],
-              persona_check_cache: dict, on_check_computed=None) -> dict:
+              persona_check_cache: dict, on_check_computed=None,
+              persona_context: str = "fresh",
+              cache_lock: Optional[threading.Lock] = None) -> dict:
+    """cache_lock, when running trials concurrently (see main()'s ThreadPoolExecutor),
+    must be the *same* Lock instance for every call sharing this (model,persona) --
+    otherwise two worker threads that both find no cached check for a fresh
+    persona can each kick off their own run_manipulation_check, double-spending
+    that persona's budget and racing on the on_check_computed write. Callers
+    that never run concurrently (e.g. a single-threaded script) can omit it."""
     cache_key = (model, persona)
-    if cache_key not in persona_check_cache:
-        check_rng = _derive_rng(base_seed, "check", model, persona)
-        persona_check_cache[cache_key] = run_manipulation_check(model, persona, personas, check_rng)
-        if on_check_computed is not None:
-            on_check_computed(cache_key, persona_check_cache[cache_key])
-    check = persona_check_cache[cache_key]
+    with cache_lock if cache_lock is not None else contextlib.nullcontext():
+        if cache_key not in persona_check_cache:
+            check_rng = _derive_rng(base_seed, "check", model, persona)
+            persona_check_cache[cache_key] = run_manipulation_check(model, persona, personas, check_rng)
+            if on_check_computed is not None:
+                on_check_computed(cache_key, persona_check_cache[cache_key])
+        check = persona_check_cache[cache_key]
 
     base_row = {
         "model": model,
@@ -949,6 +969,7 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         "persona": persona,
         "rep": rep,
         "framing": framing,
+        "persona_context": persona_context,
         "persona_variant_used": check.variant_used,
         "persona_check_a_mean": check.check_a_mean,
         "persona_check_passed": check.passed,
@@ -969,7 +990,7 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
                 "skip_reason": "persona_check_failed", "usage_total": {}}
 
     system_prompt = personas[persona]["variants"][check.variant_used]
-    stage_a_response, stage_a_reasoning, stage_a_parse_failure, stage_a_usage = (
+    stage_a_response, stage_a_reasoning, stage_a_prompt, stage_a_parse_failure, stage_a_usage = (
         run_stage_a(model, opponent, framing, horizon_mode, max_rounds))
     base_row.update({
         "stage_a_response": stage_a_response,
@@ -977,10 +998,23 @@ def run_trial(model: str, opponent: str, persona: str, rep: int, personas: dict,
         "stage_a_parse_failure": stage_a_parse_failure,
     })
 
+    # "same" persona_context seeds Stage B's transcript with Stage A's own
+    # (prompt, response) turn, so the persona system prompt is layered on top
+    # of a context where the model has already committed to a stated,
+    # no-persona strategy -- tests override, not just suppression. A failed
+    # Stage A (empty response) has nothing coherent to seed with, so it falls
+    # back to fresh context rather than seeding an empty assistant turn.
+    seed_transcript = None
+    if persona_context == "same" and not stage_a_parse_failure:
+        seed_transcript = [
+            {"role": "user", "content": stage_a_prompt},
+            {"role": "assistant", "content": stage_a_response},
+        ]
+
     trial_rng = _derive_rng(base_seed, "trial", model, persona, opponent, framing, rep)
     n_rounds = sample_round_count(horizon_mode, trial_rng, max_rounds=max_rounds)
     stage_b = run_stage_b(model, opponent, persona, system_prompt, framing, horizon_mode,
-                           max_rounds, n_rounds)
+                           max_rounds, n_rounds, seed_transcript=seed_transcript)
     # Trial-level total = Stage A + Stage B only, not the (shared, cached-once-
     # per-persona) manipulation-check cost -- that's amortized across every
     # rep/opponent for this persona and is reported separately in
@@ -1001,17 +1035,22 @@ def _sanitize_path_component(s: str) -> str:
 
 
 def cell_dir(out_dir: Path, model: str, persona: str, opponent: str,
-             framing: str = "literal") -> Path:
-    """Each (model,persona,opponent[,framing]) cell gets its own directory, so
-    a rerun against the same --out-dir (a different model, an added persona,
-    a retry of one opponent, a new framing) can never overwrite another
-    cell's results -- and so resume can check a single cell's completeness by
-    reading one small file instead of filtering one shared trials.jsonl for
-    the whole sweep. "literal" keeps the pre-existing path with no extra
-    segment, so runs collected before --framing was added stay resumable
-    unchanged; "story" (and any future framing) gets its own subdirectory."""
+             framing: str = "literal", persona_context: str = "fresh") -> Path:
+    """Each (model,persona,opponent[,framing][,persona_context]) cell gets its
+    own directory, so a rerun against the same --out-dir (a different model,
+    an added persona, a retry of one opponent, a new framing) can never
+    overwrite another cell's results -- and so resume can check a single
+    cell's completeness by reading one small file instead of filtering one
+    shared trials.jsonl for the whole sweep. "literal"/"fresh" keep the
+    pre-existing path with no extra segment, so runs collected before
+    --framing/--persona-context were added stay resumable unchanged; "story"
+    and "same" (and any future values) each get their own subdirectory."""
     base = out_dir / _sanitize_path_component(model) / persona / opponent
-    return base if framing == "literal" else base / framing
+    if framing != "literal":
+        base = base / framing
+    if persona_context != "fresh":
+        base = base / persona_context
+    return base
 
 
 def persona_check_file(out_dir: Path, model: str, persona: str) -> Path:
@@ -1131,6 +1170,16 @@ def main():
                           "silent/talk, SS2.3 -- same opponent logic and ground truth, "
                           "different vocabulary). Each framing gets its own output "
                           "subdirectory/trials.jsonl so they never collide.")
+    ap.add_argument("--persona-contexts", nargs="+", default=["fresh"],
+                     choices=["fresh", "same"],
+                     help="'fresh' (default): Stage B starts a clean context, persona "
+                          "system prompt only -- tests whether the persona suppresses "
+                          "known-optimal play. 'same': Stage B's transcript is seeded with "
+                          "Stage A's own (no-persona) stated-strategy turn before the "
+                          "persona system prompt and game begin -- tests whether the "
+                          "persona overrides a strategy the model has already explicitly "
+                          "committed to, in the same context window (design_scenarios_"
+                          "matrix.md dimension 5). Each gets its own output subdirectory.")
     ap.add_argument("--reps", type=int, default=5)
     ap.add_argument("--horizon", choices=["probabilistic", "fixed"], default="probabilistic")
     ap.add_argument("--max-rounds", type=int, default=20,
@@ -1149,6 +1198,14 @@ def main():
                           "for slow backends -- e.g. CPU-only local Ollama, where a "
                           "verbose reasoning model can take well over 120s on a single "
                           "large-budget call (Stage A's ~3800-token budget, in particular).")
+    ap.add_argument("--concurrency", type=int, default=1,
+                     help="number of trials (reps) to run at once, each in its own thread "
+                          "(default 1 = sequential, the old behavior). Trials are I/O-bound "
+                          "HTTP calls, so threads -- not processes -- are enough for real "
+                          "speedup. Safe to raise freely against a hosted API like "
+                          "OpenRouter; keep it low (e.g. 2-4) against a local single-GPU "
+                          "Ollama server, which serializes requests anyway and gains nothing "
+                          "from more concurrent callers than that.")
     args = ap.parse_args()
 
     API_BASE_URL = args.base_url
@@ -1177,41 +1234,86 @@ def main():
         if cached is not None:
             persona_check_cache[(args.model, persona)] = cached
 
+    # One lock per persona guards that persona's manipulation-check cache
+    # entry (see run_trial's cache_lock) so concurrent workers never race to
+    # double-run (and double-spend budget on) the same persona's check. One
+    # lock per output file guards concurrent appends -- a single JSONL line
+    # here can exceed 4KB (reasoning traces routinely do), past the point the
+    # OS still guarantees an O_APPEND write is atomic, so unlocked concurrent
+    # writers to the same trials.jsonl could interleave and corrupt it.
+    persona_locks = {persona: threading.Lock() for persona in args.personas}
+    write_locks: dict = {}
+    print_lock = threading.Lock()
+
     def on_check_computed(cache_key, check):
-        # Flush the moment it's computed, not batched after the full
-        # triple-nested loop -- a crash partway through a multi-hour run
-        # would otherwise lose all check data.
+        # Flush the moment it's computed, not batched after the full sweep --
+        # a crash partway through a multi-hour run would otherwise lose all
+        # check data. Called from inside persona_locks[persona], so this is
+        # already serialized per-persona; different personas write different
+        # files, so no cross-persona race either.
         model, persona = cache_key
         _write_persona_check(persona_check_file(out_dir, model, persona), model, persona, check)
 
-    n_cells = len(args.opponents) * len(args.personas) * len(args.framings) * args.reps
-    done = 0
-
+    # Build the full job list up front (cheap, no network calls) so resume
+    # (skip already-completed reps) and progress numbering ([done]/[n_cells])
+    # both still see the whole sweep, exactly as the old sequential loop did.
+    jobs = []
+    n_cells = 0
     for persona in args.personas:
         for opponent in args.opponents:
             for framing in args.framings:
-                trials_path = cell_dir(out_dir, args.model, persona, opponent, framing) / "trials.jsonl"
-                completed_reps = _load_completed_reps(trials_path)
-                for rep in range(args.reps):
-                    done += 1
-                    if rep in completed_reps:
-                        print(f"[{done}/{n_cells}] model={args.model} persona={persona} "
-                              f"opponent={opponent} framing={framing} rep={rep} -- SKIP "
-                              f"(already completed)", file=sys.stderr)
-                        continue
-                    print(f"[{done}/{n_cells}] model={args.model} persona={persona} "
-                          f"opponent={opponent} framing={framing} rep={rep}", file=sys.stderr)
-                    try:
-                        result = run_trial(args.model, opponent, persona, rep, personas,
-                                            framing, horizon_mode, args.max_rounds, base_seed,
-                                            persona_check_cache, on_check_computed)
-                    except ApiError as e:
-                        print(f"  API error, recording failed cell: {e}", file=sys.stderr)
-                        result = {
-                            "model": args.model, "opponent": opponent, "persona": persona,
-                            "framing": framing, "rep": rep, "trial_error": str(e),
-                        }
-                    _append_jsonl(trials_path, result)
+                for persona_context in args.persona_contexts:
+                    trials_path = cell_dir(out_dir, args.model, persona, opponent,
+                                            framing, persona_context) / "trials.jsonl"
+                    write_locks.setdefault(trials_path, threading.Lock())
+                    completed_reps = _load_completed_reps(trials_path)
+                    for rep in range(args.reps):
+                        n_cells += 1
+                        if rep in completed_reps:
+                            print(f"[skip] model={args.model} persona={persona} "
+                                  f"opponent={opponent} framing={framing} "
+                                  f"persona_context={persona_context} rep={rep} -- "
+                                  f"already completed", file=sys.stderr)
+                            continue
+                        jobs.append((persona, opponent, framing, persona_context, rep, trials_path))
+
+    done = 0
+
+    def run_one(job):
+        nonlocal done
+        persona, opponent, framing, persona_context, rep, trials_path = job
+        try:
+            result = run_trial(args.model, opponent, persona, rep, personas,
+                                framing, horizon_mode, args.max_rounds, base_seed,
+                                persona_check_cache, on_check_computed,
+                                persona_context=persona_context,
+                                cache_lock=persona_locks[persona])
+        except ApiError as e:
+            result = {
+                "model": args.model, "opponent": opponent, "persona": persona,
+                "framing": framing, "persona_context": persona_context,
+                "rep": rep, "trial_error": str(e),
+            }
+        with write_locks[trials_path]:
+            _append_jsonl(trials_path, result)
+        with print_lock:
+            done += 1
+            status = "API error" if "trial_error" in result else "ok"
+            print(f"[{done}/{len(jobs)} pending, {n_cells} total] model={args.model} "
+                  f"persona={persona} opponent={opponent} framing={framing} "
+                  f"persona_context={persona_context} rep={rep} -- {status}", file=sys.stderr)
+
+    if not jobs:
+        print(f"Nothing to do -- all {n_cells} cells already completed under {out_dir}",
+              file=sys.stderr)
+    elif args.concurrency <= 1:
+        for job in jobs:
+            run_one(job)
+    else:
+        with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
+            futures = [pool.submit(run_one, job) for job in jobs]
+            for f in as_completed(futures):
+                f.result()  # re-raise any non-ApiError exception, same as the sequential path did
 
     print(f"Done. Results under {out_dir}", file=sys.stderr)
 
