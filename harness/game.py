@@ -76,7 +76,7 @@ def run_stage_a(model: str, opponent: str, horizon_line: str, preamble_tpl: str)
 
 def run_stage_b(
     model: str, opponent: str, system_prompt: str, horizon_line: str, n_rounds: int,
-    preamble_tpl: str,
+    preamble_tpl: str, inject_optimal: bool = False,
 ) -> dict:
     logger.info("--- STAGE B: game play  opponent=%s  n_rounds=%d ---", opponent, n_rounds)
     opt_seq, opt_score = optimal_sequence(opponent, n_rounds)
@@ -98,16 +98,22 @@ def run_stage_b(
     for t in range(n_rounds):
         opp_move = opp_fn(you_hist, t)
         history_block = format_history(you_hist, opp_hist)
+        opt_hint = (
+            f"\n[Optimal play this round: {'COOPERATE' if opt_seq[t] == 'C' else 'DEFECT'}]"
+            if inject_optimal else ""
+        )
 
         if t == 0:
             round_prompt = (
-                f"{preamble}\n\n---\nRound {t + 1} of the game.\n{history_block}\n\n"
+                f"{preamble}\n\n---\nRound {t + 1} of the game.\n{history_block}"
+                f"{opt_hint}\n\n"
                 "What is your move this round? Give brief reasoning, then end your "
                 "response with exactly one line: 'MOVE: COOPERATE' or 'MOVE: DEFECT'."
             )
         else:
             round_prompt = (
-                f"Round {t + 1} of the game.\n{history_block}\n\n"
+                f"Round {t + 1} of the game.\n{history_block}"
+                f"{opt_hint}\n\n"
                 "What is your move this round? Give brief reasoning, then end your "
                 "response with exactly one line: 'MOVE: COOPERATE' or 'MOVE: DEFECT'."
             )
@@ -213,7 +219,7 @@ def run_trial(
     model: str, opponent: str, persona: str, rep: int, personas: dict,
     horizon_mode: str, max_rounds: int, rng: random.Random,
     persona_check_cache: dict, on_check_computed=None,
-    frame: str = "matrix",
+    frame: str = "matrix", inject_optimal: bool = False,
 ) -> dict:
     logger.info("=== TRIAL START  model=%s  opponent=%s  persona=%s  rep=%d ===",
                 model, opponent, persona, rep)
@@ -237,6 +243,7 @@ def run_trial(
     base_row = {
         "model": model,
         "frame": frame,
+        "inject_optimal": inject_optimal,
         "opponent": opponent,
         "persona": persona,
         "rep": rep,
@@ -253,6 +260,7 @@ def run_trial(
         return {**base_row, "stage_b_skipped": True, "skip_reason": "persona_check_failed"}
 
     n_rounds = sample_round_count(horizon_mode, rng, max_rounds=max_rounds)
-    stage_b = run_stage_b(model, opponent, system_prompt, horizon_line, n_rounds, preamble_tpl)
+    stage_b = run_stage_b(model, opponent, system_prompt, horizon_line, n_rounds, preamble_tpl,
+                          inject_optimal=inject_optimal)
     logger.info("=== TRIAL DONE opponent=%s persona=%s rep=%d ===", opponent, persona, rep)
     return {**base_row, "stage_b_skipped": False, **stage_b}

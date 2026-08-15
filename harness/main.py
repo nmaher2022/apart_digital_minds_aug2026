@@ -78,6 +78,8 @@ def main() -> None:
     ap.add_argument("--frame", choices=["matrix", "narrative"], default="matrix",
                     help="game framing: 'matrix' (abstract payoff table) or "
                          "'narrative' (merchant trading story, same payoffs)")
+    ap.add_argument("--inject-optimal", action="store_true", default=False,
+                    help="inject the optimal move into each round prompt (default: off)")
     ap.add_argument("--stream", action="store_true",
                     help="stream model tokens to stderr as they arrive")
     args = ap.parse_args()
@@ -139,6 +141,7 @@ def main() -> None:
                             horizon_mode, args.max_rounds, rng,
                             persona_check_cache, on_check_computed,
                             frame=args.frame,
+                            inject_optimal=args.inject_optimal,
                         )
                         skipped = result.get("stage_b_skipped", False)
                         logger.info("  -> written to trials.jsonl (stage_b_skipped=%s)", skipped)
