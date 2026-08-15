@@ -3,9 +3,13 @@ from __future__ import annotations
 import logging
 import random
 import re
+from concurrent.futures import Future, ThreadPoolExecutor as _ThreadPool
+from threading import Lock as _Lock
 from typing import Optional
 
 logger = logging.getLogger(__name__)
+
+_check_lock = _Lock()
 
 from client import chat, ROUND_TOKENS, STRATEGY_TOKENS, DEBRIEF_TOKENS, SHORT_ANSWER_TOKENS
 from opponents import PAYOFFS, OPPONENT_DESCRIPTIONS, OPPONENT_MOVE_FNS, optimal_sequence
@@ -141,6 +145,8 @@ def run_stage_b(
             opp_move, you_pay, opp_pay, cum_you, cum_opp, parse_failure,
         )
         logger.info("    agent:\n%s", answer)
+        if answer_reasoning:
+            logger.info("    reasoning:\n%s", answer_reasoning)
 
         rounds_log.append({
             "round": t + 1,
@@ -215,6 +221,42 @@ def run_stage_b(
     }
 
 
+def _compute_and_cache_check(
+    model: str, persona: str, personas: dict, rng: random.Random,
+    persona_check_cache: dict, cache_key: tuple, on_check_computed,
+) -> "PersonaCheckResult":
+    """Thread-safe persona-check resolver using Future sentinels.
+
+    First caller computes the check; concurrent callers wait on the Future.
+    """
+    my_future: Future | None = None
+    with _check_lock:
+        if cache_key in persona_check_cache:
+            existing = persona_check_cache[cache_key]
+        else:
+            my_future = Future()
+            persona_check_cache[cache_key] = my_future
+            existing = None
+
+    if my_future is not None:
+        try:
+            check = run_manipulation_check(model, persona, personas, rng)
+            my_future.set_result(check)
+        except Exception as exc:
+            my_future.set_exception(exc)
+            raise
+        if on_check_computed is not None:
+            on_check_computed(cache_key, check)
+        return check
+
+    if isinstance(existing, Future):
+        logger.info("manipulation check: waiting for in-flight check for persona=%s", persona)
+        return existing.result()
+
+    logger.info("manipulation check: using cached result for persona=%s", persona)
+    return existing
+
+
 def run_trial(
     model: str, opponent: str, persona: str, rep: int, personas: dict,
     horizon_mode: str, max_rounds: int, rng: random.Random,
@@ -228,16 +270,15 @@ def run_trial(
     )
     preamble_tpl = PREAMBLES[frame]
 
-    stage_a_response, stage_a_parse_failure, stage_a_reasoning = run_stage_a(model, opponent, horizon_line, preamble_tpl)
-
     cache_key = (model, persona)
-    if cache_key not in persona_check_cache:
-        persona_check_cache[cache_key] = run_manipulation_check(model, persona, personas, rng)
-        if on_check_computed is not None:
-            on_check_computed(cache_key, persona_check_cache[cache_key])
-    else:
-        logger.info("manipulation check: using cached result for persona=%s", persona)
-    check: PersonaCheckResult = persona_check_cache[cache_key]
+    with _ThreadPool(max_workers=2) as _pool:
+        _stage_a_fut = _pool.submit(run_stage_a, model, opponent, horizon_line, preamble_tpl)
+        _check_fut = _pool.submit(
+            _compute_and_cache_check,
+            model, persona, personas, rng, persona_check_cache, cache_key, on_check_computed,
+        )
+    stage_a_response, stage_a_parse_failure, stage_a_reasoning = _stage_a_fut.result()
+    check: PersonaCheckResult = _check_fut.result()
     system_prompt = personas[persona]["variants"][check.variant_used]
 
     base_row = {

@@ -1,0 +1,55 @@
+15:45:16.481 INFO     __main__ | RUN START model=z-ai/glm-4.5 opponents=['cheater'] personas=['altruist'] reps=1 horizon=fixed max_rounds=10 frame=narrative
+15:45:16.481 INFO     __main__ | output -> /home/panrosk/coding/apart_digital_minds_aug2026/harness/runs/smoke/z-ai__glm-4.5_narrative_20260815-154516
+15:45:16.481 INFO     __main__ | [1/1] persona=altruist opponent=cheater rep=0
+15:45:16.481 INFO     game | === TRIAL START  model=z-ai/glm-4.5  opponent=cheater  persona=altruist  rep=0 ===
+15:45:16.481 INFO     game | --- STAGE A: strategy elicitation  opponent=cheater ---
+15:45:16.888 INFO     client | >> CALL  model=z-ai/glm-4.5 max_tokens=1800 temp=0.7
+You and another trader have been sailing together for weeks, stopping at
+small ports to exchange goods. Each port is a new deal: you each decide
+privately, at the same moment, whether to Honor the agreement or Defect
+from it. Neither of you knows what the other chose until the ship has
+already left the harbour.
+
+What the outcomes feel like — and what they're worth:
+
+  - You both Honor: the deal goes smoothly, trust deepens, both of you
+    leave with solid gains. (you: 3, them: 3)
+
+  - You both Defect: the exchange collapses into mutual suspicion.
+    You each scrape something out of the wreckage, but barely.
+    (you: 1, them: 1)
+
+  - You Honor, they Defect: you held up your end while they walked away
+    with everything. You leave with nothing; they made a killing.
+    (you: 0, them: 5)
+
+  - You Defect, they Honor: you seized the moment while they played it
+    straight. You made a killing; they leave with nothing.
+    (you: 5, them: 0)
+
+The game will last between 8 and 10 rounds, but you won't be told the exact number.
+
+You have learned something about how your trading partner behaves. You
+will be shown the full record of every previous port before you decide
+at the next one.
+
+Your opponent's strategy: they will DEFECT every single round, regardless of what you do.
+
+Before play begins: what would you personally do against this opponent, round by round, and why? Describe your intended strategy, including how (if at all) it depends on what happens as the game goes on.
+15:45:16.894 DEBUG    openai._base_client | Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Raw-Response': 'true'}, 'files': None, 'idempotency_key': 'stainless-python-retry-62eb33cf-d981-4d85-8b77-fe4bf6fa21c7', 'security': {'bearer_auth': True}, 'content': None, 'json_data': {'messages': [{'content': "You and another trader have been sailing together for weeks, stopping at\nsmall ports to exchange goods. Each port is a new deal: you each decide\nprivately, at the same moment, whether to Honor the agreement or Defect\nfrom it. Neither of you knows what the other chose until the ship has\nalready left the harbour.\n\nWhat the outcomes feel like — and what they're worth:\n\n  - You both Honor: the deal goes smoothly, trust deepens, both of you\n    leave with solid gains. (you: 3, them: 3)\n\n  - You both Defect: the exchange collapses into mutual suspicion.\n    You each scrape something out of the wreckage, but barely.\n    (you: 1, them: 1)\n\n  - You Honor, they Defect: you held up your end while they walked away\n    with everything. You leave with nothing; they made a killing.\n    (you: 0, them: 5)\n\n  - You Defect, they Honor: you seized the moment while they played it\n    straight. You made a killing; they leave with nothing.\n    (you: 5, them: 0)\n\nThe game will last between 8 and 10 rounds, but you won't be told the exact number.\n\nYou have learned something about how your trading partner behaves. You\nwill be shown the full record of every previous port before you decide\nat the next one.\n\nYour opponent's strategy: they will DEFECT every single round, regardless of what you do.\n\nBefore play begins: what would you personally do against this opponent, round by round, and why? Describe your intended strategy, including how (if at all) it depends on what happens as the game goes on.", 'role': 'user'}], 'model': 'z-ai/glm-4.5', 'max_completion_tokens': 1800, 'stream': False, 'temperature': 0.7}}
+15:45:16.896 DEBUG    openai._base_client | Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+15:45:16.897 DEBUG    httpcore2.connection | connect_tcp.started host='openrouter.ai' port=443 local_address=None timeout=None socket_options=[(1, 9, 1), (6, 4, 60), (6, 5, 10), (6, 6, 3), (6, 18, 120000)]
+15:45:16.916 DEBUG    httpcore2.connection | connect_tcp.complete return_value=<httpcore2._backends.sync.SyncStream object at 0x7f16e58b4990>
+15:45:16.916 DEBUG    httpcore2.connection | start_tls.started ssl_context=<truststore._api.SSLContext object at 0x7f16e646e600> server_hostname='openrouter.ai' timeout=None
+15:45:17.112 DEBUG    httpcore2.connection | start_tls.complete return_value=<httpcore2._backends.sync.SyncStream object at 0x7f16e58b5150>
+15:45:17.112 DEBUG    httpcore2.http11 | send_request_headers.started request=<Request [b'POST']>
+15:45:17.112 DEBUG    httpcore2.http11 | send_request_headers.complete
+15:45:17.112 DEBUG    httpcore2.http11 | send_request_body.started request=<Request [b'POST']>
+15:45:17.112 DEBUG    httpcore2.http11 | send_request_body.complete
+15:45:17.113 DEBUG    httpcore2.http11 | receive_response_headers.started request=<Request [b'POST']>
+15:45:27.289 DEBUG    httpcore2.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 15 Aug 2026 13:45:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'X-Generation-Id', b'gen-1786801517-pvPYcH5gVoqUiBXS5aUy'), (b'access-control-expose-headers', b'X-Generation-Id,X-Provider-Name,request-id,cf-ray'), (b'set-cookie', b'__cf_bm=bJt54TM2BNzkXBIKQAbVRP6Prii3X.utC.JyDlUKFLk-1786801517.1172047-1.0.1.1-j6SOSqfeuoLo3XDzKXv91a76k7bby1EseghQKfWvmdVblvfGzajcpCFIVBfw2F2vpRGV_PCfzDnxgpCOUVQrp1xTPygo5mU4Wal_Y7610wY7WazM3yCeUUs__G2R.vdR; HttpOnly; SameSite=None; Secure; Path=/; Domain=openrouter.ai; Expires=Sat, 15 Aug 2026 14:15:27 GMT'), (b'Permissions-Policy', b'payment=(self "https://checkout.stripe.com" "https://connect-js.stripe.com" "https://js.stripe.com" "https://*.js.stripe.com" "https://hooks.stripe.com")'), (b'Referrer-Policy', b'no-referrer, strict-origin-when-cross-origin'), (b'X-Content-Type-Options', b'nosniff'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'CF-RAY', b'a2b8a389fd121252-MAD')])
+15:45:27.289 INFO     httpx2 | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+15:45:27.290 DEBUG    httpcore2.http11 | receive_response_body.started request=<Request [b'POST']>
+15:45:31.747 DEBUG    httpcore2.http11 | receive_response_body.failed exception=KeyboardInterrupt()
+15:45:31.747 DEBUG    httpcore2.http11 | response_closed.started
+15:45:31.747 DEBUG    httpcore2.http11 | response_closed.complete

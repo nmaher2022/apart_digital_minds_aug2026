@@ -23,6 +23,8 @@ import logging
 import os
 import random
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -82,6 +84,8 @@ def main() -> None:
                     help="inject the optimal move into each round prompt (default: off)")
     ap.add_argument("--stream", action="store_true",
                     help="stream model tokens to stderr as they arrive")
+    ap.add_argument("--workers", type=int, default=8,
+                    help="parallel trial workers (default: 8)")
     args = ap.parse_args()
 
     client.BASE_URL = args.base_url
@@ -97,8 +101,8 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     setup_logging(out_dir)
 
-    trials_path = out_dir / "trials.jsonl"
-    checks_path = out_dir / "persona_checks.jsonl"
+    trials_path = out_dir / "trials.json"
+    checks_path = out_dir / "persona_checks.json"
     horizon_mode = "fixed" if args.horizon == "fixed" else "probabilistic"
 
     logger.info("RUN START model=%s opponents=%s personas=%s reps=%d horizon=%s max_rounds=%d frame=%s",
@@ -106,19 +110,22 @@ def main() -> None:
                 horizon_mode, args.max_rounds, args.frame)
     logger.info("output -> %s", out_dir.resolve())
 
+    if args.stream and args.workers > 1:
+        logger.warning("--stream with --workers > 1 will produce interleaved stderr output")
+
     rng = random.Random(args.seed)
     personas = build_personas()
 
+    results_lock = threading.Lock()
     persona_check_cache: dict = {}
-    n_cells = len(args.opponents) * len(args.personas) * args.reps
-    done = 0
+    trials: list[dict] = []
+    checks: list[dict] = []
 
-    with open(trials_path, "a") as trials_f, open(checks_path, "a") as checks_f:
-
-        def on_check_computed(cache_key: tuple, check) -> None:
-            model_slug, persona = cache_key
-            checks_f.write(json.dumps({
-                "model": model_slug,
+    def on_check_computed(cache_key: tuple, check) -> None:
+        _, persona = cache_key
+        with results_lock:
+            checks.append({
+                "model": args.model,
                 "persona": persona,
                 "variant_used": check.variant_used,
                 "check_a_mean": check.check_a_mean,
@@ -126,34 +133,60 @@ def main() -> None:
                 "identification_n": check.identification_n,
                 "passed": check.passed,
                 "log": check.log,
-            }) + "\n")
-            checks_f.flush()
+            })
 
-        for persona in args.personas:
-            for opponent in args.opponents:
-                for rep in range(args.reps):
-                    done += 1
-                    logger.info("[%d/%d] persona=%s opponent=%s rep=%d",
-                                done, n_cells, persona, opponent, rep)
-                    try:
-                        result = run_trial(
-                            args.model, opponent, persona, rep, personas,
-                            horizon_mode, args.max_rounds, rng,
-                            persona_check_cache, on_check_computed,
-                            frame=args.frame,
-                            inject_optimal=args.inject_optimal,
-                        )
-                        skipped = result.get("stage_b_skipped", False)
-                        logger.info("  -> written to trials.jsonl (stage_b_skipped=%s)", skipped)
-                    except HarnessError as e:
-                        logger.error("API error, skipping cell: %s", e)
-                        result = {
-                            "model": args.model, "opponent": opponent,
-                            "persona": persona, "rep": rep, "trial_error": str(e),
-                        }
-                    trials_f.write(json.dumps(result) + "\n")
-                    trials_f.flush()
+    # Pre-generate per-trial RNGs so concurrent draws don't race on a shared RNG.
+    cells = [
+        (persona, opponent, rep, random.Random(rng.randint(0, 2**31)))
+        for persona in args.personas
+        for opponent in args.opponents
+        for rep in range(args.reps)
+    ]
+    n_cells = len(cells)
 
+    def run_one(persona: str, opponent: str, rep: int, trial_rng: random.Random) -> dict:
+        logger.info("START  persona=%s opponent=%s rep=%d", persona, opponent, rep)
+        try:
+            result = run_trial(
+                args.model, opponent, persona, rep, personas,
+                horizon_mode, args.max_rounds, trial_rng,
+                persona_check_cache, on_check_computed,
+                frame=args.frame,
+                inject_optimal=args.inject_optimal,
+            )
+            skipped = result.get("stage_b_skipped", False)
+            logger.info("DONE   persona=%s opponent=%s rep=%d (stage_b_skipped=%s)",
+                        persona, opponent, rep, skipped)
+        except HarnessError as e:
+            logger.error("API error, skipping cell persona=%s opponent=%s rep=%d: %s",
+                         persona, opponent, rep, e)
+            result = {
+                "model": args.model, "opponent": opponent,
+                "persona": persona, "rep": rep, "trial_error": str(e),
+            }
+        with results_lock:
+            trials.append(result)
+            logger.info("[%d/%d] cells complete", len(trials), n_cells)
+        return result
+
+    workers = min(args.workers, n_cells) if n_cells else 1
+    logger.info("Running %d cells with %d workers", n_cells, workers)
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futs = {
+            pool.submit(run_one, persona, opponent, rep, trial_rng): (persona, opponent, rep)
+            for persona, opponent, rep, trial_rng in cells
+        }
+        for f in as_completed(futs):
+            try:
+                f.result()
+            except Exception as exc:
+                persona, opponent, rep = futs[f]
+                logger.error("Unhandled error persona=%s opponent=%s rep=%d: %s",
+                             persona, opponent, rep, exc)
+
+    trials_path.write_text(json.dumps(trials, indent=2))
+    checks_path.write_text(json.dumps(checks, indent=2))
     logger.info("RUN DONE. trials=%s checks=%s", trials_path, checks_path)
 
 
