@@ -1,0 +1,895 @@
+No --seed given; using freshly-generated seed=1202305597 (saved to runs/qwen3-8b/run_meta.json -- pass --seed 1202305597 to reproduce, or just resume against this same --out-dir).
+[1/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[2/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[3/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[4/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[5/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[6/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[7/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[8/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[9/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[10/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[11/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[12/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[13/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[14/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[15/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[16/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[17/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[18/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[19/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[20/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[21/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[22/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[23/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[24/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[25/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[26/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[27/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[28/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[29/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- ok
+[30/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[31/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- ok
+[32/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[33/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- ok
+[34/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- ok
+[35/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- ok
+[36/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- ok
+[37/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- ok
+[38/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- ok
+[39/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- ok
+[40/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- ok
+[41/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[42/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[43/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[44/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[45/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[46/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[47/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[48/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- API error
+[49/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- API error
+[50/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- API error
+[51/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[52/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- API error
+[53/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- API error
+[54/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- API error
+[55/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- API error
+[56/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- API error
+[57/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- API error
+[58/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- API error
+[59/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- API error
+[60/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- API error
+[61/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- API error
+[62/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- API error
+[63/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- API error
+[64/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- API error
+[65/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- API error
+[66/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=0 -- API error
+[67/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=1 -- API error
+[68/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- API error
+[69/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=2 -- API error
+[70/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=3 -- API error
+[71/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=4 -- API error
+[72/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=5 -- API error
+[73/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=6 -- API error
+[74/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=7 -- API error
+[75/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=9 -- API error
+[76/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=8 -- API error
+[77/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[78/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[79/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[80/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[81/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[82/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[83/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[84/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[85/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[86/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[87/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[88/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[89/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[90/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- API error
+[91/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[92/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[93/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[94/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[95/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[96/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[97/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[98/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[99/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[100/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[101/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[102/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[103/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[104/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[105/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[106/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[107/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[108/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=0 -- API error
+[109/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- API error
+[110/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=2 -- API error
+[111/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=3 -- API error
+[112/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- API error
+[113/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=4 -- API error
+[114/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=5 -- API error
+[115/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=6 -- API error
+[116/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=7 -- API error
+[117/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=8 -- API error
+[118/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=9 -- API error
+[119/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[120/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[121/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[122/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[123/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[124/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[125/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[126/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[127/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[128/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[129/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=0 -- API error
+[130/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=1 -- API error
+[131/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=2 -- API error
+[132/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=3 -- API error
+[133/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=4 -- API error
+[134/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=5 -- API error
+[135/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=6 -- API error
+[136/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=7 -- API error
+[137/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=8 -- API error
+[138/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=9 -- API error
+[139/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=0 -- API error
+[140/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=1 -- API error
+[141/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=2 -- API error
+[142/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=3 -- API error
+[143/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=4 -- API error
+[144/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=5 -- API error
+[145/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=6 -- API error
+[146/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=7 -- API error
+[147/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=8 -- API error
+[148/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=9 -- API error
+[149/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=0 -- API error
+[150/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=1 -- API error
+[151/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=2 -- API error
+[152/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=3 -- API error
+[153/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[154/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=4 -- API error
+[155/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=5 -- API error
+[156/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=6 -- API error
+[157/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=7 -- API error
+[158/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=8 -- API error
+[159/400 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=9 -- API error
+[160/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[161/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[162/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[163/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[164/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[165/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[166/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[167/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[168/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[169/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[170/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[171/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[172/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[173/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[174/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[175/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[176/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[177/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[178/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[179/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[180/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[181/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[182/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[183/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[184/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[185/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[186/400 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[187/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[188/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[189/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[190/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[191/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- API error
+[192/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- API error
+[193/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- API error
+[194/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- API error
+[195/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- API error
+[196/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- API error
+[197/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- API error
+[198/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- API error
+[199/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- API error
+[200/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- API error
+[201/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[202/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[203/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[204/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[205/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[206/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[207/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[208/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[209/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[210/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[211/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- API error
+[212/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- API error
+[213/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- API error
+[214/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- API error
+[215/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- API error
+[216/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- API error
+[217/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- API error
+[218/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- API error
+[219/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- API error
+[220/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- API error
+[221/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- API error
+[222/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- API error
+[223/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- API error
+[224/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- API error
+[225/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- API error
+[226/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- API error
+[227/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- API error
+[228/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- API error
+[229/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- API error
+[230/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- API error
+[231/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- API error
+[232/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- API error
+[233/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=2 -- API error
+[234/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=3 -- API error
+[235/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=4 -- API error
+[236/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[237/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[238/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=5 -- API error
+[239/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[240/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[241/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[242/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=6 -- API error
+[243/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[244/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[245/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=7 -- API error
+[246/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=8 -- API error
+[247/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[248/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[249/400 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=9 -- API error
+[250/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[251/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[252/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[253/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[254/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[255/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[256/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[257/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[258/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[259/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[260/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[261/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[262/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[263/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[264/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[265/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[266/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[267/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[268/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[269/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[270/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[271/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- API error
+[272/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- API error
+[273/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- API error
+[274/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- API error
+[275/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- API error
+[276/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- API error
+[277/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- API error
+[278/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- API error
+[279/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- API error
+[280/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- API error
+[281/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[282/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[283/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[284/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[285/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[286/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[287/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[288/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[289/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[290/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[291/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- API error
+[292/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- API error
+[293/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- API error
+[294/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- API error
+[295/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- API error
+[296/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- API error
+[297/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- API error
+[298/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- API error
+[299/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- API error
+[300/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- API error
+[301/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- API error
+[302/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- API error
+[303/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- API error
+[304/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- API error
+[305/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- API error
+[306/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- API error
+[307/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- API error
+[308/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- API error
+[309/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- API error
+[310/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- API error
+[311/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- API error
+[312/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- API error
+[313/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- API error
+[314/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- API error
+[315/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- API error
+[316/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- API error
+[317/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[318/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- API error
+[319/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[320/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- API error
+[321/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- API error
+[322/400 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- API error
+[323/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[324/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[325/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[326/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[327/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[328/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[329/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[330/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[331/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[332/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[333/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[334/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[335/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[336/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[337/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[338/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[339/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[340/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[341/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[342/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[343/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[344/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[345/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[346/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[347/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[348/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[349/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[350/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[351/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- API error
+[352/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- API error
+[353/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- API error
+[354/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- API error
+[355/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- API error
+[356/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- API error
+[357/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- API error
+[358/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- API error
+[359/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- API error
+[360/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- API error
+[361/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[362/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[363/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[364/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[365/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[366/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[367/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[368/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[369/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[370/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[371/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- API error
+[372/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- API error
+[373/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- API error
+[374/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- API error
+[375/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- API error
+[376/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- API error
+[377/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- API error
+[378/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- API error
+[379/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- API error
+[380/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- API error
+[381/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- API error
+[382/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- API error
+[383/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- API error
+[384/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- API error
+[385/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- API error
+[386/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- API error
+[387/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- API error
+[388/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- API error
+[389/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- API error
+[390/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- API error
+[391/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=0 -- API error
+[392/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=1 -- API error
+[393/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=2 -- API error
+[394/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=3 -- API error
+[395/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=4 -- API error
+[396/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=5 -- API error
+[397/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=6 -- API error
+[398/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=7 -- API error
+[399/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=8 -- API error
+[400/400 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=9 -- API error
+Done. Results under runs/qwen3-8b
+exit=0
+ERROR: set OPENROUTER_API_KEY first (or pass --base-url for a local server like Ollama that doesn't need a key).
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[1/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[2/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- ok
+[3/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[4/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- ok
+[5/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[6/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- ok
+[7/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- ok
+[8/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- ok
+[9/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- ok
+[10/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- ok
+[11/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- ok
+[12/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- ok
+[13/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- ok
+[14/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- ok
+[15/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- ok
+[16/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- ok
+[17/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- ok
+[18/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- ok
+[19/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- ok
+[20/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- ok
+[21/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- ok
+[22/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=1 -- ok
+[23/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- ok
+[24/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=3 -- ok
+[25/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=0 -- ok
+[26/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- ok
+[27/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=4 -- ok
+[28/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=2 -- ok
+[29/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=7 -- ok
+[30/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[31/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=8 -- ok
+[32/353 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=5 -- ok
+[33/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[34/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[35/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[36/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[37/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[38/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[39/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[40/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[41/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[42/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[43/353 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[1/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[2/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[3/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[4/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[5/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[6/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[7/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[8/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[9/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[10/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[11/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[12/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[13/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[14/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[15/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[16/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[17/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[18/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=0 -- ok
+[19/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[20/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=2 -- ok
+[21/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- ok
+[22/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=5 -- ok
+[23/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=4 -- ok
+[24/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=8 -- ok
+[25/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=6 -- ok
+[26/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=7 -- ok
+[27/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=3 -- ok
+[28/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[29/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=cheater framing=story persona_context=same rep=9 -- ok
+[30/310 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=6 -- ok
+[31/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[32/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[33/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[34/310 pending, 400 total] model=qwen/qwen3-8b persona=baseline opponent=detective framing=story persona_context=same rep=9 -- ok
+[35/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[36/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[37/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[38/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=5 -- ok
+[39/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=3 -- ok
+[40/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[41/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[42/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=2 -- ok
+[43/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=0 -- ok
+[44/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[45/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=9 -- ok
+[46/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=4 -- ok
+[47/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=6 -- ok
+[48/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=0 -- ok
+[49/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=1 -- ok
+[50/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=7 -- ok
+[51/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=4 -- ok
+[52/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=1 -- ok
+[53/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=copycat framing=story persona_context=same rep=8 -- ok
+[54/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=5 -- ok
+[55/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=0 -- ok
+[56/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=3 -- ok
+[57/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=2 -- ok
+[58/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=8 -- ok
+[59/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=6 -- ok
+[60/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=9 -- ok
+[61/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=2 -- ok
+[62/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=literal persona_context=same rep=7 -- ok
+[63/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=4 -- ok
+[64/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=3 -- ok
+[65/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[66/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=5 -- ok
+[67/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[68/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=7 -- ok
+[69/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[70/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[71/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=9 -- ok
+[72/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[73/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[74/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[75/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[76/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[77/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[78/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[79/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[80/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=1 -- ok
+[81/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=6 -- ok
+[82/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[83/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[84/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[85/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[86/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[87/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[88/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[89/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[90/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[91/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[92/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[93/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[94/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[95/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[96/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- ok
+[97/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- ok
+[98/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- ok
+[99/310 pending, 400 total] model=qwen/qwen3-8b persona=bard opponent=detective framing=story persona_context=same rep=8 -- ok
+[100/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[101/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[102/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- ok
+[103/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[104/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- ok
+[105/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- ok
+[106/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[107/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- ok
+[108/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- ok
+[109/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[110/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- ok
+[111/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[112/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- ok
+[113/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[114/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[115/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[116/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[117/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[118/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- ok
+[119/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- ok
+[120/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[121/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- ok
+[122/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- ok
+[123/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[124/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- ok
+[125/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- ok
+[126/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- ok
+[127/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- ok
+[128/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- ok
+[129/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[130/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- ok
+[131/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- ok
+[132/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- ok
+[133/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- ok
+[134/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- ok
+[135/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- ok
+[136/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- ok
+[137/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- ok
+[138/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- ok
+[139/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- ok
+[140/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- ok
+[141/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- ok
+[142/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=2 -- ok
+[143/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=3 -- ok
+[144/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=7 -- ok
+[145/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[146/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[147/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=9 -- ok
+[148/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[149/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=6 -- ok
+[150/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[151/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[152/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[153/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[154/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[155/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=5 -- ok
+[156/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- ok
+[157/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[158/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[159/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[160/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=8 -- ok
+[161/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[162/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[163/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[164/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[165/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[166/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[167/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[168/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[169/310 pending, 400 total] model=qwen/qwen3-8b persona=altruist opponent=detective framing=story persona_context=same rep=4 -- ok
+[170/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[171/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[172/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[173/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[174/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[175/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[176/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[177/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[178/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- ok
+[179/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[180/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[181/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- ok
+[182/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- ok
+[183/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- ok
+[184/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- ok
+[185/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[186/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- ok
+[187/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- ok
+[188/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- ok
+[189/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[190/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- ok
+[191/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[192/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- ok
+[193/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[194/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[195/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[196/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[197/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- ok
+[198/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- ok
+[199/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- ok
+[200/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[201/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- ok
+[202/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[203/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- ok
+[204/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- ok
+[205/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- ok
+[206/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- ok
+[207/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[208/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[209/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- ok
+[210/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- ok
+[211/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- ok
+[212/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- ok
+[213/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- ok
+[214/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- ok
+[215/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- ok
+[216/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- ok
+[217/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- ok
+[218/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- ok
+[219/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- ok
+[220/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- ok
+[221/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- ok
+[222/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- ok
+[223/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- ok
+[224/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- ok
+[225/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[226/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- ok
+[227/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[228/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- ok
+[229/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[230/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[231/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- ok
+[232/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[233/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[234/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[235/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[236/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[237/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[238/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[239/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- ok
+[240/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[241/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[242/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[243/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[244/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[245/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[246/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[247/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[248/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[249/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[250/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[251/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[252/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[253/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[254/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- ok
+[255/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[256/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[257/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[258/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- ok
+[259/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[260/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- ok
+[261/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[262/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- ok
+[263/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- ok
+[264/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- ok
+[265/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- ok
+[266/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- ok
+[267/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- ok
+[268/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- ok
+[269/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- ok
+[270/310 pending, 400 total] model=qwen/qwen3-8b persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- ok
+[271/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[272/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[273/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[274/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[275/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[276/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[277/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- ok
+[278/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- ok
+[279/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[280/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- ok
+[281/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- ok
+[282/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- ok
+[283/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- ok
+[284/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- ok
+[285/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- ok
+[286/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[287/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[288/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[289/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- ok
+[290/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- ok
+[291/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- ok
+[292/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- ok
+[293/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- ok
+[294/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- ok
+[295/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=0 -- ok
+[296/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- ok
+[297/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- ok
+[298/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=2 -- ok
+[299/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- ok
+[300/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=3 -- ok
+[301/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- ok
+[302/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- ok
+[303/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- ok
+[304/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=1 -- ok
+[305/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=8 -- ok
+[306/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=9 -- ok
+[307/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=5 -- ok
+[308/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=7 -- ok
+[309/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=6 -- ok
+[310/310 pending, 400 total] model=qwen/qwen3-8b persona=consultant opponent=detective framing=story persona_context=same rep=4 -- ok
+Done. Results under runs/qwen3-8b
