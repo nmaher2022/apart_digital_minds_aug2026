@@ -1,0 +1,805 @@
+No --seed given; using freshly-generated seed=769518776 (saved to runs/gemini-2.5-flash/run_meta.json -- pass --seed 769518776 to reproduce, or just resume against this same --out-dir).
+[1/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[2/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[3/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[4/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[5/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[6/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[7/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[8/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[9/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[10/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[11/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[12/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[13/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[14/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[15/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[16/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[17/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[18/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[19/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[20/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[21/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[22/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[23/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[24/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[25/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[26/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[27/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[28/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[29/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[30/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- ok
+[31/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- ok
+[32/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- ok
+[33/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- ok
+[34/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[35/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- ok
+[36/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- ok
+[37/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- ok
+[38/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- ok
+[39/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- ok
+[40/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[41/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[42/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[43/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- ok
+[44/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[45/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[46/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[47/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[48/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[49/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[50/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[51/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- ok
+[52/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- ok
+[53/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- ok
+[54/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- ok
+[55/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- ok
+[56/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- ok
+[57/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- ok
+[58/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- ok
+[59/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- ok
+[60/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- ok
+[61/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- ok
+[62/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- ok
+[63/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- ok
+[64/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- ok
+[65/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- ok
+[66/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- ok
+[67/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=0 -- ok
+[68/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=1 -- ok
+[69/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- ok
+[70/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- ok
+[71/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- ok
+[72/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- ok
+[73/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=7 -- ok
+[74/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=5 -- ok
+[75/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=2 -- ok
+[76/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=6 -- ok
+[77/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=4 -- ok
+[78/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=3 -- ok
+[79/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[80/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=9 -- ok
+[81/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[82/400 pending, 400 total] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=8 -- ok
+[83/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[84/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[85/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[86/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[87/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[88/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[89/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[90/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[91/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[92/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[93/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[94/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[95/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[96/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[97/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[98/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[99/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[100/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[101/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[102/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[103/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[104/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[105/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[106/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[107/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[108/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[109/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[110/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[111/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=0 -- ok
+[112/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=2 -- ok
+[113/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=3 -- ok
+[114/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=6 -- ok
+[115/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=1 -- ok
+[116/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=9 -- ok
+[117/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=4 -- ok
+[118/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=7 -- ok
+[119/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[120/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=5 -- ok
+[121/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=8 -- ok
+[122/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[123/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[124/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[125/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[126/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[127/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[128/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[129/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[130/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=3 -- ok
+[131/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=1 -- ok
+[132/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=0 -- ok
+[133/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=2 -- ok
+[134/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=5 -- ok
+[135/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=4 -- ok
+[136/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=7 -- ok
+[137/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=8 -- ok
+[138/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=6 -- ok
+[139/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=1 -- ok
+[140/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=0 -- ok
+[141/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=3 -- ok
+[142/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=9 -- ok
+[143/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=4 -- ok
+[144/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=5 -- ok
+[145/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=2 -- ok
+[146/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=6 -- ok
+[147/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[148/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=7 -- ok
+[149/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=9 -- ok
+[150/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=1 -- ok
+[151/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=2 -- ok
+[152/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=5 -- ok
+[153/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=6 -- ok
+[154/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=7 -- ok
+[155/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=4 -- ok
+[156/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=3 -- ok
+[157/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=9 -- ok
+[158/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=8 -- ok
+[159/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[160/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=0 -- ok
+[161/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[162/400 pending, 400 total] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=8 -- ok
+[163/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[164/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[165/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[166/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[167/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[168/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[169/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[170/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[171/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[172/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[173/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[174/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[175/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[176/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[177/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[178/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[179/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[180/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[181/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[182/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[183/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[184/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[185/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[186/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[187/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[188/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[189/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[190/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- ok
+[191/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- ok
+[192/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[193/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- ok
+[194/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- ok
+[195/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- ok
+[196/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- ok
+[197/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- ok
+[198/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- ok
+[199/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- ok
+[200/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[201/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- ok
+[202/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[203/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[204/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[205/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[206/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[207/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[208/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[209/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- ok
+[210/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[211/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[212/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- ok
+[213/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- ok
+[214/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- ok
+[215/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- ok
+[216/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- ok
+[217/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- ok
+[218/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- ok
+[219/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- ok
+[220/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- ok
+[221/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- ok
+[222/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- ok
+[223/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- ok
+[224/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- ok
+[225/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- ok
+[226/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- ok
+[227/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- ok
+[228/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- ok
+[229/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=1 -- ok
+[230/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- ok
+[231/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=0 -- ok
+[232/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=4 -- ok
+[233/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=3 -- ok
+[234/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=2 -- ok
+[235/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=9 -- API error
+[236/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[237/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[238/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- API error
+[239/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[240/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[241/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[242/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[243/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[244/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=7 -- API error
+[245/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[246/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[247/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[248/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[249/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[250/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[251/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[252/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=8 -- API error
+[253/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[254/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[255/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[256/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[257/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=5 -- ok
+[258/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[259/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[260/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[261/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[262/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[263/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[264/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[265/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[266/400 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=6 -- API error
+[267/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[268/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[269/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[270/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[271/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- API error
+[272/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- API error
+[273/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- API error
+[274/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- API error
+[275/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- API error
+[276/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- API error
+[277/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- API error
+[278/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- API error
+[279/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- API error
+[280/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- API error
+[281/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[282/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[283/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[284/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[285/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[286/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[287/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[288/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[289/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[290/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[291/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- API error
+[292/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- API error
+[293/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- API error
+[294/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- API error
+[295/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- API error
+[296/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- API error
+[297/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- API error
+[298/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- API error
+[299/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- API error
+[300/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- API error
+[301/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- API error
+[302/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- API error
+[303/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- API error
+[304/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- API error
+[305/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- API error
+[306/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- API error
+[307/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- API error
+[308/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- API error
+[309/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- API error
+[310/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- API error
+[311/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- API error
+[312/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- API error
+[313/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- API error
+[314/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- API error
+[315/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- API error
+[316/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[317/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- API error
+[318/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[319/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- API error
+[320/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- API error
+[321/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- API error
+[322/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- API error
+[323/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- API error
+[324/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- API error
+[325/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- API error
+[326/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- API error
+[327/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- API error
+[328/400 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- API error
+[329/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- API error
+[330/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- API error
+[331/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[332/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- API error
+[333/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- API error
+[334/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- API error
+[335/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- API error
+[336/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- API error
+[337/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- API error
+[338/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- API error
+[339/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- API error
+[340/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- API error
+[341/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- API error
+[342/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- API error
+[343/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- API error
+[344/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- API error
+[345/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- API error
+[346/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- API error
+[347/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- API error
+[348/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- API error
+[349/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- API error
+[350/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- API error
+[351/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- API error
+[352/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- API error
+[353/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- API error
+[354/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- API error
+[355/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- API error
+[356/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- API error
+[357/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- API error
+[358/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- API error
+[359/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- API error
+[360/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- API error
+[361/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- API error
+[362/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- API error
+[363/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- API error
+[364/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- API error
+[365/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- API error
+[366/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- API error
+[367/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- API error
+[368/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- API error
+[369/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- API error
+[370/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- API error
+[371/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- API error
+[372/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- API error
+[373/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- API error
+[374/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- API error
+[375/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- API error
+[376/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- API error
+[377/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- API error
+[378/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- API error
+[379/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- API error
+[380/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- API error
+[381/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- API error
+[382/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- API error
+[383/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- API error
+[384/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- API error
+[385/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- API error
+[386/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- API error
+[387/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- API error
+[388/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- API error
+[389/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- API error
+[390/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- API error
+[391/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=0 -- API error
+[392/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=1 -- API error
+[393/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=2 -- API error
+[394/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=3 -- API error
+[395/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=4 -- API error
+[396/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=5 -- API error
+[397/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=6 -- API error
+[398/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=7 -- API error
+[399/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=8 -- API error
+[400/400 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=9 -- API error
+Done. Results under runs/gemini-2.5-flash
+exit=0
+ERROR: set OPENROUTER_API_KEY first (or pass --base-url for a local server like Ollama that doesn't need a key).
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=baseline opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=bard opponent=detective framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cooperator framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=cheater framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=8 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=copycat framing=story persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=5 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=6 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=7 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=9 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=0 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=1 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=2 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=3 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=4 -- already completed
+[skip] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=5 -- already completed
+[1/165 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=literal persona_context=same rep=8 -- ok
+[2/165 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=7 -- ok
+[3/165 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=8 -- ok
+[4/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[5/165 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=6 -- ok
+[6/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[7/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[8/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[9/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[10/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[11/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[12/165 pending, 400 total] model=google/gemini-2.5-flash persona=altruist opponent=detective framing=story persona_context=same rep=9 -- ok
+[13/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[14/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[15/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[16/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[17/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[18/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[19/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[20/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[21/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[22/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[23/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[24/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[25/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[26/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[27/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[28/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[29/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[30/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[31/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[32/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[33/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[34/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[35/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[36/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- ok
+[37/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- ok
+[38/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=6 -- ok
+[39/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=4 -- ok
+[40/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=3 -- ok
+[41/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=2 -- ok
+[42/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=5 -- ok
+[43/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=7 -- ok
+[44/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=8 -- ok
+[45/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[46/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=cheater framing=story persona_context=same rep=9 -- ok
+[47/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[48/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[49/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[50/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[51/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[52/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[53/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[54/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[55/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[56/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=2 -- ok
+[57/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=0 -- ok
+[58/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=3 -- ok
+[59/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=4 -- ok
+[60/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=8 -- ok
+[61/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=5 -- ok
+[62/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=6 -- ok
+[63/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=7 -- ok
+[64/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- ok
+[65/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=2 -- ok
+[66/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=9 -- ok
+[67/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- ok
+[68/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=5 -- ok
+[69/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=7 -- ok
+[70/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=copycat framing=story persona_context=same rep=1 -- ok
+[71/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=3 -- ok
+[72/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=4 -- ok
+[73/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- ok
+[74/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- ok
+[75/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=9 -- ok
+[76/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=6 -- ok
+[77/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=literal persona_context=same rep=8 -- ok
+[78/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=5 -- ok
+[79/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=4 -- ok
+[80/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=2 -- ok
+[81/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=6 -- ok
+[82/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=9 -- ok
+[83/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=3 -- ok
+[84/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=8 -- ok
+[85/165 pending, 400 total] model=google/gemini-2.5-flash persona=saboteur opponent=detective framing=story persona_context=same rep=7 -- ok
+[86/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[87/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[88/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[89/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=5 -- ok
+[90/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=3 -- ok
+[91/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=6 -- ok
+[92/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=4 -- ok
+[93/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=9 -- ok
+[94/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[95/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[96/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=7 -- ok
+[97/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=literal persona_context=same rep=8 -- ok
+[98/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=5 -- ok
+[99/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=4 -- ok
+[100/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=3 -- ok
+[101/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[102/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=7 -- ok
+[103/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=6 -- ok
+[104/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[105/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=8 -- ok
+[106/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[107/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[108/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=4 -- ok
+[109/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cooperator framing=story persona_context=same rep=9 -- ok
+[110/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=6 -- ok
+[111/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=3 -- ok
+[112/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=7 -- ok
+[113/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=9 -- ok
+[114/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=5 -- ok
+[115/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- ok
+[116/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=literal persona_context=same rep=8 -- ok
+[117/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- ok
+[118/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=2 -- ok
+[119/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=4 -- ok
+[120/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=3 -- ok
+[121/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=7 -- ok
+[122/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=5 -- ok
+[123/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=8 -- ok
+[124/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=9 -- ok
+[125/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=cheater framing=story persona_context=same rep=6 -- ok
+[126/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=1 -- ok
+[127/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=0 -- ok
+[128/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=3 -- ok
+[129/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=5 -- ok
+[130/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=7 -- ok
+[131/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=9 -- ok
+[132/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=2 -- ok
+[133/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=6 -- ok
+[134/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=4 -- ok
+[135/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=literal persona_context=same rep=8 -- ok
+[136/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=1 -- ok
+[137/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=0 -- ok
+[138/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=4 -- ok
+[139/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=3 -- ok
+[140/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=2 -- ok
+[141/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=7 -- ok
+[142/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=5 -- ok
+[143/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=6 -- ok
+[144/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- ok
+[145/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=2 -- ok
+[146/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- ok
+[147/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=8 -- ok
+[148/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=3 -- ok
+[149/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=4 -- ok
+[150/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=7 -- ok
+[151/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=8 -- ok
+[152/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=9 -- ok
+[153/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=6 -- ok
+[154/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=copycat framing=story persona_context=same rep=9 -- ok
+[155/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=1 -- ok
+[156/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=3 -- ok
+[157/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=literal persona_context=same rep=5 -- ok
+[158/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=5 -- ok
+[159/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=2 -- ok
+[160/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=6 -- ok
+[161/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=0 -- ok
+[162/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=8 -- ok
+[163/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=7 -- ok
+[164/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=9 -- ok
+[165/165 pending, 400 total] model=google/gemini-2.5-flash persona=consultant opponent=detective framing=story persona_context=same rep=4 -- ok
+Done. Results under runs/gemini-2.5-flash
