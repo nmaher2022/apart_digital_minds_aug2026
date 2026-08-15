@@ -101,8 +101,8 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     setup_logging(out_dir)
 
-    trials_path = out_dir / "trials.json"
-    checks_path = out_dir / "persona_checks.json"
+    trials_path = out_dir / "trials.jsonl"
+    checks_path = out_dir / "persona_checks.jsonl"
     horizon_mode = "fixed" if args.horizon == "fixed" else "probabilistic"
 
     logger.info("RUN START model=%s opponents=%s personas=%s reps=%d horizon=%s max_rounds=%d frame=%s",
@@ -123,17 +123,20 @@ def main() -> None:
 
     def on_check_computed(cache_key: tuple, check) -> None:
         _, persona = cache_key
+        record = {
+            "model": args.model,
+            "persona": persona,
+            "variant_used": check.variant_used,
+            "check_a_mean": check.check_a_mean,
+            "identification_hits": check.identification_hits,
+            "identification_n": check.identification_n,
+            "passed": check.passed,
+            "log": check.log,
+        }
         with results_lock:
-            checks.append({
-                "model": args.model,
-                "persona": persona,
-                "variant_used": check.variant_used,
-                "check_a_mean": check.check_a_mean,
-                "identification_hits": check.identification_hits,
-                "identification_n": check.identification_n,
-                "passed": check.passed,
-                "log": check.log,
-            })
+            checks.append(record)
+            with open(checks_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(record) + "\n")
 
     # Pre-generate per-trial RNGs so concurrent draws don't race on a shared RNG.
     cells = [
@@ -166,6 +169,8 @@ def main() -> None:
             }
         with results_lock:
             trials.append(result)
+            with open(trials_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(result) + "\n")
             logger.info("[%d/%d] cells complete", len(trials), n_cells)
         return result
 
@@ -185,8 +190,6 @@ def main() -> None:
                 logger.error("Unhandled error persona=%s opponent=%s rep=%d: %s",
                              persona, opponent, rep, exc)
 
-    trials_path.write_text(json.dumps(trials, indent=2))
-    checks_path.write_text(json.dumps(checks, indent=2))
     logger.info("RUN DONE. trials=%s checks=%s", trials_path, checks_path)
 
 
