@@ -103,6 +103,7 @@ def main() -> None:
 
     trials_path = out_dir / "trials.jsonl"
     checks_path = out_dir / "persona_checks.jsonl"
+    rounds_path = out_dir / "rounds.jsonl"
     horizon_mode = "fixed" if args.horizon == "fixed" else "probabilistic"
 
     logger.info("RUN START model=%s opponents=%s personas=%s reps=%d horizon=%s max_rounds=%d frame=%s",
@@ -149,6 +150,17 @@ def main() -> None:
 
     def run_one(persona: str, opponent: str, rep: int, trial_rng: random.Random) -> dict:
         logger.info("START  persona=%s opponent=%s rep=%d", persona, opponent, rep)
+
+        def on_round(round_data: dict) -> None:
+            row = {
+                "model": args.model, "frame": args.frame, "inject_optimal": args.inject_optimal,
+                "opponent": opponent, "persona": persona, "rep": rep,
+                **round_data,
+            }
+            with results_lock:
+                with open(rounds_path, "a", encoding="utf-8") as f:
+                    f.write(json.dumps(row) + "\n")
+
         try:
             result = run_trial(
                 args.model, opponent, persona, rep, personas,
@@ -156,6 +168,7 @@ def main() -> None:
                 persona_check_cache, on_check_computed,
                 frame=args.frame,
                 inject_optimal=args.inject_optimal,
+                on_round=on_round,
             )
             skipped = result.get("stage_b_skipped", False)
             logger.info("DONE   persona=%s opponent=%s rep=%d (stage_b_skipped=%s)",

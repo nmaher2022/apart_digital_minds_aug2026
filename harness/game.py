@@ -80,7 +80,7 @@ def run_stage_a(model: str, opponent: str, horizon_line: str, preamble_tpl: str)
 
 def run_stage_b(
     model: str, opponent: str, system_prompt: str, horizon_line: str, n_rounds: int,
-    preamble_tpl: str, inject_optimal: bool = False,
+    preamble_tpl: str, inject_optimal: bool = False, on_round=None,
 ) -> dict:
     logger.info("--- STAGE B: game play  opponent=%s  n_rounds=%d ---", opponent, n_rounds)
     opt_seq, opt_score = optimal_sequence(opponent, n_rounds)
@@ -148,7 +148,7 @@ def run_stage_b(
         if answer_reasoning:
             logger.info("    reasoning:\n%s", answer_reasoning)
 
-        rounds_log.append({
+        round_record = {
             "round": t + 1,
             "your_move": move,
             "optimal_move": opt_seq[t],
@@ -161,7 +161,10 @@ def run_stage_b(
             "parse_failure": parse_failure,
             "raw_response": answer,
             "reasoning": answer_reasoning,
-        })
+        }
+        rounds_log.append(round_record)
+        if on_round is not None:
+            on_round(round_record)
 
         if t + 1 == mid_round and mid_round < n_rounds:
             mid_response, mid_parse_failure, mid_reasoning = persistence_fork(
@@ -261,7 +264,7 @@ def run_trial(
     model: str, opponent: str, persona: str, rep: int, personas: dict,
     horizon_mode: str, max_rounds: int, rng: random.Random,
     persona_check_cache: dict, on_check_computed=None,
-    frame: str = "matrix", inject_optimal: bool = False,
+    frame: str = "matrix", inject_optimal: bool = False, on_round=None,
 ) -> dict:
     logger.info("=== TRIAL START  model=%s  opponent=%s  persona=%s  rep=%d ===",
                 model, opponent, persona, rep)
@@ -302,6 +305,6 @@ def run_trial(
 
     n_rounds = sample_round_count(horizon_mode, rng, max_rounds=max_rounds)
     stage_b = run_stage_b(model, opponent, system_prompt, horizon_line, n_rounds, preamble_tpl,
-                          inject_optimal=inject_optimal)
+                          inject_optimal=inject_optimal, on_round=on_round)
     logger.info("=== TRIAL DONE opponent=%s persona=%s rep=%d ===", opponent, persona, rep)
     return {**base_row, "stage_b_skipped": False, **stage_b}
