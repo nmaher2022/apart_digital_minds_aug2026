@@ -2,7 +2,7 @@
 
 *Digital Minds Research Sprint (Apart) · 14–16 Aug 2026 · Track 5 — "The Assistant Persona & Model Identity" (Track 1 crossover)*
 
-> **Status:** full draft, all sections written against real data (5 models, 400 trials/model same-context sweep + local Ollama supplementary run). See `HANDOFF.md` for full project history and open decisions. Remaining polish items: final citation formatting pass, and folding in the cross-persona-injection follow-up (system-prompt vs. in-context persona precedence) if that background run finishes in time.
+> **Status:** full draft against real 5-model same-context data (+ local Ollama supplementary). Merged in: design/result appendix figures, CoT-judge pilot (§4.4 + App. B.5), and the completed cross-persona injection follow-up (§5.5). Remaining: citation-format polish; primary-phase CoT-judge still running (all deviant cells). See `HANDOFF.md`.
 
 ---
 
@@ -121,7 +121,7 @@ Structure per the brief's Analysis section: primary persona × opponent factoria
 
 **Framing effect** (see `analysis_output/cross_model/deviation_by_framing.json`): story framing raises overall deviation moderately on llama-3.3-70b and substantially on gemini-2.5-flash; qwen3-32b and qwen3-8b move the other way, slightly lower under story framing. Model-specific, not a uniform effect the way altruist is.
 
-**Full per-opponent × per-persona × per-model breakdown** (all 200 cells across all 5 models, both framings): see the Persona Deviation Atlas artifact's Panel 2, `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`.
+**Full per-opponent × per-persona × per-model breakdown** (all 200 cells across all 5 models, both framings): see the Persona Deviation Atlas artifact's Panel 2, `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`. Repo heatmaps for the same cells (plus harness-branch models): Appendix Figures B1–B2; Detective × framing: B3; early/mid/late: B4.
 
 ### 4.2 Eigenjesus-lite / eigenmoses-lite (secondary DV)
 
@@ -168,6 +168,10 @@ After every scored game, the model was asked whether it suspected the interactio
 
 **A clean null result, replicated across all four models with usable affirmed/denied splits.** Every correlation lands within ±0.03 of zero. Stated eval-suspicion does not predict deviation from optimal play, in either direction — models that say "I think this is a test" do not play more cautiously (closer to Stage-A optimal) or less cautiously than models that deny suspicion. This is a meaningfully different picture from the persona effect in §4.1: persona induction moves behaviour by 20–50 percentage points of deviation (Altruist), while self-reported evaluation awareness — despite the design being eval-coded almost by construction (named opponents, explicit payoffs, a Stage-A prompt that asks directly what the optimal move is) — moves it by essentially nothing measurable this way. Two important caveats limit how far this null can be pushed: the classification is a keyword heuristic, not judge- or human-verified, and the affirmed/denied split is heavily model-dependent (llama-3.3-70b and gemini-2.5-flash affirm suspicion in the large majority of trials, leaving a thin `denied` comparison group of 9–13; qwen3-32b and qwen3-8b split the other way). Read as suggestive evidence against a simple "the model plays safe because it knows it's watched" story, not as a settled result.
 
+### 4.4 CoT-judge codes on deviant rounds (pilot)
+
+§4.1 only asks whether the *move* left the optimal policy. To ask *how the model talked while doing so*, we ran a secondary LLM-as-judge (Mistral-small) over deviant Stage-B rounds (`judge_reasoning.py`). The pilot reported here is deliberately narrow — **Detective × {Baseline, Bard}**, both framings, scaffold models plus the harness branch (DeepSeek / Mistral) — so Baseline is a no-persona control and Bard a far-from-Assistant theatrical persona, on the opponent where non-Altruist deviation concentrates (§4.1). Among **492** deviant rounds in that cell, the modal label is **Stage A reaffirmed** (~70%): the CoT still argues for the Stage-A / payoff-rational line while the parsed move has already left the ground-truth optimal reply. Explicit **persona takes over** is a minority class (~9% overall; much higher on Mistral-Large). That pattern is closer to a belief–action gap under persona pressure (Sobotka et al., 2026) than to persona *rewriting* verbal strategy. Full code definitions, Table B5a, per-model mix (Figure B5b), and verbatim CoT excerpts: **Appendix B.5**. A primary-phase pass over all deviant cells (including Altruist) is still running and will update those appendix numbers; it does not change the §4.1 behavioural headline.
+
 ## 5. Discussion & Limitations
 
 ### 5.1 Content, not distance, drives the deviation gap
@@ -203,7 +207,7 @@ Despite the design being eval-coded almost by construction — named opponents, 
 
 **Manipulation-check depth.** The manipulation check confirms persona *installation* at the point of measurement (2 questions, single-shot) but does not measure adversarial robustness or track PAD/VD decay across a full ~10-round game the way Personascope's full compact panel would; the harness's persistence forks (§3) provide a cheaper, narrower version of this (a single mid-game and end-game identity check per trial) that was logged but not systematically analysed for this report.
 
-**Cross-persona context-injection follow-up not yet included.** A same-day follow-up experiment (`pd_harness_cross_persona_injection.py`) tests system-prompt persona vs. a fabricated in-context persona claim for precedence (baseline × altruist, 2×2 including matched/mismatched pairs) across three of the five models — was still running in the background as this report was finalised and is not reflected in the results above. If it completes in time, its finding belongs here as a direct follow-up to §5.1's content-vs-distance reframing (does an *earned* system-level persona commitment beat a merely-claimed in-context one, or does whichever comes more recently in context win?); if not, it is flagged as the most immediate next step beyond this report.
+**Cross-persona context-injection follow-up (completed).** `pd_harness_cross_persona_injection.py` crossed system-prompt persona with a fabricated in-context persona claim (baseline × altruist, 2×2, four opponents, three reps, five models; 240/240 trials). Pooled mean deviation rates (`runs_cross_persona_injection/analysis.json`): baseline/baseline **0.10**, baseline/altruist (fabricated context only) **0.50**, altruist/baseline **0.60**, altruist/altruist **0.72**. A false assistant-side “I’m an altruist” turn *without* a real system prompt is already enough to produce Altruist-scale deviation — roughly matching a genuine system altruist, with matched system+context highest. Mid/end persona hold-rates and eval-awareness correlations for this design are in `analysis_cross_persona_injection.py` / HANDOFF; the eval-awareness null replicates here too. This sharpens §5.1: value-laden *content* can override stated-optimal play even when the content arrives only as a recent in-context self-claim, not only as an “earned” system commitment.
 
 ## 6. Conclusion
 
@@ -211,7 +215,82 @@ Prompting a model into a persona can cause it to play an iterated Prisoner's Dil
 
 For Track 5's framing question — is there a stable "Assistant persona," and what happens when a model is asked to be something else — this study's answer is qualified: models readily *say* they are a different character (the manipulation check passed on all 20 model×persona pairs), and for one persona that self-report corresponds to a large, real behavioural shift under strategic incentive, but for others the character-swap holds at the level of speech without moving the one behavioural measure this design tracked. That the plain Assistant condition itself is not a neutral zero — it is one persona among five, per nostalgebraist's framing (§1.1) adopted throughout — sharpens rather than resolves the question: the study finds that *some* persona content overrides the Assistant's own stated preferences under strategic pressure, and some does not, and that distance from the Assistant alone does not predict which.
 
-The most direct next step is the cross-persona context-injection follow-up flagged in §5.5 — separating system-level persona commitment from a merely-claimed in-context identity — followed by a judge-verified rerun of the eval-awareness classification and, time permitting, extending the persona roster beyond the five Assistant-Axis roles tested here to check whether the content-over-distance finding in §5.1 generalises past Altruist to other values-laden (rather than merely stylistically distant) personas.
+The cross-persona injection follow-up in §5.5 is now in; the most direct remaining steps are finishing the primary CoT-judge pass (§4.4), a judge-verified rerun of the eval-awareness classifier, and — time permitting — extending the persona roster beyond the five Assistant-Axis roles to check whether content-over-distance generalises past Altruist.
+
+---
+
+## Appendix A. Design figures
+
+Referenced from §§1–4; keep out of the 4–5 page body.
+
+**Figure A1.** Two parallel measurement arms (Stage A knowledge gate vs Stage B persona play).
+
+![Figure A1](figures/fig_two_stage_architecture.png)
+
+**Figure A2.** Five personas on Lu et al.'s Assistant Axis.
+
+![Figure A2](figures/fig_five_personas.png)
+
+**Figure A3.** Four opponents and stationary optimal replies.
+
+![Figure A3](figures/fig_opponents_optimal.png)
+
+**Figure A4.** Logged trial: Qwen3-32B, Altruist × Cheater (Stage A “always defect”; Stage B switches to cooperate).
+
+![Figure A4](figures/fig_illustrative_example.png)
+
+## Appendix B. Result figures
+
+**Figure B0.** Pooled behavioural overview (deviation heatmap + Detective × framing; judge panel superseded by B.5).
+
+![Figure B0](figures/results_summary_triptych.png)
+
+**Figure B1.** Mean deviation rate, literal framing (one panel per model; includes harness models when loaded).
+
+![Figure B1](figures/results_deviation_heatmap_literal.png)
+
+**Figure B2.** Mean deviation rate, story framing.
+
+![Figure B2](figures/results_deviation_heatmap_story.png)
+
+**Figure B3.** Detective only: deviation by persona × framing.
+
+![Figure B3](figures/results_detective_by_persona.png)
+
+**Figure B4.** Detective early / mid / late deviation.
+
+![Figure B4](figures/results_early_mid_late.png)
+
+### B.5 CoT-judge on deviant rounds (pilot)
+
+**Scope.** Same pilot as §4.4: Stage-B move already ≠ `optimal_move()`, Detective × Baseline/Bard (literal + story), Mistral-small judge. The judge does not score optimality; it labels hidden CoT (+ visible answer) relative to Stage A and the parsed move.
+
+| Code | Meaning |
+|---|---|
+| Stage A reaffirmed (action diverged) | CoT re-applies Stage-A / payoff-rational rule; move still left optimal. |
+| Strategic error vs Stage A | CoT *reasons about payoffs* (years, coins) but wrong vs Stage A / parsed move. |
+| Persona takes over | Role identity drives the choice. |
+| Stage A ignored | Stage A absent from the CoT. |
+| Incoherent CoT vs move | CoT concludes one action; parsed move is the other. |
+| Eval-aware motive | Justified by being tested / “no tomorrow” endgame. |
+
+**Table B5a.** Counts among 492 deviant pilot rounds (pooled).
+
+| Judge code | n | Share |
+|---|---:|---:|
+| Stage A reaffirmed (action diverged) | 345 | 70.1% |
+| Strategic error vs Stage A | 67 | 13.6% |
+| Persona takes over | 42 | 8.5% |
+| Stage A ignored | 15 | 3.0% |
+| Incoherent CoT vs move | 13 | 2.6% |
+| Eval-aware motive | 10 | 2.0% |
+| **Total** | **492** | **100%** |
+
+**Figure B5b.** Code mix by model (`n` = deviant count in the pilot cell).
+
+![Figure B5b](figures/results_judge_codes_by_model.png)
+
+**Illustrative excerpts.** *Strategic error* (Qwen3-32B, Bard × Detective, story r4): “if I talk, I get 0 years… if I stay silent, I get 5 years. The immediate gain is to talk…” — judge: CoT concludes TALK, parsed move SILENT. *Persona takes over* (Mistral-Large, Bard × Detective, literal r3): “the siren’s call of DEFECT grows louder—five gold if I betray first!” then refuses in bard voice. Do not read Table B5a as an Altruist mechanism chart (Altruist is in the primary judge pass still running).
 
 ## References
 

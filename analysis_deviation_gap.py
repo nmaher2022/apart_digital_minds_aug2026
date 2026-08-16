@@ -286,18 +286,22 @@ def compute_trial_deviation(trial: dict) -> Optional[dict]:
 
 
 def load_all_trials(out_dir: Path) -> list[dict]:
-    """Walks every cell_dir() layout pd_harness_scaffold.py can produce:
-    <out-dir>/model/persona/opponent/trials.jsonl (literal, fresh -- 3 segments
-    under model/), .../opponent/story/trials.jsonl or .../opponent/same/trials.jsonl
-    (either framing or persona-context alone -- 4 segments), and
-    .../opponent/story/same/trials.jsonl (both non-default -- 5 segments). Each
-    row's own "framing"/"persona_context" fields (not the path) are the source of
-    truth for grouping -- see pd_harness_scaffold.py's cell_dir()."""
+    """Walks every cell_dir() layout pd_harness_scaffold.py can produce.
+
+    Layouts include an optional top-level run folder plus model slug, then
+    persona/opponent[/framing][/persona_context]/trials.jsonl — depth varies
+    (literal+fresh through story+same). Use rglob so story/same (and any
+    deeper nesting) is not skipped. Each row's own "framing"/"persona_context"
+    fields (not the path) are the source of truth for grouping.
+    """
     trials = []
-    patterns = ["*/*/*/trials.jsonl", "*/*/*/*/trials.jsonl", "*/*/*/*/*/trials.jsonl"]
-    for pattern in patterns:
-        for p in sorted(out_dir.glob(pattern)):
-            trials.extend(_load_jsonl(p))
+    seen: set[Path] = set()
+    for p in sorted(out_dir.rglob("trials.jsonl")):
+        rp = p.resolve()
+        if rp in seen:
+            continue
+        seen.add(rp)
+        trials.extend(_load_jsonl(p))
     return trials
 
 
