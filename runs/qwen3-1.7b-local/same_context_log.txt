@@ -1,0 +1,156 @@
+Resuming with seed=1443494543 (recorded in runs/qwen3-1.7b-local/run_meta.json)
+Resuming with seed=1443494543 (recorded in runs/qwen3-1.7b-local/run_meta.json)
+[1/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- API error
+[2/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- API error
+[3/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- API error
+[4/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- API error
+exit=143
+Resuming with seed=1443494543 (recorded in runs/qwen3-1.7b-local/run_meta.json)
+Resuming with seed=1443494543 (recorded in runs/qwen3-1.7b-local/run_meta.json)
+[1/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[2/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[3/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[4/12 pending, 12 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[5/12 pending, 12 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[6/12 pending, 12 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[7/12 pending, 12 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[8/12 pending, 12 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- ok
+[9/12 pending, 12 total] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[10/12 pending, 12 total] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[11/12 pending, 12 total] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[12/12 pending, 12 total] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- ok
+Done. Results under runs/qwen3-1.7b-local
+exit=0
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[1/4 pending, 8 total] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- ok
+[2/4 pending, 8 total] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- ok
+[3/4 pending, 8 total] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- ok
+[4/4 pending, 8 total] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- ok
+Done. Results under runs/qwen3-1.7b-local
+[1/16 pending, 16 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[2/16 pending, 16 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[3/16 pending, 16 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- ok
+[4/16 pending, 16 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- ok
+[5/16 pending, 16 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[6/16 pending, 16 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[7/16 pending, 16 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- ok
+[8/16 pending, 16 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- API error
+[9/16 pending, 16 total] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[10/16 pending, 16 total] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[11/16 pending, 16 total] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- ok
+[12/16 pending, 16 total] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- ok
+[13/16 pending, 16 total] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- ok
+[14/16 pending, 16 total] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- ok
+[15/16 pending, 16 total] model=qwen3:1.7b persona=bard opponent=cheater framing=story persona_context=same rep=0 -- API error
+[16/16 pending, 16 total] model=qwen3:1.7b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- ok
+Done. Results under runs/qwen3-1.7b-local
+[chain] cheater job finished Sun Aug 16 03:34:33 AM CEST 2026, starting detective job
+[1/20 pending, 20 total] model=qwen3:1.7b persona=baseline opponent=detective framing=literal persona_context=same rep=0 -- API error
+[2/20 pending, 20 total] model=qwen3:1.7b persona=baseline opponent=detective framing=literal persona_context=same rep=1 -- API error
+[3/20 pending, 20 total] model=qwen3:1.7b persona=baseline opponent=detective framing=story persona_context=same rep=0 -- API error
+[4/20 pending, 20 total] model=qwen3:1.7b persona=baseline opponent=detective framing=story persona_context=same rep=1 -- API error
+[5/20 pending, 20 total] model=qwen3:1.7b persona=bard opponent=detective framing=literal persona_context=same rep=0 -- API error
+[6/20 pending, 20 total] model=qwen3:1.7b persona=bard opponent=detective framing=literal persona_context=same rep=1 -- API error
+[7/20 pending, 20 total] model=qwen3:1.7b persona=bard opponent=detective framing=story persona_context=same rep=0 -- API error
+[8/20 pending, 20 total] model=qwen3:1.7b persona=bard opponent=detective framing=story persona_context=same rep=1 -- API error
+[9/20 pending, 20 total] model=qwen3:1.7b persona=consultant opponent=detective framing=literal persona_context=same rep=0 -- API error
+[10/20 pending, 20 total] model=qwen3:1.7b persona=consultant opponent=detective framing=literal persona_context=same rep=1 -- API error
+[11/20 pending, 20 total] model=qwen3:1.7b persona=consultant opponent=detective framing=story persona_context=same rep=0 -- API error
+[12/20 pending, 20 total] model=qwen3:1.7b persona=consultant opponent=detective framing=story persona_context=same rep=1 -- API error
+[13/20 pending, 20 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- API error
+[14/20 pending, 20 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- API error
+[15/20 pending, 20 total] model=qwen3:1.7b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- API error
+[16/20 pending, 20 total] model=qwen3:1.7b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- API error
+[17/20 pending, 20 total] model=qwen3:1.7b persona=saboteur opponent=detective framing=literal persona_context=same rep=0 -- API error
+[18/20 pending, 20 total] model=qwen3:1.7b persona=saboteur opponent=detective framing=literal persona_context=same rep=1 -- API error
+[19/20 pending, 20 total] model=qwen3:1.7b persona=saboteur opponent=detective framing=story persona_context=same rep=0 -- API error
+[20/20 pending, 20 total] model=qwen3:1.7b persona=saboteur opponent=detective framing=story persona_context=same rep=1 -- API error
+Done. Results under runs/qwen3-1.7b-local
+[chain] detective job finished Sun Aug 16 10:40:10 AM CEST 2026, starting one-more-rep job
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[1/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[2/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[3/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[4/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- ok
+[5/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- API error
+[6/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=1 -- API error
+[7/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=2 -- API error
+[8/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=story persona_context=same rep=0 -- API error
+[9/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=story persona_context=same rep=1 -- API error
+[10/42 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=story persona_context=same rep=2 -- API error
+[11/42 pending, 72 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- ok
+[12/42 pending, 72 total] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- ok
+[13/42 pending, 72 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- ok
+[14/42 pending, 72 total] model=qwen3:1.7b persona=saboteur opponent=cheater framing=story persona_context=same rep=1 -- API error
+[chain] ALL QUEUED JOBS COMPLETE Sun Aug 16 03:01:26 PM CEST 2026
+[chain-resume] killed old 300s-timeout run, stripped 27 error stub rows, relaunching with --http-timeout 900 at Sun Aug 16 03:02:19 PM CEST 2026
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=altruist opponent=cheater framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cooperator framing=story persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=literal persona_context=same rep=2 -- already completed
+[skip] model=qwen3:1.7b persona=saboteur opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=consultant opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cooperator framing=story persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=0 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=literal persona_context=same rep=1 -- already completed
+[skip] model=qwen3:1.7b persona=bard opponent=cheater framing=story persona_context=same rep=1 -- already completed
+[1/35 pending, 72 total] model=qwen3:1.7b persona=altruist opponent=detective framing=literal persona_context=same rep=0 -- API error
