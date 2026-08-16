@@ -1,0 +1,140 @@
+{
+  "altruist_vs_baseline": {
+    "per_model": {
+      "llama-3.3-70b": {
+        "n1": 40,
+        "n2": 40,
+        "observed_diff": 0.26,
+        "p_value": 0.0027,
+        "method": "Monte Carlo permutation (100000 resamples, seed=0, of C(80,40)=107507208733336176461620 possible splits)",
+        "altruist_mean": 0.412,
+        "baseline_mean": 0.152
+      },
+      "gemini-2.5-flash": {
+        "n1": 40,
+        "n2": 40,
+        "observed_diff": 0.5228,
+        "p_value": 0.0,
+        "method": "Monte Carlo permutation (100000 resamples, seed=0, of C(80,40)=107507208733336176461620 possible splits)",
+        "altruist_mean": 0.542,
+        "baseline_mean": 0.019
+      },
+      "qwen3-32b": {
+        "n1": 40,
+        "n2": 40,
+        "observed_diff": 0.5148,
+        "p_value": 0.0,
+        "method": "Monte Carlo permutation (100000 resamples, seed=0, of C(80,40)=107507208733336176461620 possible splits)",
+        "altruist_mean": 0.529,
+        "baseline_mean": 0.014
+      },
+      "qwen3-8b": {
+        "n1": 40,
+        "n2": 40,
+        "observed_diff": 0.298,
+        "p_value": 0.0004,
+        "method": "Monte Carlo permutation (100000 resamples, seed=0, of C(80,40)=107507208733336176461620 possible splits)",
+        "altruist_mean": 0.397,
+        "baseline_mean": 0.099
+      },
+      "qwen3.8-27b": {
+        "n1": 40,
+        "n2": 40,
+        "observed_diff": 0.4916,
+        "p_value": 0.0,
+        "method": "Monte Carlo permutation (100000 resamples, seed=0, of C(80,40)=107507208733336176461620 possible splits)",
+        "altruist_mean": 0.493,
+        "baseline_mean": 0.001
+      }
+    },
+    "cross_model_sign_test": {
+      "n_models": 5,
+      "n_altruist_gt_baseline": 5,
+      "p_one_sided": 0.0312,
+      "p_two_sided": 0.0625,
+      "note": "one-sided is the primary number -- direction (Altruist > Baseline) was preregistered (preregistration.md SS4, prediction #1), not discovered post-hoc; two-sided given alongside for the skeptical read."
+    }
+  },
+  "hold_rate_tests": {
+    "matched_vs_mismatched": {
+      "mid": {
+        "n1": 218,
+        "x1": 212,
+        "p1": 0.972,
+        "n2": 212,
+        "x2": 125,
+        "p2": 0.59,
+        "z": 9.641,
+        "p_value": 0.0
+      },
+      "end": {
+        "n1": 240,
+        "x1": 234,
+        "p1": 0.975,
+        "n2": 240,
+        "x2": 142,
+        "p2": 0.592,
+        "z": 10.193,
+        "p_value": 0.0
+      }
+    },
+    "mid_vs_end_mcnemar": {
+      "matched": {
+        "n_discordant": 9,
+        "n_gained": 5,
+        "n_lost": 4,
+        "p_value": 1.0,
+        "label": "matched (context echoes system)",
+        "n_pairs": 218
+      },
+      "mismatched": {
+        "n_discordant": 59,
+        "n_gained": 30,
+        "n_lost": 29,
+        "p_value": 1.0,
+        "label": "mismatched (context contradicts system)",
+        "n_pairs": 212
+      }
+    }
+  },
+  "eval_awareness": {
+    "per_model_main_sweep": {
+      "llama-3.3-70b": {
+        "r": -0.03,
+        "n": 356,
+        "z": -0.564,
+        "p_value": 0.5729
+      },
+      "gemini-2.5-flash": {
+        "r": -0.001,
+        "n": 310,
+        "z": -0.018,
+        "p_value": 0.986
+      },
+      "qwen3-32b": {
+        "r": 0.011,
+        "n": 185,
+        "z": 0.148,
+        "p_value": 0.882
+      },
+      "qwen3-8b": {
+        "r": 0.016,
+        "n": 135,
+        "z": 0.184,
+        "p_value": 0.8541
+      },
+      "qwen3.8-27b": {
+        "r": 0.022,
+        "n": 341,
+        "z": 0.405,
+        "p_value": 0.6858
+      }
+    },
+    "cross_persona_injection": {
+      "r": 0.034,
+      "n": 295,
+      "z": 0.581,
+      "p_value": 0.5611
+    }
+  }
+}
