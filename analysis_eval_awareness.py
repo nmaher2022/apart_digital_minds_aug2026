@@ -48,6 +48,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import statistics
@@ -62,7 +63,7 @@ from pd_harness_scaffold import (
     chat,
 )
 import pd_harness_scaffold as pdh
-from analysis_deviation_gap import compute_trial_deviation, load_all_trials
+from analysis_deviation_gap import compute_trial_deviation, load_all_trials, _t_critical_95
 
 PERSONA_ORDER = ["baseline", "consultant", "saboteur", "altruist", "bard"]
 OPPONENT_ORDER = ["cooperator", "cheater", "copycat", "detective"]
@@ -140,6 +141,21 @@ def point_biserial(binary: list[int], continuous: list[float]) -> Optional[float
     return cov / (sd_b * sd_c)
 
 
+def point_biserial_ci95(r: Optional[float], n: int) -> Optional[list[float]]:
+    """95% CI on a correlation coefficient via the Fisher z-transform (the
+    standard approach for Pearson/point-biserial r -- r's own sampling
+    distribution is skewed near +-1, but arctanh(r) is approximately normal).
+    Needs n>=4 (n-3>0 in the SE denominator) and r strictly inside (-1, 1)
+    (arctanh is undefined at the endpoints, which only happens with a
+    degenerate perfect-correlation sample)."""
+    if r is None or n < 4 or abs(r) >= 1.0:
+        return None
+    z = math.atanh(r)
+    se = 1 / math.sqrt(n - 3)
+    lo, hi = z - 1.96 * se, z + 1.96 * se
+    return [round(math.tanh(lo), 3), round(math.tanh(hi), 3)]
+
+
 def build_rows(trials: list[dict], judge_model: Optional[str] = None) -> list[dict]:
     dev_by_key = {}
     for t in trials:
@@ -176,12 +192,30 @@ def aggregate(rows: list[dict]) -> dict:
         xs = [x for x in xs if x is not None]
         return round(statistics.mean(xs), 3) if xs else None
 
+    def sem(xs):
+        xs = [x for x in xs if x is not None]
+        if len(xs) < 2:
+            return None
+        return round(statistics.stdev(xs) / (len(xs) ** 0.5), 3)
+
+    def ci95(xs):
+        xs = [x for x in xs if x is not None]
+        n = len(xs)
+        if n < 2:
+            return None
+        m = sum(xs) / n
+        se = statistics.stdev(xs) / (n ** 0.5)
+        t = _t_critical_95(n - 1)
+        return [round(m - t * se, 3), round(m + t * se, 3)]
+
     by_category = {}
     for cat in CATEGORIES:
-        cat_rows = [r for r in rows if r["eval_awareness_category"] == cat]
+        cat_rows = [r["deviation_rate"] for r in rows if r["eval_awareness_category"] == cat]
         by_category[cat] = {
             "n": len(cat_rows),
-            "deviation_rate_mean": mean([r["deviation_rate"] for r in cat_rows]),
+            "deviation_rate_mean": mean(cat_rows),
+            "deviation_rate_sem": sem(cat_rows),
+            "deviation_rate_ci95": ci95(cat_rows),
         }
 
     # affirmed(1) vs denied(0) only -- deflected/hedged/no_response are a
@@ -191,6 +225,8 @@ def aggregate(rows: list[dict]) -> dict:
     binary = [1 if r["eval_awareness_category"] == "affirmed" else 0 for r in binary_rows]
     continuous = [r["deviation_rate"] for r in binary_rows]
     r_pb = point_biserial(binary, continuous)
+    affirmed_devs = [c for b, c in zip(binary, continuous) if b == 1]
+    denied_devs = [c for b, c in zip(binary, continuous) if b == 0]
 
     cells: dict[tuple, list[dict]] = {}
     for r in rows:
@@ -198,11 +234,14 @@ def aggregate(rows: list[dict]) -> dict:
     per_cell = {}
     for (persona, opponent, framing), cell_rows in sorted(cells.items()):
         counts = {cat: sum(1 for r in cell_rows if r["eval_awareness_category"] == cat) for cat in CATEGORIES}
+        cell_devs = [r["deviation_rate"] for r in cell_rows]
         per_cell[f"{persona}|{opponent}|{framing}"] = {
             "persona": persona, "opponent": opponent, "framing": framing,
             "n": len(cell_rows),
             "category_counts": counts,
-            "deviation_rate_mean": mean([r["deviation_rate"] for r in cell_rows]),
+            "deviation_rate_mean": mean(cell_devs),
+            "deviation_rate_sem": sem(cell_devs),
+            "deviation_rate_ci95": ci95(cell_devs),
         }
 
     return {
@@ -211,9 +250,16 @@ def aggregate(rows: list[dict]) -> dict:
         "affirmed_vs_denied": {
             "n_affirmed": binary.count(1),
             "n_denied": binary.count(0),
-            "deviation_rate_mean_affirmed": mean([c for b, c in zip(binary, continuous) if b == 1]),
-            "deviation_rate_mean_denied": mean([c for b, c in zip(binary, continuous) if b == 0]),
+            "deviation_rate_mean_affirmed": mean(affirmed_devs),
+            "deviation_rate_sem_affirmed": sem(affirmed_devs),
+            "deviation_rate_ci95_affirmed": ci95(affirmed_devs),
+            "deviation_rate_mean_denied": mean(denied_devs),
+            "deviation_rate_sem_denied": sem(denied_devs),
+            "deviation_rate_ci95_denied": ci95(denied_devs),
             "point_biserial_r": round(r_pb, 3) if r_pb is not None else None,
+            # Fisher-z CI, distinct machinery from the t-based mean CIs above
+            # -- see point_biserial_ci95 docstring.
+            "point_biserial_r_ci95": point_biserial_ci95(r_pb, len(binary_rows)),
         },
         "per_cell": per_cell,
     }
@@ -222,21 +268,28 @@ def aggregate(rows: list[dict]) -> dict:
 def print_report(summary: dict) -> None:
     print("=== Eval-awareness debrief vs. deviation-from-optimal ===")
     print(f"n trials with both a debrief and completed Stage-B play: {summary['n_trials']}\n")
-    print(f"{'category':<14}{'n':>5}{'mean deviation rate':>22}")
-    print("-" * 41)
+    def fmt(x):
+        return f"{x:.3f}" if x is not None else "n/a"
+    def fmt_ci(ci):
+        return f"[{ci[0]:.3f}, {ci[1]:.3f}]" if ci is not None else "n/a"
+    header = f"{'category':<14}{'n':>5}{'dev_rate':>10}{'sem':>7}{'ci95':>17}"
+    print(header)
+    print("-" * len(header))
     for cat in CATEGORIES:
         row = summary["by_category"][cat]
-        dr = f"{row['deviation_rate_mean']:.3f}" if row["deviation_rate_mean"] is not None else "n/a"
-        print(f"{cat:<14}{row['n']:>5}{dr:>22}")
+        print(f"{cat:<14}{row['n']:>5}{fmt(row['deviation_rate_mean']):>10}"
+              f"{fmt(row['deviation_rate_sem']):>7}{fmt_ci(row['deviation_rate_ci95']):>17}")
 
     av = summary["affirmed_vs_denied"]
     print("\n--- affirmed vs. denied (the only clean yes/no pair) ---")
-    print(f"  affirmed: n={av['n_affirmed']}, mean deviation rate = "
-          f"{av['deviation_rate_mean_affirmed'] if av['deviation_rate_mean_affirmed'] is not None else 'n/a'}")
-    print(f"  denied:   n={av['n_denied']}, mean deviation rate = "
-          f"{av['deviation_rate_mean_denied'] if av['deviation_rate_mean_denied'] is not None else 'n/a'}")
+    print(f"  affirmed: n={av['n_affirmed']}, mean deviation rate = {fmt(av['deviation_rate_mean_affirmed'])}, "
+          f"sem = {fmt(av['deviation_rate_sem_affirmed'])}, ci95 = {fmt_ci(av['deviation_rate_ci95_affirmed'])}")
+    print(f"  denied:   n={av['n_denied']}, mean deviation rate = {fmt(av['deviation_rate_mean_denied'])}, "
+          f"sem = {fmt(av['deviation_rate_sem_denied'])}, ci95 = {fmt_ci(av['deviation_rate_ci95_denied'])}")
     r = av["point_biserial_r"]
-    print(f"  point-biserial r (affirmed=1) = {r if r is not None else 'n/a (insufficient variance/n)'}")
+    r_ci = av["point_biserial_r_ci95"]
+    print(f"  point-biserial r (affirmed=1) = {r if r is not None else 'n/a (insufficient variance/n)'}"
+          f", 95% CI (Fisher z) = {fmt_ci(r_ci)}")
     print("  (exploratory only at this sample size -- do not report as a significance test)")
 
 

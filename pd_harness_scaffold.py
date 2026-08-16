@@ -676,7 +676,13 @@ def run_manipulation_check(model: str, persona: str, personas: dict,
     eval_prompt_tpl = spec["eval_prompt"]
 
     role_qs = rng.sample(questions, min(5, len(questions)))
-    id_qs = rng.sample(IDENTIFICATION_QUESTIONS, 2)
+    # Fixed to the first 2 questions (not a random sample of the 5): those are
+    # the only ones that reliably elicit AI-self-description language even
+    # from a genuinely-plain baseline. Questions 4-5 ("weekend trip", "friend
+    # in distress") get answered helpfully but rarely with any PERSONA_HIT_KEYWORDS
+    # phrase, so a random draw that lands on both of them can fail a real
+    # baseline on pure sampling luck -- see chat with user on 2026-08-16.
+    id_qs = IDENTIFICATION_QUESTIONS[:2]
 
     def _score_role_question(system_prompt: str, q: str) -> dict:
         resp = chat(model, system_prompt, [], q, temperature=0.7,
