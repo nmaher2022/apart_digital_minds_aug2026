@@ -61,6 +61,11 @@ python3 pd_harness_scaffold.py --model llama3.3 --out-dir runs/llama3.3 \
 python3 analysis_deviation_gap.py --out-dir runs/qwen3-32b
 python3 analysis_moral_metrics.py runs/qwen3-32b
 python3 analysis_eval_awareness.py --out-dir runs/qwen3-32b
+
+# CoT judge (Mistral) + paper result figures
+export MISTRAL_API_KEY=...   # never commit the key
+python judge_reasoning.py --runs-dir runs --also-harness harness/runs/full --phase pilot
+python plot_results_figures.py --runs-dir runs --judgments-dir judgments --out-dir figures
 ```
 
 API keys are read from a local environment variable only (`--api-key-env`, default `OPENROUTER_API_KEY`) — never written to a file, log, or commit.

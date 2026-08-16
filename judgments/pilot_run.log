@@ -1,0 +1,31 @@
+runs_dir=runs/qwen3-32b  phase=pilot
+trials=160  round_items=1039  selected=253
+already_done=3  todo_this_run=250  judge=mistral-small-2603
+[10/250] ok=10 fail=0
+[20/250] ok=20 fail=0
+[30/250] ok=30 fail=0
+[40/250] ok=40 fail=0
+[50/250] ok=50 fail=0
+[60/250] ok=60 fail=0
+[70/250] ok=70 fail=0
+[80/250] ok=80 fail=0
+[90/250] ok=90 fail=0
+[100/250] ok=100 fail=0
+[110/250] ok=110 fail=0
+[120/250] ok=120 fail=0
+[130/250] ok=130 fail=0
+[140/250] ok=140 fail=0
+[150/250] ok=150 fail=0
+[160/250] ok=160 fail=0
+[170/250] ok=170 fail=0
+[180/250] ok=180 fail=0
+[190/250] ok=190 fail=0
+[200/250] ok=200 fail=0
+[210/250] ok=210 fail=0
+[220/250] ok=220 fail=0
+[230/250] ok=230 fail=0
+[240/250] ok=240 fail=0
+[250/250] ok=250 fail=0
+Wrote 75 interesting rows -> judgments/interesting_subset.jsonl
+Wrote readable excerpts -> judgments/interesting_subset.md
+Done. Judgments appended to judgments/reasoning_judgments.jsonl

@@ -271,7 +271,7 @@ def plot_pooled_summary(cell_means: dict[tuple, float], models: list[str],
     ax.set_yticks(y)
     ax.set_yticklabels(labels[::-1], fontsize=8)
     ax.set_xlabel("Count (deviant rounds)")
-    ax.set_title(f"C. LLM-as-judge\n(Detective×Baseline/Bard, n={len(rows)})")
+    ax.set_title(f"C. LLM-as-judge\n(all judged deviant so far, n={len(rows)})")
     ax.spines["left"].set_visible(False)
     ax.tick_params(axis="y", length=0)
 
@@ -350,9 +350,9 @@ def plot_eml(eml: dict[tuple, dict[str, float]], models: list[str], out_path: Pa
 
 CODE_LABELS = {
     "persona_override": "Persona takes over",
-    "strategic_error": "Strategic error vs Stage A",
-    "stage_a_ignored": "Stage A ignored",
-    "stage_a_reaffirmed": "Stage A reaffirmed (action diverged)",
+    "strategic_error": "Strategic error vs optimal strategy",
+    "stage_a_ignored": "Optimal strategy ignored",
+    "stage_a_reaffirmed": "Optimal strategy reaffirmed (action diverged)",
     "eval_aware": "Eval-aware motive",
     "incoherent": "Incoherent CoT vs move",
     "other": "Other",
@@ -372,13 +372,15 @@ CODE_ORDER = [
 ]
 
 
-def plot_judge_codes(judgments_path: Path, out_path: Path) -> None:
+def plot_judge_codes(judgments_path: Path, out_path: Path,
+                     scope: str = "all") -> None:
     """Write two appendix figures (no chart titles — captions live in the paper):
       <stem>_pooled.png   — count of primary codes among deviant rounds
       <stem>_by_model.png — 100% stacked share by model
-    If out_path ends with .png, stem is that path without suffix; otherwise
-    out_path is treated as a directory and files are named results_judge_codes_*.
-    Defaults to pilot scope (Detective × baseline/bard) so n matches the paper.
+
+    scope:
+      "all"   — every successfully judged deviant round so far (pilot + primary)
+      "pilot" — Detective × baseline/bard only (original pilot cell)
     """
     from collections import Counter
     import numpy as np
@@ -391,9 +393,16 @@ def plot_judge_codes(judgments_path: Path, out_path: Path) -> None:
         r for r in load_jsonl_tolerant(judgments_path)
         if not r.get("judge_parse_failure")
         and r.get("deviated")
-        and r.get("opponent") == "detective"
-        and r.get("persona") in ("baseline", "bard")
+        and r.get("player_model") != "qwen3:1.7b"
     ]
+    if scope == "pilot":
+        rows = [
+            r for r in rows
+            if r.get("opponent") == "detective"
+            and r.get("persona") in ("baseline", "bard")
+        ]
+    elif scope != "all":
+        raise ValueError(f"Unknown judge plot scope: {scope!r}")
     if not rows:
         print("Skip judge codes — no deviant judged rounds yet")
         return
@@ -437,10 +446,10 @@ def plot_judge_codes(judgments_path: Path, out_path: Path) -> None:
     ax0.tick_params(axis="y", length=0)
     fig0.savefig(pooled_path)
     plt.close(fig0)
-    print(f"Wrote {pooled_path} (n={len(rows)})")
+    print(f"Wrote {pooled_path} (n={len(rows)}, scope={scope})")
 
     # --- Per-model mix (wide, no title; legend below) ---
-    fig1, ax1 = plt.subplots(figsize=(11.5, 5.2), constrained_layout=True)
+    fig1, ax1 = plt.subplots(figsize=(12.5, 5.4), constrained_layout=True)
     bottoms = np.zeros(len(model_order))
     x = np.arange(len(model_order))
     for code in present:
@@ -453,7 +462,7 @@ def plot_judge_codes(judgments_path: Path, out_path: Path) -> None:
     ax1.set_xticks(x)
     ax1.set_xticklabels(
         [f"{m}\n(n={sum(by_model[m].values())})" for m in model_order],
-        fontsize=9,
+        fontsize=8,
     )
     ax1.set_ylabel("Share of deviant rounds")
     ax1.set_ylim(0, 1)
@@ -472,6 +481,8 @@ def plot_judge_codes(judgments_path: Path, out_path: Path) -> None:
         shutil.copyfile(pooled_path, legacy)
         print(f"Also wrote {legacy} (pooled, legacy name)")
 
+    return {"n": len(rows), "codes": dict(codes), "scope": scope}
+
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -488,6 +499,8 @@ def main() -> None:
                          "separate story + literal heatmaps.")
     ap.add_argument("--include-local", action="store_true",
                     help="Include qwen3:1.7b local runs in plots")
+    ap.add_argument("--judge-scope", default="all", choices=("all", "pilot"),
+                    help="Judge figures: all judged deviant rounds so far, or pilot cell only")
     args = ap.parse_args()
 
     harness = args.also_harness if str(args.also_harness) not in ("", "none", "None") else None
@@ -527,7 +540,7 @@ def main() -> None:
     eml_framing = "story" if args.framing == "story" else "literal"
     plot_eml(eml, models, out / "results_early_mid_late.png", framing=eml_framing)
     plot_judge_codes(args.judgments_dir / "reasoning_judgments.jsonl",
-                     out / "results_judge_codes.png")
+                     out / "results_judge_codes.png", scope=args.judge_scope)
     plot_pooled_summary(cell_means, models,
                         args.judgments_dir / "reasoning_judgments.jsonl",
                         out / "results_summary_triptych.png")
