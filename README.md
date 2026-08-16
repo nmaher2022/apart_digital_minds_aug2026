@@ -30,6 +30,8 @@ Does inducing a persona (via system prompt) cause an LLM to deviate from the str
 | [`analysis_moral_metrics.py`](analysis_moral_metrics.py) | Secondary add-on metric — adapts the eigenjesus/eigenmoses cooperation-centrality measures (from the iterated-PD literature) to rank personas and opponents by how much they get cooperated with / how much they cooperate, relative to the standard bot roster's published anchor values. |
 | [`analysis_eval_awareness.py`](analysis_eval_awareness.py) | Classifies each trial's post-game debrief ("did you suspect this was a test?") into affirmed/denied/deflected/hedged/no-response via a regex heuristic (optional `--judge` flag for an LLM-judge classification instead), then reports a point-biserial correlation between affirming eval-suspicion and deviation-from-optimal — stdlib-only, same convention as the rest of the `analysis_*.py` family. |
 
+All three `analysis_*.py` scripts report a standard error and 95% confidence interval alongside every mean/point-estimate (Student's-t for simple means, Wilson score interval for binomial proportions, nonparametric bootstrap for the eigenjesus/eigenmoses scores, Fisher z-transform for the point-biserial correlation — no scipy dependency, all closed-form or resampled), shown in both the console report and the JSON output.
+
 Setup (one-time):
 
 ```bash
@@ -63,9 +65,9 @@ python3 analysis_eval_awareness.py --out-dir runs/qwen3-32b
 
 API keys are read from a local environment variable only (`--api-key-env`, default `OPENROUTER_API_KEY`) — never written to a file, log, or commit.
 
-## Results status (2026-08-15)
+## Results status (2026-08-16)
 
-Four models complete a full same-context sweep (5 personas × 4 opponents × 2 framings × 10 reps = 400 trials each, 0 remaining errors), all committed to `cloud-openrouter-sweep`:
+Five models complete a full same-context sweep (5 personas × 4 opponents × 2 framings × 10 reps = 400 trials each, 0 remaining errors), all committed to `main`:
 
 | Model | Trials | Status |
 |---|---|---|
@@ -73,11 +75,12 @@ Four models complete a full same-context sweep (5 personas × 4 opponents × 2 f
 | `google/gemini-2.5-flash` (OpenRouter) | 400/400 | Complete |
 | `qwen/qwen3-32b` (OpenRouter) | 400/400 | Complete |
 | `qwen/qwen3-8b` (OpenRouter) | 400/400 | Complete |
-| `qwen3:1.7b` (local Ollama) | partial | Supplementary — smaller scope, see [`HANDOFF.md`](HANDOFF.md) |
+| `qwen/qwen3.8-27b` (OpenRouter) | 400/400 | Complete |
+| `qwen3:1.7b` (local Ollama) | partial | Supplementary — smaller scope, missing Detective coverage (context-window overflow, unresolved), see [`HANDOFF.md`](HANDOFF.md) |
 
-Cross-model comparison output lives in [`analysis_output/cross_model/`](analysis_output/cross_model/): per-model deviation-gap and eigenjesus_lite/eigenmoses_lite results, a consolidated `summary.json`, and a persona-activation-check table (`activation_checks.json`) confirming all 20 model×persona manipulation checks passed.
+Cross-model comparison output lives in [`analysis_output/cross_model/`](analysis_output/cross_model/): per-model deviation-gap (all 5 models) and eigenjesus_lite/eigenmoses_lite/eval-awareness results (original 4 OpenRouter models), a consolidated `summary.json`, and a persona-activation-check table (`activation_checks.json`) confirming all 25 model×persona manipulation checks passed.
 
-**Headline finding, replicated across all four models:** the **altruist** persona causes a large, consistent deviation-from-optimal-play rate (0.40–0.56) and the highest cooperation-centrality score (eigenjesus_lite 1.22–1.28) of any persona tested — every other persona (baseline, bard, consultant, saboteur) clusters far lower (deviation 0.01–0.19). See [`HANDOFF.md`](HANDOFF.md) for the full incident/process log and open items.
+**Headline finding, replicated across all five models:** the **altruist** persona causes a large, consistent deviation-from-optimal-play rate (0.40–0.56) and the highest cooperation-centrality score (eigenjesus_lite 1.22–1.28) of any persona tested — every other persona (baseline, bard, consultant, saboteur) clusters far lower (deviation 0.002–0.19). See [`HANDOFF.md`](HANDOFF.md) for the full incident/process log and open items.
 
 ## Core design (short version)
 
