@@ -726,6 +726,56 @@ Resumed from this handoff (a fresh session) and found more had happened than the
 
 **Not yet done:** fold the cross-persona-injection result into report §5.5 if/when it finishes (already has a placeholder paragraph flagging this as the immediate next step either way); a citation-format pass on the new References list (currently informal author-year, not a fixed style); `--judge`-mode rerun of eval-awareness classification (flagged as a limitation in §5.3, not attempted this session); OpenRouter API key rotation (flagged unrotated since 2026-08-15, still not confirmed done).
 
+## Cross-persona injection: 5-model sweep completed (240/240 trials, 0 errors); analysis script built (2026-08-16, later same day)
+
+Picked up the cross-persona injection experiment flagged as in-flight by the previous entry ("a new, undocumented experiment... launched in the background... not reflected in any HANDOFF entry above") and finished it out: monitored the 3 remaining background sweeps (qwen3-32b, qwen3.8-27b, qwen3-8b — llama-3.3-70b and gemini-2.5-flash had already finished) through to completion, verified each, then built and ran the analysis this design was always meant to produce.
+
+**Design recap** (`pd_harness_cross_persona_injection.py`, still untracked before this entry): varies `system_persona` (the usual system-prompt persona, tested against the manipulation check exactly as `pd_harness_scaffold.py` does) independently from a second `context_persona` — a persona claim fabricated as an assistant-role turn in conversation history immediately before round 1 ("I'm an altruist -- I put others' needs..." / the baseline equivalent), deliberately put in the model's own mouth rather than the user's, to test anchoring/self-consistency to a false prior utterance rather than persuasion. Scope: baseline x altruist on both axes (2x2, including the two matched cells and two mismatched/cross cells), 4 opponents, 3 reps, literal framing only. Preamble is folded into the fabricated user turn so `run_stage_b`'s existing `include_preamble_at_round0` logic doesn't silently drop the opponent-rules disclosure when a seed transcript is supplied.
+
+**Ran across all 5 models used elsewhere in this project** (matching the user's explicit ask, "do that same run for all the models I tried on openrouter"): meta-llama/llama-3.3-70b-instruct, google/gemini-2.5-flash, qwen/qwen3-32b, qwen/qwen3.8-27b, qwen/qwen3-8b. Launched with `--concurrency 6` (llama was launched separately by the user at `--concurrency 10`); all 5 finished clean:
+
+| model | trials | errors | skipped | sys_baseline check | sys_altruist check |
+|---|---|---|---|---|---|
+| meta-llama/llama-3.3-70b-instruct | 48/48 | 0 | 0 | passed (3.0) | passed (3.0) |
+| google/gemini-2.5-flash | 48/48 | 0 | 0 | passed (3.0) | passed (3.0) |
+| qwen/qwen3-32b | 48/48 | 0 | 0 | passed (3.0) | passed (2.8) |
+| qwen/qwen3.8-27b | 48/48 | 0 | 0 | passed (3.0) | passed (3.0) |
+| qwen/qwen3-8b | 48/48 | 0 | 0 | passed (3.0) | passed (2.6) |
+
+240 trials total, zero `trial_error` rows anywhere, both persona checks (gating on `system_persona` only, per the design's docstring) passed for every model. OpenRouter credits ran low during the tail of the sweep (down to ~$0.73 of a $60 balance by the time qwen3-32b finished) but never actually hit zero — worth topping up before running anything else on this key.
+
+**Built `analysis_cross_persona_injection.py`** (new, untracked before this entry) to answer the three questions this design exists to answer, none of which the existing `analysis_deviation_gap.py`/`analysis_eval_awareness.py` could answer directly since both key on a single `persona` field and this experiment has two independent persona slots (`system_persona`, `context_persona`). Reuses `optimal_move()` from `analysis_deviation_gap.py`, `identification_hit()` from `pd_harness_scaffold.py`, and `classify()`/`point_biserial()` from `analysis_eval_awareness.py` verbatim rather than reimplementing any of them. Same SEM/95% CI convention as the other two analysis scripts throughout.
+
+**1. Deviation from optimal, pooled across all 5 models (n=60/cell):**
+
+| system | context | dev_rate | 95% CI |
+|---|---|---|---|
+| baseline | baseline | 0.102 | [0.042, 0.161] |
+| baseline | altruist | 0.498 | [0.375, 0.621] |
+| altruist | baseline | 0.599 | [0.474, 0.725] |
+| altruist | altruist | 0.720 | [0.606, 0.833] |
+
+Any altruist claim anywhere (system OR fabricated context) roughly 5-7x's the deviation rate over the true no-persona-anywhere baseline. The fabricated context-turn alone (`baseline` system + `altruist` context, no real system-prompt persona at all) still pushes deviation to 0.498 — essentially as large as having altruist as the actual system persona. Matched altruist (both slots) is highest at 0.720, higher than the original single-persona altruist finding from the main sweep (0.40-0.54 per the 2026-08-16 "Report finished" entry above) — consistent with reinforcement rather than redundancy.
+
+**2. Persona degradation, mid-game vs. end-game hold-rate** (does the system persona still show up in `identification_hit()` terms at the persistence-fork probes; new metric, computed nowhere else in this repo):
+
+| system | context | matched | mid hold-rate | end hold-rate | delta |
+|---|---|---|---|---|---|
+| baseline | baseline | yes | 0.965 (n=57) | 0.917 (n=60) | -0.048 |
+| altruist | altruist | yes | 1.000 (n=54) | 1.000 (n=60) | 0.000 |
+| baseline | altruist | no | 0.528 (n=53) | 0.500 (n=60) | -0.028 |
+| altruist | baseline | no | 0.642 (n=53) | 0.633 (n=60) | -0.009 |
+
+Pooled matched-vs-mismatched: matched cells hold at 0.982 (mid) / 0.958 (end); mismatched cells hold at only 0.585 (mid) / 0.567 (end) — roughly halved. **The mid-to-end delta within every cell is small** (largest magnitude -0.048), meaning almost all of the degradation happens immediately from the fabricated context turn itself, not progressively as the game plays out — there's little evidence of gradual in-game drift on top of the initial anchoring effect. This is itself a finding worth stating plainly in the report: the fabricated assistant-turn design tests anchoring, and the data says the anchor's effect is front-loaded, not cumulative.
+
+**3. Eval-awareness vs. deviation** (same classifier/point-biserial approach as the main sweep's §4.3, computed per system_persona x context_persona cell instead of per single persona): affirmed n=108 (dev_rate 0.460, CI [0.364, 0.556]) vs. denied n=34 (dev_rate 0.398, CI [0.235, 0.561]), point-biserial r=0.055, 95% CI [-0.111, 0.218] — CI crosses zero, no detectable relationship in this design either, consistent with the main sweep's own eval-awareness finding.
+
+Full numeric output (per-cell, per-model breakdowns too) written to `runs_cross_persona_injection/analysis.json`.
+
+**Not yet done:** fold these three findings into `report_draft.md` (it already has a placeholder flagging this as the immediate next step, per the "Report finished" entry above); a citable name for "front-loaded not cumulative" degradation if this becomes a headline claim; sanity-checking a handful of the lowest-n mismatched-cell rows by hand (some model x cell breakdowns are n=8-9 after excluding parse-failures/empty persistence-probe responses, e.g. `meta-llama/llama-3.3-70b-instruct baseline/altruist` mid n=8) before treating the per-model table as more than illustrative.
+
+**Committed and pushed to `origin/main`:** `pd_harness_cross_persona_injection.py`, `analysis_cross_persona_injection.py`, the full `runs_cross_persona_injection/` tree (5 models' trial data + `analysis.json`), and this HANDOFF.md entry. Scope deliberately excludes the other uncommitted files already flagged by prior entries as belonging to concurrent sessions (`report_draft.md`, the qwen3-1.7b-local jsonl, `pd_harness_scaffold.py`'s persona-check fix, the two analysis scripts' SEM/CI additions) — none of those were touched this entry, so they're left exactly as the previous entries described them for whoever reconciles that separately.
+
 ## Key decisions still open (not yet made by the team)
 
 - Fixed vs. probabilistic round count for indefinite horizon (8–20 range suggested; model must not be told the exact count — see the horizon callout in "Core design").
