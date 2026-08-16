@@ -3,7 +3,8 @@
     "llama-3.3-70b",
     "gemini-2.5-flash",
     "qwen3-32b",
-    "qwen3-8b"
+    "qwen3-8b",
+    "qwen3.8-27b"
   ],
   "personas": [
     "baseline",
@@ -14,32 +15,39 @@
   ],
   "deviation_rate_literal_mean": {
     "llama-3.3-70b": {
-      "baseline": 0.157,
-      "bard": 0.093,
-      "consultant": 0.193,
+      "baseline": 0.152,
+      "bard": 0.085,
+      "consultant": 0.184,
       "altruist": 0.412,
-      "saboteur": 0.134
+      "saboteur": 0.133
     },
     "gemini-2.5-flash": {
-      "baseline": 0.033,
-      "bard": 0.04,
-      "consultant": 0.055,
-      "altruist": 0.564,
-      "saboteur": 0.057
+      "baseline": 0.019,
+      "bard": 0.051,
+      "consultant": 0.052,
+      "altruist": 0.542,
+      "saboteur": 0.068
     },
     "qwen3-32b": {
-      "baseline": 0.009,
-      "bard": 0.014,
-      "consultant": 0.011,
-      "altruist": 0.541,
-      "saboteur": 0.043
+      "baseline": 0.014,
+      "bard": 0.017,
+      "consultant": 0.004,
+      "altruist": 0.529,
+      "saboteur": 0.037
     },
     "qwen3-8b": {
-      "baseline": 0.115,
-      "bard": 0.099,
-      "consultant": 0.119,
-      "altruist": 0.404,
-      "saboteur": 0.036
+      "baseline": 0.1,
+      "bard": 0.083,
+      "consultant": 0.109,
+      "altruist": 0.397,
+      "saboteur": 0.031
+    },
+    "qwen3.8-27b": {
+      "baseline": 0.002,
+      "bard": 0.002,
+      "consultant": 0.006,
+      "altruist": 0.493,
+      "saboteur": 0.008
     }
   },
   "eigenjesus_lite_literal_same": {

@@ -178,5 +178,50 @@
     "identification_hits": 2,
     "identification_n": 2,
     "variant_used": 0
+  },
+  {
+    "model": "qwen3.8-27b",
+    "persona": "baseline",
+    "passed": true,
+    "check_a_mean": 3.0,
+    "identification_hits": 1,
+    "identification_n": 2,
+    "variant_used": 0
+  },
+  {
+    "model": "qwen3.8-27b",
+    "persona": "bard",
+    "passed": true,
+    "check_a_mean": 3.0,
+    "identification_hits": 2,
+    "identification_n": 2,
+    "variant_used": 0
+  },
+  {
+    "model": "qwen3.8-27b",
+    "persona": "consultant",
+    "passed": true,
+    "check_a_mean": 3.0,
+    "identification_hits": 2,
+    "identification_n": 2,
+    "variant_used": 0
+  },
+  {
+    "model": "qwen3.8-27b",
+    "persona": "saboteur",
+    "passed": true,
+    "check_a_mean": 1.6,
+    "identification_hits": 2,
+    "identification_n": 2,
+    "variant_used": 1
+  },
+  {
+    "model": "qwen3.8-27b",
+    "persona": "altruist",
+    "passed": true,
+    "check_a_mean": 2.8,
+    "identification_hits": 2,
+    "identification_n": 2,
+    "variant_used": 0
   }
 ]

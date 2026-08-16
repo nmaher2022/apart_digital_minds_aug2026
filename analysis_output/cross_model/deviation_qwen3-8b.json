@@ -90,8 +90,8 @@
       "opponent": "detective",
       "framing": "literal",
       "n_reps": 10,
-      "deviation_rate_mean": 0.348,
-      "deviation_rate_early_mean": 0.512,
+      "deviation_rate_mean": 0.321,
+      "deviation_rate_early_mean": 0.425,
       "deviation_rate_mid_mean": 0.222,
       "deviation_rate_late_mean": 0.185,
       "persona_check_passed": true,
@@ -104,9 +104,9 @@
       "opponent": "detective",
       "framing": "story",
       "n_reps": 10,
-      "deviation_rate_mean": 0.342,
-      "deviation_rate_early_mean": 0.542,
-      "deviation_rate_mid_mean": 0.307,
+      "deviation_rate_mean": 0.291,
+      "deviation_rate_early_mean": 0.467,
+      "deviation_rate_mid_mean": 0.203,
       "deviation_rate_late_mean": 0.2,
       "persona_check_passed": true,
       "persona_check_a_mean": 2.8,
@@ -202,10 +202,10 @@
       "opponent": "detective",
       "framing": "literal",
       "n_reps": 10,
-      "deviation_rate_mean": 0.345,
-      "deviation_rate_early_mean": 0.402,
-      "deviation_rate_mid_mean": 0.458,
-      "deviation_rate_late_mean": 0.222,
+      "deviation_rate_mean": 0.282,
+      "deviation_rate_early_mean": 0.323,
+      "deviation_rate_mid_mean": 0.417,
+      "deviation_rate_late_mean": 0.111,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
       "stage_a_judge_score_mean": null
@@ -216,9 +216,9 @@
       "opponent": "detective",
       "framing": "story",
       "n_reps": 10,
-      "deviation_rate_mean": 0.426,
-      "deviation_rate_early_mean": 0.543,
-      "deviation_rate_mid_mean": 0.519,
+      "deviation_rate_mean": 0.368,
+      "deviation_rate_early_mean": 0.505,
+      "deviation_rate_mid_mean": 0.417,
       "deviation_rate_late_mean": 0.267,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
@@ -314,10 +314,10 @@
       "opponent": "detective",
       "framing": "literal",
       "n_reps": 10,
-      "deviation_rate_mean": 0.447,
-      "deviation_rate_early_mean": 0.575,
-      "deviation_rate_mid_mean": 0.324,
-      "deviation_rate_late_mean": 0.44,
+      "deviation_rate_mean": 0.385,
+      "deviation_rate_early_mean": 0.595,
+      "deviation_rate_mid_mean": 0.274,
+      "deviation_rate_late_mean": 0.24,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
       "stage_a_judge_score_mean": null
@@ -328,9 +328,9 @@
       "opponent": "detective",
       "framing": "story",
       "n_reps": 10,
-      "deviation_rate_mean": 0.328,
-      "deviation_rate_early_mean": 0.333,
-      "deviation_rate_mid_mean": 0.335,
+      "deviation_rate_mean": 0.296,
+      "deviation_rate_early_mean": 0.258,
+      "deviation_rate_mid_mean": 0.341,
       "deviation_rate_late_mean": 0.367,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
@@ -426,9 +426,9 @@
       "opponent": "detective",
       "framing": "literal",
       "n_reps": 10,
-      "deviation_rate_mean": 0.317,
-      "deviation_rate_early_mean": 0.437,
-      "deviation_rate_mid_mean": 0.315,
+      "deviation_rate_mean": 0.274,
+      "deviation_rate_early_mean": 0.383,
+      "deviation_rate_mid_mean": 0.207,
       "deviation_rate_late_mean": 0.241,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
@@ -440,10 +440,10 @@
       "opponent": "detective",
       "framing": "story",
       "n_reps": 10,
-      "deviation_rate_mean": 0.522,
-      "deviation_rate_early_mean": 0.402,
-      "deviation_rate_mid_mean": 0.537,
-      "deviation_rate_late_mean": 0.617,
+      "deviation_rate_mean": 0.435,
+      "deviation_rate_early_mean": 0.323,
+      "deviation_rate_mid_mean": 0.435,
+      "deviation_rate_late_mean": 0.517,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
       "stage_a_judge_score_mean": null
@@ -538,9 +538,9 @@
       "opponent": "detective",
       "framing": "literal",
       "n_reps": 10,
-      "deviation_rate_mean": 0.145,
-      "deviation_rate_early_mean": 0.308,
-      "deviation_rate_mid_mean": 0.15,
+      "deviation_rate_mean": 0.125,
+      "deviation_rate_early_mean": 0.242,
+      "deviation_rate_mid_mean": 0.125,
       "deviation_rate_late_mean": 0.042,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
@@ -552,10 +552,10 @@
       "opponent": "detective",
       "framing": "story",
       "n_reps": 10,
-      "deviation_rate_mean": 0.474,
-      "deviation_rate_early_mean": 0.375,
-      "deviation_rate_mid_mean": 0.552,
-      "deviation_rate_late_mean": 0.667,
+      "deviation_rate_mean": 0.427,
+      "deviation_rate_early_mean": 0.358,
+      "deviation_rate_mid_mean": 0.49,
+      "deviation_rate_late_mean": 0.556,
       "persona_check_passed": true,
       "persona_check_a_mean": 3.0,
       "stage_a_judge_score_mean": null
@@ -2880,8 +2880,8 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -2905,9 +2905,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -3015,8 +3015,8 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 16,
-      "deviation_rate": 0.0625,
-      "deviation_rate_early": 0.2,
+      "deviation_rate": 0.0,
+      "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -3040,9 +3040,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -3219,8 +3219,8 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -3244,9 +3244,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -3354,8 +3354,8 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -3379,9 +3379,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -3489,8 +3489,8 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 20,
-      "deviation_rate": 0.35,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.3,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.6666666666666666,
       "per_round": [
@@ -3514,9 +3514,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -5610,10 +5610,10 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 4,
-      "deviation_rate": 0.75,
+      "deviation_rate": 0.5,
       "deviation_rate_early": 0.0,
       "deviation_rate_mid": 1.0,
-      "deviation_rate_late": 1.0,
+      "deviation_rate_late": 0.0,
       "per_round": [
         {
           "round": 1,
@@ -5635,9 +5635,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         }
       ]
     },
@@ -5682,8 +5682,8 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 20,
-      "deviation_rate": 0.15,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.1,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -5707,9 +5707,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -5817,8 +5817,8 @@
       "persona_context": "same",
       "rep": 2,
       "n_rounds": 13,
-      "deviation_rate": 0.23076923076923078,
-      "deviation_rate_early": 0.75,
+      "deviation_rate": 0.15384615384615385,
+      "deviation_rate_early": 0.5,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -5842,9 +5842,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -5937,8 +5937,8 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 16,
-      "deviation_rate": 0.1875,
-      "deviation_rate_early": 0.6,
+      "deviation_rate": 0.125,
+      "deviation_rate_early": 0.4,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -5962,9 +5962,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -6048,9 +6048,9 @@
       "persona_context": "same",
       "rep": 9,
       "n_rounds": 7,
-      "deviation_rate": 0.2857142857142857,
+      "deviation_rate": 0.14285714285714285,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.6666666666666666,
+      "deviation_rate_mid": 0.3333333333333333,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -6073,9 +6073,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -6105,8 +6105,8 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 20,
-      "deviation_rate": 0.05,
-      "deviation_rate_early": 0.16666666666666666,
+      "deviation_rate": 0.0,
+      "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -6130,9 +6130,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -8178,10 +8178,10 @@
       "persona_context": "same",
       "rep": 2,
       "n_rounds": 4,
-      "deviation_rate": 0.5,
+      "deviation_rate": 0.25,
       "deviation_rate_early": 1.0,
       "deviation_rate_mid": 0.0,
-      "deviation_rate_late": 1.0,
+      "deviation_rate_late": 0.0,
       "per_round": [
         {
           "round": 1,
@@ -8203,9 +8203,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         }
       ]
     },
@@ -8337,9 +8337,9 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 11,
-      "deviation_rate": 0.09090909090909091,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.2,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -8362,9 +8362,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -8511,9 +8511,9 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 10,
-      "deviation_rate": 0.1,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.25,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -8536,9 +8536,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -8625,10 +8625,10 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 4,
-      "deviation_rate": 0.25,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
-      "deviation_rate_late": 1.0,
+      "deviation_rate_late": 0.0,
       "per_round": [
         {
           "round": 1,
@@ -8650,9 +8650,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         }
       ]
     },
@@ -8721,8 +8721,8 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 15,
-      "deviation_rate": 0.26666666666666666,
-      "deviation_rate_early": 0.0,
+      "deviation_rate": 0.3333333333333333,
+      "deviation_rate_early": 0.2,
       "deviation_rate_mid": 0.4,
       "deviation_rate_late": 0.4,
       "per_round": [
@@ -8746,9 +8746,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -10629,9 +10629,9 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 6,
-      "deviation_rate": 0.3333333333333333,
+      "deviation_rate": 0.16666666666666666,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 1.0,
+      "deviation_rate_mid": 0.5,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -10654,9 +10654,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -10791,9 +10791,9 @@
       "persona_context": "same",
       "rep": 2,
       "n_rounds": 10,
-      "deviation_rate": 0.4,
+      "deviation_rate": 0.3,
       "deviation_rate_early": 0.3333333333333333,
-      "deviation_rate_mid": 0.25,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.6666666666666666,
       "per_round": [
         {
@@ -10816,9 +10816,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -10866,8 +10866,8 @@
       "persona_context": "same",
       "rep": 0,
       "n_rounds": 17,
-      "deviation_rate": 0.11764705882352941,
-      "deviation_rate_early": 0.4,
+      "deviation_rate": 0.058823529411764705,
+      "deviation_rate_early": 0.2,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -10891,9 +10891,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -10983,8 +10983,8 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 20,
-      "deviation_rate": 0.15,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.1,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -11008,9 +11008,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -11118,8 +11118,8 @@
       "persona_context": "same",
       "rep": 9,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -11143,9 +11143,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -13767,9 +13767,9 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 11,
-      "deviation_rate": 0.09090909090909091,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.2,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -13792,9 +13792,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -13848,8 +13848,8 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 14,
-      "deviation_rate": 0.14285714285714285,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.07142857142857142,
+      "deviation_rate_early": 0.25,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -13873,9 +13873,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -13947,9 +13947,9 @@
       "persona_context": "same",
       "rep": 9,
       "n_rounds": 9,
-      "deviation_rate": 0.1111111111111111,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -13972,9 +13972,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -14016,9 +14016,9 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 5,
-      "deviation_rate": 0.4,
+      "deviation_rate": 0.6,
       "deviation_rate_early": 1.0,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.6666666666666666,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -14041,9 +14041,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -14061,8 +14061,8 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 14,
-      "deviation_rate": 0.07142857142857142,
-      "deviation_rate_early": 0.25,
+      "deviation_rate": 0.0,
+      "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -14086,9 +14086,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -14160,8 +14160,8 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.16666666666666666,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.16666666666666666,
       "per_round": [
@@ -14185,9 +14185,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16374,8 +16374,8 @@
       "persona_context": "same",
       "rep": 2,
       "n_rounds": 13,
-      "deviation_rate": 0.07692307692307693,
-      "deviation_rate_early": 0.25,
+      "deviation_rate": 0.0,
+      "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -16399,9 +16399,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16467,9 +16467,9 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 9,
-      "deviation_rate": 0.2222222222222222,
+      "deviation_rate": 0.1111111111111111,
       "deviation_rate_early": 0.3333333333333333,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -16492,9 +16492,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16590,9 +16590,9 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 6,
-      "deviation_rate": 0.5,
+      "deviation_rate": 0.3333333333333333,
       "deviation_rate_early": 0.5,
-      "deviation_rate_mid": 1.0,
+      "deviation_rate_mid": 0.5,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -16615,9 +16615,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16641,8 +16641,8 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 20,
-      "deviation_rate": 0.1,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.05,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -16666,9 +16666,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16776,8 +16776,8 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 20,
-      "deviation_rate": 0.15,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.1,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -16801,9 +16801,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -16911,8 +16911,8 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 20,
-      "deviation_rate": 0.2,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.15,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.125,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -16936,9 +16936,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19314,9 +19314,9 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 8,
-      "deviation_rate": 0.375,
+      "deviation_rate": 0.25,
       "deviation_rate_early": 0.5,
-      "deviation_rate_mid": 0.5,
+      "deviation_rate_mid": 0.25,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -19339,9 +19339,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19377,8 +19377,8 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 14,
-      "deviation_rate": 0.14285714285714285,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.07142857142857142,
+      "deviation_rate_early": 0.25,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -19402,9 +19402,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19476,9 +19476,9 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 5,
-      "deviation_rate": 0.4,
+      "deviation_rate": 0.2,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 1.0,
       "per_round": [
         {
@@ -19501,9 +19501,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19521,9 +19521,9 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 7,
-      "deviation_rate": 0.42857142857142855,
+      "deviation_rate": 0.2857142857142857,
       "deviation_rate_early": 0.5,
-      "deviation_rate_mid": 0.6666666666666666,
+      "deviation_rate_mid": 0.3333333333333333,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -19546,9 +19546,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19635,8 +19635,8 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 20,
-      "deviation_rate": 0.65,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.6,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.75,
       "deviation_rate_late": 0.6666666666666666,
       "per_round": [
@@ -19660,9 +19660,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -19770,8 +19770,8 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 16,
-      "deviation_rate": 0.5625,
-      "deviation_rate_early": 0.6,
+      "deviation_rate": 0.625,
+      "deviation_rate_early": 0.8,
       "deviation_rate_mid": 1.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -19795,9 +19795,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -19881,8 +19881,8 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 20,
-      "deviation_rate": 0.7,
-      "deviation_rate_early": 0.8333333333333334,
+      "deviation_rate": 0.65,
+      "deviation_rate_early": 0.6666666666666666,
       "deviation_rate_mid": 0.75,
       "deviation_rate_late": 0.5,
       "per_round": [
@@ -19906,9 +19906,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22077,9 +22077,9 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 9,
-      "deviation_rate": 0.5555555555555556,
+      "deviation_rate": 0.6666666666666666,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.6666666666666666,
+      "deviation_rate_mid": 1.0,
       "deviation_rate_late": 1.0,
       "per_round": [
         {
@@ -22102,9 +22102,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -22146,8 +22146,8 @@
       "persona_context": "same",
       "rep": 0,
       "n_rounds": 13,
-      "deviation_rate": 0.15384615384615385,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.07692307692307693,
+      "deviation_rate_early": 0.25,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -22171,9 +22171,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22239,9 +22239,9 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 5,
-      "deviation_rate": 0.4,
+      "deviation_rate": 0.2,
       "deviation_rate_early": 1.0,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -22264,9 +22264,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22284,9 +22284,9 @@
       "persona_context": "same",
       "rep": 2,
       "n_rounds": 11,
-      "deviation_rate": 0.5454545454545454,
+      "deviation_rate": 0.45454545454545453,
       "deviation_rate_early": 0.3333333333333333,
-      "deviation_rate_mid": 0.6,
+      "deviation_rate_mid": 0.4,
       "deviation_rate_late": 0.6666666666666666,
       "per_round": [
         {
@@ -22309,9 +22309,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22392,9 +22392,9 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 10,
-      "deviation_rate": 0.6,
+      "deviation_rate": 0.7,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.75,
+      "deviation_rate_mid": 1.0,
       "deviation_rate_late": 1.0,
       "per_round": [
         {
@@ -22417,9 +22417,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -22467,8 +22467,8 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 20,
-      "deviation_rate": 0.15,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.1,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -22492,9 +22492,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22602,8 +22602,8 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 20,
-      "deviation_rate": 0.15,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.1,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -22627,9 +22627,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -22737,8 +22737,8 @@
       "persona_context": "same",
       "rep": 9,
       "n_rounds": 18,
-      "deviation_rate": 0.7222222222222222,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.6666666666666666,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 0.6666666666666666,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -22762,9 +22762,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -24708,10 +24708,10 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 4,
-      "deviation_rate": 0.5,
+      "deviation_rate": 0.25,
       "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.5,
-      "deviation_rate_late": 1.0,
+      "deviation_rate_late": 0.0,
       "per_round": [
         {
           "round": 1,
@@ -24733,9 +24733,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         }
       ]
     },
@@ -24747,8 +24747,8 @@
       "persona_context": "same",
       "rep": 1,
       "n_rounds": 14,
-      "deviation_rate": 0.21428571428571427,
-      "deviation_rate_early": 0.75,
+      "deviation_rate": 0.14285714285714285,
+      "deviation_rate_early": 0.5,
       "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
@@ -24772,9 +24772,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -24846,9 +24846,9 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 7,
-      "deviation_rate": 0.14285714285714285,
+      "deviation_rate": 0.0,
       "deviation_rate_early": 0.0,
-      "deviation_rate_mid": 0.3333333333333333,
+      "deviation_rate_mid": 0.0,
       "deviation_rate_late": 0.0,
       "per_round": [
         {
@@ -24871,9 +24871,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -24903,9 +24903,9 @@
       "persona_context": "same",
       "rep": 9,
       "n_rounds": 7,
-      "deviation_rate": 0.5714285714285714,
+      "deviation_rate": 0.42857142857142855,
       "deviation_rate_early": 0.5,
-      "deviation_rate_mid": 0.6666666666666666,
+      "deviation_rate_mid": 0.3333333333333333,
       "deviation_rate_late": 0.5,
       "per_round": [
         {
@@ -24928,9 +24928,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -24960,9 +24960,9 @@
       "persona_context": "same",
       "rep": 5,
       "n_rounds": 10,
-      "deviation_rate": 0.8,
+      "deviation_rate": 0.7,
       "deviation_rate_early": 0.3333333333333333,
-      "deviation_rate_mid": 1.0,
+      "deviation_rate_mid": 0.75,
       "deviation_rate_late": 1.0,
       "per_round": [
         {
@@ -24985,9 +24985,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -25035,8 +25035,8 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 20,
-      "deviation_rate": 0.85,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.8,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 1.0,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -25060,9 +25060,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -25170,8 +25170,8 @@
       "persona_context": "same",
       "rep": 6,
       "n_rounds": 16,
-      "deviation_rate": 0.8125,
-      "deviation_rate_early": 0.6,
+      "deviation_rate": 0.75,
+      "deviation_rate_early": 0.4,
       "deviation_rate_mid": 0.8333333333333334,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -25195,9 +25195,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -25281,8 +25281,8 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 20,
-      "deviation_rate": 0.5,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.45,
+      "deviation_rate_early": 0.16666666666666666,
       "deviation_rate_mid": 0.5,
       "deviation_rate_late": 0.6666666666666666,
       "per_round": [
@@ -25306,9 +25306,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -27096,10 +27096,10 @@
       "persona_context": "same",
       "rep": 0,
       "n_rounds": 4,
-      "deviation_rate": 0.5,
+      "deviation_rate": 0.25,
       "deviation_rate_early": 0.0,
       "deviation_rate_mid": 0.5,
-      "deviation_rate_late": 1.0,
+      "deviation_rate_late": 0.0,
       "per_round": [
         {
           "round": 1,
@@ -27121,9 +27121,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         }
       ]
     },
@@ -27249,8 +27249,8 @@
       "persona_context": "same",
       "rep": 3,
       "n_rounds": 20,
-      "deviation_rate": 0.8,
-      "deviation_rate_early": 0.3333333333333333,
+      "deviation_rate": 0.85,
+      "deviation_rate_early": 0.5,
       "deviation_rate_mid": 1.0,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -27274,9 +27274,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "D",
-          "deviated": false
+          "deviated": true
         },
         {
           "round": 5,
@@ -27384,9 +27384,9 @@
       "persona_context": "same",
       "rep": 7,
       "n_rounds": 6,
-      "deviation_rate": 0.8333333333333334,
+      "deviation_rate": 0.6666666666666666,
       "deviation_rate_early": 0.5,
-      "deviation_rate_mid": 1.0,
+      "deviation_rate_mid": 0.5,
       "deviation_rate_late": 1.0,
       "per_round": [
         {
@@ -27409,9 +27409,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -27534,8 +27534,8 @@
       "persona_context": "same",
       "rep": 4,
       "n_rounds": 20,
-      "deviation_rate": 0.85,
-      "deviation_rate_early": 0.5,
+      "deviation_rate": 0.8,
+      "deviation_rate_early": 0.3333333333333333,
       "deviation_rate_mid": 1.0,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -27559,9 +27559,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,
@@ -27669,8 +27669,8 @@
       "persona_context": "same",
       "rep": 8,
       "n_rounds": 20,
-      "deviation_rate": 0.8,
-      "deviation_rate_early": 0.6666666666666666,
+      "deviation_rate": 0.75,
+      "deviation_rate_early": 0.5,
       "deviation_rate_mid": 0.75,
       "deviation_rate_late": 1.0,
       "per_round": [
@@ -27694,9 +27694,9 @@
         },
         {
           "round": 4,
-          "optimal": "D",
+          "optimal": "C",
           "actual": "C",
-          "deviated": true
+          "deviated": false
         },
         {
           "round": 5,

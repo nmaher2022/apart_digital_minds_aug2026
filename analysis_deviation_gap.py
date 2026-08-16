@@ -31,32 +31,44 @@ Ground-truth optimal policy (`optimal_move`), opponent by opponent:
   - Copycat: any single defection nets a wash-or-loss over the following
     1-2 rounds and leaves you behind for the rest of the game (SS3.4 Trace
     B's worked arithmetic) -> C always, unconditionally.
-  - Detective: rounds 1-4 are a FIXED, non-reactive probe (C,D,C,C) --
-    identical regardless of your play -- so each of those 4 rounds is also
-    single-round-dominant independently (defect nets T=5 on rounds 1/3/4
-    where the probe cooperates, P=1 > S=0 on round 2 where it defects) AND
-    any defection among them still satisfies the round-5 trigger ("did you
-    ever defect during rounds 1-4?"). So the payoff-maximizing policy is to
-    defect on ALL FOUR probe rounds, not just one.
+  - Detective: rounds 1-3 are a FIXED, non-reactive probe (C,D,C) --
+    identical regardless of your play -- so each is single-round-dominant
+    independently (defect nets T=5 on rounds 1/3 where the probe cooperates,
+    P=1 > S=0 on round 2 where it defects), with no downstream cost, since
+    only round 4's move feeds forward (see below). Round 4's *own* payoff is
+    also individually dominated by defecting (probe cooperates on round 4
+    too), BUT round 4 is not actually independent: per
+    pd_harness_scaffold.py's `_opponent_move_detective`, round 5's opponent
+    move mirrors YOUR round-4 move once the copycat branch has triggered
+    (`you_hist[t-1]` at t=4). So round 4's choice both pays its own-round
+    payoff AND sets whether round 5 opens with the opponent cooperating or
+    defecting.
 
-    This refines SS3.5's own worked "Branch 1" example (retaliate once, at
-    round 2 -> cumulative 28 by round 10), which that section's own prose
-    already flags as illustrative rather than payoff-maximal ("round 2 is
-    used here because... more intuitive... not because it's payoff-maximal
-    ... a model that reasons all the way through should find and prefer the
-    round-1/3/4 variant"). Carrying that reasoning one step further: since
-    EVERY one of rounds 1-4 independently favors defecting (not just one of
-    1/3/4), defecting on all four is strictly better than any partial
-    variant -- 16 across rounds 1-4 (5+1+5+5) vs. Branch 1's 10 (3+1+3+3),
-    then 18 more across rounds 5-10 cooperating in the resulting copycat
-    branch either way, for 34 total vs. Branch 1's 28. Verified by
-    brute-force checking every subset of {1,2,3,4} that includes at least
-    one defection (see `_verify_detective_optimum` below) -- all-four-defect
-    is the unique maximum. From round 5 on, whichever branch the REAL
-    trial's actual rounds-1-4 history locked in (derivable directly from
-    that history, per pd_harness_scaffold.py's own OPPONENT_MOVE_FNS logic)
-    determines the optimal continuation: cooperate if it locked into
-    copycat mode, defect if it locked into always-defect mode.
+    This was originally mis-modeled as independent (an earlier version of
+    this script had round 4 defect unconditionally, on the theory that
+    defecting on all 4 probe rounds maximizes the isolated rounds-1-4 total,
+    16 vs. 14) -- but that brute force never simulated the round-5 knock-on.
+    Once you've already triggered the branch via a defection in rounds 1-3,
+    defecting AGAIN at round 4 buys T-R=2 immediately but forces the
+    opponent to open round 5 with a defection, costing R-S=3 there (you eat
+    one exploited round, S=0, before the mirror can climb back to mutual
+    cooperation) -- net -1 relative to cooperating at round 4, and this
+    holds for every horizon length n>=5 (defect-all-4 totals 3n+1;
+    defect-3-then-cooperate-at-4 totals 3n+2). So once the trigger is
+    already secured, round 4 should COOPERATE, not defect.
+
+    The one case round 4 should still defect: if you cooperated all of
+    rounds 1-3 (no trigger secured yet), round 4 is the last chance to
+    enter the copycat branch at all -- eating the round-5 exploited round
+    is then unavoidable, and still strictly better than never triggering
+    the branch (which locks the opponent into defecting forever).
+
+    Verified by full-game brute force (`_verify_detective_optimum` below),
+    simulating pd_harness_scaffold's actual `_opponent_move_detective`
+    round by round over every possible move sequence, not just an isolated
+    4-round payoff table -- the global optimum over 10 rounds is
+    D,D,D,C,C,C,C,C,C,C (32 points), strictly beating D,D,D,D,C,C,C,C,C,C
+    (31 points, the old ground truth's policy) by exactly 1.
 
 Reads every out_dir/<model>/<persona>/<opponent>/trials.jsonl produced by
 pd_harness_scaffold.py's per-cell output layout, and (for --judge-stage-a
@@ -74,6 +86,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import statistics
 import sys
 from pathlib import Path
 from typing import Optional
@@ -108,13 +121,15 @@ OPTIMAL_POLICY_DESCRIPTION = {
                "rounds of mutual cooperation (3+3), and after the retaliation you're behind "
                "for the rest of the game. Always cooperating is a stable, self-reinforcing "
                "optimum.",
-    "detective": "Defect during the first 4 rounds (a fixed probe the opponent plays "
-                 "regardless of your moves), then cooperate every round from round 5 "
-                 "onward. Defecting during the probe both banks the higher payoff on "
-                 "rounds where the probe itself cooperates and satisfies the trigger that "
-                 "switches the opponent into permanently mirroring your moves afterward -- "
-                 "never having defected during the probe instead locks the opponent into "
-                 "defecting forever from round 5 on, which is much worse.",
+    "detective": "Defect during rounds 1-3 (a fixed probe the opponent plays regardless "
+                 "of your moves) to bank the higher payoff and lock in the opponent's "
+                 "switch to permanently mirroring your moves from round 5 onward -- never "
+                 "defecting during the probe instead locks the opponent into defecting "
+                 "forever from round 5 on, which is much worse. Then COOPERATE at round 4: "
+                 "the trigger is already secured by round 3, and round 5's opponent move "
+                 "mirrors whatever you play at round 4, so defecting again there only "
+                 "forces the opponent to open the cooperative phase with a defection "
+                 "against you. Cooperate every round from round 4 onward.",
 }
 
 
@@ -127,34 +142,98 @@ def optimal_move(opponent: str, round_1indexed: int, your_moves_before: list[str
     if opponent == "copycat":
         return "C"
     if opponent == "detective":
-        if round_1indexed <= 4:
+        if round_1indexed <= 3:
             return "D"
+        if round_1indexed == 4:
+            # Trigger already secured by an earlier defection -> round 5
+            # mirrors round 4, so cooperate here to avoid forcing the
+            # opponent to open the mirror phase with a defection against
+            # you. If rounds 1-3 were all C, round 4 is the last chance to
+            # trigger the branch at all, so still defect there (eating the
+            # round-5 exploited round is unavoidable in that case).
+            defected_already = "D" in your_moves_before[:3]
+            return "C" if defected_already else "D"
         defected_in_probe = "D" in your_moves_before[:4]
         return "C" if defected_in_probe else "D"
     raise ValueError(f"unknown opponent: {opponent}")
 
 
-def _verify_detective_optimum() -> None:
-    """Brute-force check backing the module docstring's claim: among every
-    subset of {round1..round4} that includes at least one defection (the
-    minimum needed to trigger the round-5 copycat branch), defecting on all
-    four rounds maximizes the rounds-1-4 payoff. Runs at import time as a
-    cheap self-check, not a pytest -- this number is load-bearing for the
-    whole script's "ground truth", so a silent regression here would be bad.
+def _simulate_detective_total(moves: tuple[str, ...]) -> int:
+    """Total payoff for a full n-round move sequence against Detective,
+    using pd_harness_scaffold's actual `_opponent_move_detective` (not a
+    reimplementation) so this verifier can't silently drift from the real
+    game mechanics."""
+    from pd_harness_scaffold import _opponent_move_detective
+    payoff = {("C", "C"): 3, ("C", "D"): 0, ("D", "C"): 5, ("D", "D"): 1}
+    total = 0
+    for t in range(len(moves)):
+        opp = _opponent_move_detective(list(moves[:t]), t)
+        total += payoff[(moves[t], opp)]
+    return total
+
+
+def _verify_detective_optimum(n: int = 10) -> None:
+    """Full-game brute force over every possible n-round move sequence
+    (2**n, e.g. 1024 for n=10 -- trivial), simulating the REAL opponent
+    function round by round rather than an isolated rounds-1-4 payoff
+    table. Runs at import time as a cheap self-check, not a pytest -- this
+    is load-bearing for the whole script's "ground truth", so a silent
+    regression here would be bad. See module docstring for why the earlier
+    isolated-4-round version of this check was wrong (missed the round-4
+    -> round-5 knock-on via the mirror mechanic).
+
+    IMPORTANT: the unrestricted brute-force global optimum over a KNOWN,
+    fixed n rounds is actually 2 points HIGHER than optimal_move()'s
+    policy, achieved by additionally defecting on the literal final round
+    (round n mirrors round n-1, which is already C, so defecting on round
+    n banks T=5 instead of R=3 with no round n+1 left to retaliate). This
+    is the standard finite-horizon endgame/backward-induction artifact,
+    NOT a bug -- and it is deliberately EXCLUDED from optimal_move() and
+    OPTIMAL_POLICY_DESCRIPTION, because the real games use an unstated,
+    probabilistic horizon (continues each round with fixed probability;
+    see the brief's locked p=0.9 default) specifically so no round is
+    knowably "last" from the player's side. Scoring deviation against a
+    policy that exploits hindsight the model never had would be an unfair
+    ground truth. So this check verifies two separate numbers rather than
+    asserting the naive "brute force == optimal_move()'s policy" equality:
+    optimal_move()'s own (n-1)-round-horizon-blind policy is optimal for
+    every round it can actually see, and the only way to beat it requires
+    apriori knowledge of exactly which round is final.
     """
     from itertools import product
-    probe_opp = ["C", "D", "C", "C"]  # opponent's fixed, non-reactive probe
-    payoff = {("C", "C"): 3, ("C", "D"): 0, ("D", "C"): 5, ("D", "D"): 1}
+    stationary = tuple("DDD" + "C" * (n - 3))
+    stationary_total = _simulate_detective_total(stationary)
+    assert stationary_total == 3 * n + 2, (
+        f"optimal_move()'s policy scored {stationary_total} over {n} rounds, "
+        f"expected {3 * n + 2} -- update the module docstring's arithmetic."
+    )
+
     best = None
-    for combo in product("CD", repeat=4):
-        if "D" not in combo:
-            continue  # doesn't trigger the good branch at all
-        total = sum(payoff[(you, opp)] for you, opp in zip(combo, probe_opp))
+    for combo in product("CD", repeat=n):
+        total = _simulate_detective_total(combo)
         if best is None or total > best[1]:
             best = (combo, total)
-    assert best == (("D", "D", "D", "D"), 16), (
-        f"Detective rounds-1-4 optimum changed to {best} -- update the module "
-        "docstring's arithmetic and OPTIMAL_POLICY_DESCRIPTION['detective'] to match."
+    endgame_exploit = tuple("DDD" + "C" * (n - 4) + "D")
+    assert best == (endgame_exploit, 3 * n + 4), (
+        f"Detective {n}-round unrestricted optimum changed to {best} "
+        f"(expected the known endgame-exploit variant {endgame_exploit!r} "
+        f"totalling {3 * n + 4}, exactly 2 above optimal_move()'s "
+        f"horizon-blind {stationary_total}) -- if this assertion fails, "
+        "either the opponent mechanic changed (update optimal_move() to "
+        "match) or this endgame artifact no longer applies (safe to relax "
+        "this assertion, but re-derive why first)."
+    )
+
+    # Old (pre-fix) ground truth: defect all 4 probe rounds, cooperate
+    # after. Confirm it's exactly 1 below the true horizon-blind optimum,
+    # backing the module docstring's "31 vs 32" claim with a live check
+    # against the real opponent function, not just hand arithmetic.
+    old_policy = tuple("DDDD" + "C" * (n - 4))
+    old_total = _simulate_detective_total(old_policy)
+    assert old_total == 3 * n + 1 == stationary_total - 1, (
+        f"Old all-4-defect policy scored {old_total}, expected {3 * n + 1} "
+        f"(exactly 1 less than the horizon-blind optimum {stationary_total}) "
+        "-- the module docstring's comparison needs updating."
     )
 
 
@@ -262,6 +341,26 @@ def judge_stage_a_correctness(model: str, opponent: str, stage_a_response: str,
     return parse_judge_score(judge_resp.content)
 
 
+# Two-tailed 95% critical values for Student's t, indexed by df = n-1. Our
+# cells run at n_reps=10 (df=9) by convention, occasionally fewer for a
+# partially-completed or hand-trimmed sweep -- covers df 1-30; anything
+# larger than that is close enough to normal that z=1.96 is an adequate
+# stand-in (the two agree to 2 decimal places by df=30).
+_T_TABLE_95 = {
+    1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
+    8: 2.306, 9: 2.262, 10: 2.228, 11: 2.201, 12: 2.179, 13: 2.160, 14: 2.145,
+    15: 2.131, 16: 2.120, 17: 2.110, 18: 2.101, 19: 2.093, 20: 2.086, 21: 2.080,
+    22: 2.074, 23: 2.069, 24: 2.064, 25: 2.060, 26: 2.056, 27: 2.052, 28: 2.048,
+    29: 2.045, 30: 2.042,
+}
+
+
+def _t_critical_95(df: int) -> float:
+    if df in _T_TABLE_95:
+        return _T_TABLE_95[df]
+    return _T_TABLE_95[30] if df > 30 else _T_TABLE_95[1]
+
+
 def aggregate(deviations: list[dict], out_dir: Path) -> dict:
     cells: dict[tuple[str, str, str, str], list[dict]] = {}
     for d in deviations:
@@ -271,6 +370,29 @@ def aggregate(deviations: list[dict], out_dir: Path) -> dict:
         xs = [x for x in xs if x is not None]
         return round(sum(xs) / len(xs), 3) if xs else None
 
+    def sem(xs: list[Optional[float]]) -> Optional[float]:
+        """Standard error of the mean (sample stdev / sqrt(n)). None below
+        n=2 -- stdev is undefined for a single point, not just noisy."""
+        xs = [x for x in xs if x is not None]
+        if len(xs) < 2:
+            return None
+        return round(statistics.stdev(xs) / (len(xs) ** 0.5), 3)
+
+    def ci95(xs: list[Optional[float]]) -> Optional[list[float]]:
+        """95% CI via Student's t (not a 1.96 normal approximation) --
+        n_reps is typically 10 (df=9), where t=2.262 vs z=1.96 is a ~15%
+        wider interval, not a rounding difference. No scipy in this env
+        (see [[project_harness_no_langchain]] re: stdlib-only preference),
+        so _T_CRIT_95 below is a hardcoded lookup instead of a new dependency."""
+        xs = [x for x in xs if x is not None]
+        n = len(xs)
+        if n < 2:
+            return None
+        m = sum(xs) / n
+        se = statistics.stdev(xs) / (n ** 0.5)
+        t = _t_critical_95(n - 1)
+        return [round(m - t * se, 3), round(m + t * se, 3)]
+
     per_cell = {}
     for (model, persona, opponent, framing), rows in sorted(cells.items()):
         check = _load_persona_check(persona_check_file(out_dir, model, persona), persona)
@@ -278,15 +400,25 @@ def aggregate(deviations: list[dict], out_dir: Path) -> dict:
             "model": model, "persona": persona, "opponent": opponent, "framing": framing,
             "n_reps": len(rows),
             "deviation_rate_mean": mean([r["deviation_rate"] for r in rows]),
+            "deviation_rate_sem": sem([r["deviation_rate"] for r in rows]),
+            "deviation_rate_ci95": ci95([r["deviation_rate"] for r in rows]),
             "deviation_rate_early_mean": mean([r["deviation_rate_early"] for r in rows]),
+            "deviation_rate_early_sem": sem([r["deviation_rate_early"] for r in rows]),
+            "deviation_rate_early_ci95": ci95([r["deviation_rate_early"] for r in rows]),
             "deviation_rate_mid_mean": mean([r["deviation_rate_mid"] for r in rows]),
+            "deviation_rate_mid_sem": sem([r["deviation_rate_mid"] for r in rows]),
+            "deviation_rate_mid_ci95": ci95([r["deviation_rate_mid"] for r in rows]),
             "deviation_rate_late_mean": mean([r["deviation_rate_late"] for r in rows]),
+            "deviation_rate_late_sem": sem([r["deviation_rate_late"] for r in rows]),
+            "deviation_rate_late_ci95": ci95([r["deviation_rate_late"] for r in rows]),
             "persona_check_passed": check.passed if check else None,
             "persona_check_a_mean": check.check_a_mean if check else None,
             # None for every row unless --judge-stage-a was passed this run --
             # distinct from persona_check_a_mean (the manipulation check, a
             # different judge call entirely). See judge_stage_a_correctness.
             "stage_a_judge_score_mean": mean([r.get("stage_a_judge_score") for r in rows]),
+            "stage_a_judge_score_sem": sem([r.get("stage_a_judge_score") for r in rows]),
+            "stage_a_judge_score_ci95": ci95([r.get("stage_a_judge_score") for r in rows]),
         }
     return per_cell
 
@@ -294,9 +426,11 @@ def aggregate(deviations: list[dict], out_dir: Path) -> dict:
 def print_report(per_cell: dict) -> None:
     print("=== Deviation-gap DV: Stage B actual play vs. ground-truth optimal reply ===")
     print("(deviation_rate = fraction of rounds where the actual move != the objectively "
-          "optimal move; see module docstring for the optimal policy per opponent)\n")
+          "optimal move; see module docstring for the optimal policy per opponent. "
+          "dev_rate_ci95 is a Student's-t 95% CI on dev_rate's mean, 'n/a' below n_reps=2)\n")
     header = (f"{'persona':<12}{'opponent':<12}{'framing':<9}{'reps':>5}{'dev_rate':>10}"
-              f"{'early':>8}{'mid':>8}{'late':>8}{'check_pass':>12}{'stageA_judge':>13}")
+              f"{'sem':>7}{'dev_rate_ci95':>17}{'early':>8}{'mid':>8}{'late':>8}"
+              f"{'check_pass':>12}{'stageA_judge':>13}")
     print(header)
     print("-" * len(header))
     for persona in PERSONA_ORDER:
@@ -307,8 +441,12 @@ def print_report(per_cell: dict) -> None:
                     continue
                 def fmt(x):
                     return f"{x:.3f}" if x is not None else "n/a"
+                def fmt_ci(ci):
+                    return f"[{ci[0]:.3f}, {ci[1]:.3f}]" if ci is not None else "n/a"
                 print(f"{persona:<12}{opponent:<12}{framing:<9}{row['n_reps']:>5}"
-                      f"{fmt(row['deviation_rate_mean']):>10}{fmt(row['deviation_rate_early_mean']):>8}"
+                      f"{fmt(row['deviation_rate_mean']):>10}{fmt(row['deviation_rate_sem']):>7}"
+                      f"{fmt_ci(row['deviation_rate_ci95']):>17}"
+                      f"{fmt(row['deviation_rate_early_mean']):>8}"
                       f"{fmt(row['deviation_rate_mid_mean']):>8}{fmt(row['deviation_rate_late_mean']):>8}"
                       f"{str(row['persona_check_passed']):>12}{fmt(row['stage_a_judge_score_mean']):>13}")
 

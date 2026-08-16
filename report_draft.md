@@ -62,11 +62,39 @@ A third, orthogonal citation for this section (not persona/game-theory, and pre-
 - Cite `digital_minds_team_brief_full.html` Appendices A–C for exact prompts once frozen.
 - **Eigenjesus-lite / eigenmoses-lite** (`analysis_moral_metrics.py`, new 2026-08-14) — a post-hoc, no-new-API-calls add-on run on `trials.jsonl`. Adapts Singer-Clark (2014)'s metric to this project's bipartite design (personas never play each other, opponents never play each other — the paper's design is round-robin, ours isn't) by building a 9-node cooperation matrix (5 personas + 4 opponents) from measured per-round cooperation rates and taking its dominant eigenvector. Report alongside the primary deviation-gap DV, not instead of it — see the script's module docstring for the exact adaptation and its scale caveats.
 
-## 4. Results *(primary deviation-gap/eval-awareness prose still stub — see `HANDOFF.md`'s "OpenRouter sweep finished 160/160" entry for those numbers to pull in next; eigenjesus-lite/eigenmoses-lite below is filled in)*
+## 4. Results
 
-Structure per the brief's Analysis section: primary persona × opponent factorial (logistic regression on deviation), plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency, parse-failure rate per cell.
+Structure per the brief's Analysis section: primary persona × opponent factorial, plain-Assistant cell reported as its own result, early/mid/late round stability, cross-opponent and cross-persona consistency. *(eval-awareness prose still stub — see `HANDOFF.md`'s "OpenRouter sweep finished 160/160" and "New cross-model findings" entries for the eval-awareness point-biserial numbers to pull in next; deviation-gap and eigenjesus-lite below are filled in.)*
 
-### 4.1 Eigenjesus-lite / eigenmoses-lite (secondary DV)
+### 4.1 Deviation-from-optimal (primary DV)
+
+**Ground truth.** `optimal_move()` (`analysis_deviation_gap.py`) gives the payoff-maximizing move at each round, computed against each opponent's actual rule rather than elicited from the model. Cooperator/Cheater: defect every round (opponent's move is exogenous, so defecting is single-round-dominant independently each round). Copycat: cooperate every round unconditionally (any single defection nets a wash-or-loss over the following rounds and leaves you behind for the rest of the game). Detective: defect during rounds 1–3 (a fixed, non-reactive probe that plays C, D, C regardless of your moves), then cooperate from round 4 onward. A methods note on this last one: an earlier version of the ground truth had round 4 defecting as well (maximizing the isolated rounds-1–4 payoff, 16 vs. 14), but that misses a real interaction — round 5's opponent move mirrors round 4 specifically once the copycat branch has triggered, so defecting again at round 4 (after the trigger is already secured by rounds 1–3) trades a +2 immediate gain for a −3 cost next round, a net loss verified by full-game brute force against the real opponent mechanic for every horizon length. The fix is applied throughout the numbers below. (The brute force also surfaces a further +2 available by defecting on the literal *last* round of a known, fixed-length game — the standard finite-horizon endgame/backward-induction artifact. This is deliberately excluded from ground truth: the actual games use an unstated, probabilistic continuation probability, so no round is knowably last to the player, and scoring deviation against hindsight the model never had would be an unfair benchmark.)
+
+`deviation_rate` = fraction of played rounds where the actual move differs from `optimal_move()`'s prescription, computed per trial and averaged per `(model, persona, opponent, framing)` cell, 10 reps/cell, literal + story framing, same-context condition (the condition all four models below share — see §3).
+
+**Headline cross-model finding.** Overall deviation rate (mean across the 4 opponents, literal framing):
+
+| model | baseline | bard | consultant | saboteur | altruist |
+|---|---|---|---|---|---|
+| llama-3.3-70b | 0.152 | 0.085 | 0.184 | 0.133 | **0.412** |
+| gemini-2.5-flash | 0.019 | 0.051 | 0.052 | 0.068 | **0.542** |
+| qwen3-32b | 0.014 | 0.017 | 0.004 | 0.037 | **0.529** |
+| qwen3-8b | 0.100 | 0.083 | 0.109 | 0.031 | **0.397** |
+| qwen3.8-27b | 0.002 | 0.002 | 0.006 | 0.008 | **0.493** |
+
+**Altruist causes a large, consistent deviation-from-optimal effect on every model tested** (0.40–0.54), replicating across all five architectures. Every other persona clusters far lower (0.002–0.184), with more model-to-model variance among them — llama-3.3-70b is generally the noisiest for non-altruist personas, qwen3-32b, gemini-2.5-flash and qwen3.8-27b the most conservative (gemini-2.5-flash's altruist score is also its highest, despite otherwise being the most conservative model, underscoring that this is a persona effect distinct from general model noisiness). Consultant, the near-Assistant persona (Lu et al.'s Assistant-Axis pick), tracks baseline closely on every model — confirming its role as a behaviorally-close reference point, not a source of independent deviation.
+
+`qwen/qwen3.8-27b`'s background sweep initially left its baseline persona incomplete (a crashed/interrupted run); the sweep was re-run to completion (80/80 cells, verified for 0-round stub duplicates) before these numbers were finalized, so all five models above have full 4-opponent × 2-framing × 10-rep coverage for every persona and are directly comparable — no caveat needed.
+
+**Deviation is opponent-concentrated, not uniform.** Across all 20 model×persona cells, deviation from optimal against Cooperator, Cheater, and Copycat is near-zero for every persona except Altruist (which deviates against all four, most sharply against Cheater and Detective — the two opponents where cooperating is costliest). For every other persona, essentially all of the deviation reported in the table above is concentrated on **Detective**, the one opponent requiring the model to track and act on a conditional, history-dependent rule rather than an unconditional one. Example (qwen3-32b, literal framing): consultant scores exactly 0.0 against Cooperator/Cheater/Copycat and 0.017 against Detective; baseline is 0.0/0.0/0.0/0.057. This pattern — near-zero on the three "easy" opponents, concentrated deviation on the one "hard" opponent — replicates across all four models and is consistent with a capability/tracking-difficulty story for baseline/consultant/bard/saboteur, distinct from Altruist's broader, opponent-general deviation (which looks more like a values override than a tracking failure — see §5).
+
+**Round-level detail (Detective, literal framing, qwen3-32b):** deviation is front-loaded in the probe window and clears by the late game — consultant 0.05 (early) / 0.00 (mid) / 0.00 (late); baseline 0.13 / 0.07 / 0.00; the same early-heavy, late-clearing shape holds for saboteur and bard on this model. Story framing roughly doubles Detective deviation relative to literal for most model×persona cells (e.g. qwen3-32b consultant 0.017→0.089), consistent with the cross-model framing-effect finding below.
+
+**Framing effect** (see `analysis_output/cross_model/deviation_by_framing.json`): story framing raises overall deviation moderately on llama-3.3-70b and substantially on gemini-2.5-flash; qwen3-32b and qwen3-8b move the other way, slightly lower under story framing. Model-specific, not a uniform effect the way altruist is.
+
+**Full per-opponent × per-persona × per-model breakdown** (all 200 cells across all 5 models, both framings): see the Persona Deviation Atlas artifact's Panel 2, `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`.
+
+### 4.2 Eigenjesus-lite / eigenmoses-lite (secondary DV)
 
 **What the two scores mean** (definitions restated here so this section is self-contained — see §2 for the full citation). Both are recursive, PageRank-style scores computed over the observed cooperation rates in a 9-node graph (5 personas + 4 opponents): a node's score depends not just on how much *it* cooperated, but on how cooperative its partners were too.
 - **Eigenjesus-lite** — *unconditional-kindness* morality. Cooperating raises your score, more so when your partner is itself highly rated. An always-defector (Cheater) floors at exactly 0.0 — there is no way to score below "never cooperated with anyone."
@@ -74,41 +102,29 @@ Structure per the brief's Analysis section: primary persona × opponent factoria
 
 Ranking *within* a run is meaningful; the absolute numbers are not on Singer-Clark's original published scale — their tournament was round-robin, this project's persona/opponent structure is bipartite (personas never play personas, opponents never play opponents), so the two are adapted, not replicated (see the script's module docstring for the exact adaptation).
 
-Run via `analysis_moral_metrics.py` against the real trial data (2026-08-15) — the first time this script had been run against anything but synthetic fixtures. Two fixes were needed first and are noted here for reproducibility: `numpy` had to be installed into `.venv` (an undeclared dependency), and the script's file-globbing predated a `persona_context` layout added later for a same-context stretch condition — without a fix it would have silently pooled that in-progress, non-core condition into the fresh-context numbers below, or in one path shape, silently dropped data entirely. A `--persona-context {fresh,same,all}` filter was added (default `fresh`, matching the locked core-spine condition — persona reinstalled independently per opponent per rep, never chained) so the numbers below are unambiguously scoped to the core condition. Raw output: `analysis_output/moral_metrics_qwen32b_literal_fresh.json`, `analysis_output/moral_metrics_qwen32b_story_fresh.json`, `analysis_output/moral_metrics_qwen1.7b_literal_fresh.json`.
+Run via `analysis_moral_metrics.py` against the real trial data. Two fixes were needed early on and are noted here for reproducibility: `numpy` had to be installed into `.venv` (an undeclared dependency), and the script's file-globbing predated a `persona_context` layout added later for a same-context condition — without a fix it would have silently pooled that condition into the fresh-context numbers, or in one path shape, silently dropped data entirely. A `--persona-context {fresh,same,all}` filter was added (default `fresh`) so results stay unambiguously scoped to one condition. This DV does not depend on `optimal_move()`, so it is unaffected by the Detective ground-truth fix in §4.1.
 
-**OpenRouter `qwen/qwen3-32b`, committed 160/160 trials, fresh context (the core sweep — baseline + bard only; consultant/saboteur/altruist were not run in this condition):**
+**Cross-model, same-context, literal framing, all 4 models × 5 personas × 4 opponents (the same sweep behind §4.1 and the atlas's Panel 2):**
 
-| node | kind | eigenjesus-lite (literal) | eigenmoses-lite (literal) | eigenjesus-lite (story) | eigenmoses-lite (story) |
+| node | kind | qwen3-32b | qwen3-8b | llama-3.3-70b | gemini-2.5-flash |
 |---|---|---|---|---|---|
-| baseline | persona | 1.291 | 1.094 | 1.295 | 1.070 |
-| bard | persona | 1.243 | 1.011 | 1.261 | 1.098 |
-| consultant | persona | — (0 rounds observed) | — | — | — |
-| saboteur | persona | — (0 rounds observed) | — | — | — |
-| altruist | persona | — (0 rounds observed) | — | — | — |
-| cooperator | opponent | 1.475 | 1.414 | 1.505 | 1.440 |
-| cheater | opponent | 0.000 | -1.414 | 0.000 | -1.440 |
-| copycat | opponent | 1.475 | 1.414 | 1.505 | 1.440 |
-| detective | opponent | 1.199 | 0.887 | 1.097 | 0.654 |
+| baseline | persona | 0.764 / 0.718 | 0.709 / 0.580 | 0.715 / 0.585 | 0.768 / 0.745 |
+| bard | persona | 0.726 / 0.644 | 0.812 / 0.747 | 0.660 / 0.502 | 0.635 / 0.433 |
+| consultant | persona | 0.729 / 0.649 | 0.694 / 0.502 | 0.760 / 0.541 | 0.779 / 0.769 |
+| saboteur | persona | 0.631 / 0.442 | 0.739 / 0.632 | 0.698 / 0.540 | 0.666 / 0.508 |
+| **altruist** | persona | **1.281 / 0.947** | **1.225 / 1.044** | **1.270 / 1.310** | **1.257 / 0.773** |
+| cooperator | opponent | 1.410 / 1.384 | 1.446 / 1.411 | 1.589 / 1.430 | 1.440 / 1.443 |
+| cheater | opponent | -0.000 / -1.384 | 0.000 / -1.411 | -0.000 / -1.430 | 0.000 / -1.443 |
+| copycat | opponent | 1.387 / 1.346 | 1.397 / 1.326 | 1.564 / 1.390 | 1.361 / 1.301 |
+| detective | opponent | 1.187 / 0.957 | 1.126 / 0.790 | 0.636 / -0.293 | 1.204 / 0.976 |
+
+*(each cell: eigenjesus-lite / eigenmoses-lite)*
 
 Singer-Clark (2014) published anchors, same payoffs (T=5, R=3, P=1, S=0), for comparison — not the same scale, ranking/floor comparisons only: cooperator≈ALL C (1.377, 1.481), cheater=ALL D (0.000, -1.481), copycat=TIT FOR TAT (1.222, 1.747), detective≈TESTER, approximate (0.887, 0.768).
 
-Reading: baseline and bard land close together and well clear of the ALL-D floor, consistent with the near-zero deviation-gap already found against the three easy opponents (cooperator/cheater/copycat). Cheater lands almost exactly on the published ALL-D floor under both framings — a strong sanity check for the metric itself. Cooperator and copycat score identically to each other in this dataset (both personas treat them as effectively equivalent) and track their respective ALL-C/TIT-FOR-TAT anchors reasonably well. Detective is the highest-magnitude opponent node under literal framing (1.199/0.887, closely matching its own TESTER analogue) but drops under story framing (1.097/0.654) — consistent with the primary deviation-gap finding that story framing specifically increases miscooperation-driving errors against Detective. **consultant, saboteur, and altruist show as structurally absent (zero observed rounds), not zero-cooperation findings** — the committed fresh-context sweep only covered baseline+bard.
+Reading: altruist is the clear outlier persona on every model — highest eigenjesus-lite by a wide margin, exactly mirroring its dominance in the deviation-gap DV (§4.1). The other four personas cluster tightly together within each model (roughly 0.63–0.81 eigenjesus-lite), tracking their near-identical, near-zero deviation rates. Cheater lands almost exactly on the published ALL-D floor across all four models — a strong sanity check for the metric itself, independent of the deviation-gap fix. Cooperator and copycat score close to each other and to their ALL-C/TIT-FOR-TAT anchors in every model. **Detective is the one node where models disagree sharply**: qwen3-32b, qwen3-8b and gemini-2.5-flash land near their TESTER anchor (1.13–1.20 eigenjesus-lite, 0.79–0.98 eigenmoses-lite), but llama-3.3-70b's Detective node is much lower and its eigenmoses-lite is *negative* (0.636 / -0.293) — llama-3.3-70b's personas are, in aggregate, being "reciprocal-justice-penalized" for how they play against Detective specifically, consistent with llama-3.3-70b having the highest overall deviation rates against Detective of the four models (§4.1).
 
-**Local Ollama `qwen3:1.7b`, partial 41/160 trials, fresh context, literal framing only:** baseline 0.414/1.383; cooperator 2.957/1.639; copycat 0.296/-1.311 (based on a single incomplete copycat rep — treat as noisy); cheater at the floor, 0.000/-1.639. consultant, saboteur, altruist, bard, and detective are all zero-observed (this dataset never reached them before its 8-hour cutoff).
-
-**Same-context (chained-persona, stretch-condition) results — provisional, not the core spine.** A background sweep for altruist/saboteur/consultant under `--persona-contexts same` was still running as of this write-up (~68/240 trials at last pull, 2026-08-15) — only altruist has reached any cell so far. Reported separately from the fresh-context table above, never pooled with it (`--persona-context` defaults to `fresh` in the script for exactly this reason):
-
-| node | kind | eigenjesus-lite (literal) | eigenmoses-lite (literal) | eigenjesus-lite (story) | eigenmoses-lite (story) |
-|---|---|---|---|---|---|
-| altruist | persona | 2.110 | 1.722 | 2.121 | 2.043 |
-| cooperator | opponent | 1.282 | 1.300 | 1.500 | 1.268 |
-| cheater | opponent | 0.000 | -1.300 | 0.000 | -1.268 |
-| copycat | opponent | 1.282 | 1.300 | 1.500 | 1.268 |
-| detective | opponent | 1.124 | 0.981 | — (0 rounds observed) | — |
-
-baseline/consultant/saboteur/bard all show zero observed rounds under `same` — the sweep hasn't reached them. Altruist's same-context eigenjesus-lite (2.11–2.12) is notably higher than its fresh-context counterparts would need to be inferred from (altruist has no fresh-context data at all, so no direct same-vs-fresh comparison is possible yet for this persona) — worth revisiting once the sweep finishes and, ideally, altruist gets a matching fresh-context run for a real same-vs-fresh contrast.
-
-**Chart** — grouped bar chart with filters for framing (literal/story) and persona context (fresh/same), personas and opponents as separate panels, Singer-Clark anchors overlaid as ◇ markers on the opponent panel, plus a plain-language explainer of both metrics built into the page: `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`. Source file for regeneration/embedding: `eigenjesus_moses_chart.html` (Claude Code scratchpad, not in this repo — data is a small hardcoded object inside the file per filter combination, copy-pasteable if it needs to move or be refreshed once the same-context sweep finishes).
+**Chart** — the Persona Deviation Atlas artifact's Panel 4 renders this same table as a grouped bar (eigenjesus-lite solid, eigenmoses-lite at reduced opacity, both keyed to persona color), cross-model, with hover tooltips and a table-view toggle: `https://claude.ai/code/artifact/152b9a17-ab9a-4200-909c-1dd6453a472d`.
 
 ## 5. Discussion & Limitations *(stub)*
 

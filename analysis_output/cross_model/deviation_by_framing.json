@@ -1,127 +1,154 @@
 {
   "models": [
+    "qwen3-32b",
+    "qwen3-8b",
     "llama-3.3-70b",
     "gemini-2.5-flash",
-    "qwen3-32b",
-    "qwen3-8b"
+    "qwen3.8-27b"
   ],
   "personas": [
     "baseline",
-    "bard",
     "consultant",
+    "saboteur",
     "altruist",
-    "saboteur"
+    "bard"
   ],
   "framings": [
     "literal",
     "story"
   ],
   "deviation_rate_by_persona_and_framing": {
-    "llama-3.3-70b": {
-      "baseline": {
-        "literal": 0.157,
-        "story": 0.209
-      },
-      "bard": {
-        "literal": 0.093,
-        "story": 0.182
-      },
-      "consultant": {
-        "literal": 0.193,
-        "story": 0.19
-      },
-      "altruist": {
-        "literal": 0.412,
-        "story": 0.368
-      },
-      "saboteur": {
-        "literal": 0.134,
-        "story": 0.181
-      }
-    },
-    "gemini-2.5-flash": {
-      "baseline": {
-        "literal": 0.033,
-        "story": 0.229
-      },
-      "bard": {
-        "literal": 0.04,
-        "story": 0.086
-      },
-      "consultant": {
-        "literal": 0.055,
-        "story": 0.218
-      },
-      "altruist": {
-        "literal": 0.564,
-        "story": 0.598
-      },
-      "saboteur": {
-        "literal": 0.057,
-        "story": 0.185
-      }
-    },
     "qwen3-32b": {
       "baseline": {
-        "literal": 0.009,
-        "story": 0.057
-      },
-      "bard": {
         "literal": 0.014,
-        "story": 0.057
+        "story": 0.038
       },
       "consultant": {
-        "literal": 0.011,
-        "story": 0.04
-      },
-      "altruist": {
-        "literal": 0.541,
-        "story": 0.329
+        "literal": 0.004,
+        "story": 0.022
       },
       "saboteur": {
-        "literal": 0.043,
-        "story": 0.058
+        "literal": 0.037,
+        "story": 0.042
+      },
+      "altruist": {
+        "literal": 0.529,
+        "story": 0.321
+      },
+      "bard": {
+        "literal": 0.017,
+        "story": 0.031
       }
     },
     "qwen3-8b": {
       "baseline": {
-        "literal": 0.115,
-        "story": 0.082
-      },
-      "bard": {
-        "literal": 0.099,
-        "story": 0.11
+        "literal": 0.1,
+        "story": 0.074
       },
       "consultant": {
-        "literal": 0.119,
-        "story": 0.131
-      },
-      "altruist": {
-        "literal": 0.404,
-        "story": 0.241
+        "literal": 0.109,
+        "story": 0.109
       },
       "saboteur": {
-        "literal": 0.036,
-        "story": 0.118
+        "literal": 0.031,
+        "story": 0.107
+      },
+      "altruist": {
+        "literal": 0.397,
+        "story": 0.228
+      },
+      "bard": {
+        "literal": 0.083,
+        "story": 0.096
+      }
+    },
+    "llama-3.3-70b": {
+      "baseline": {
+        "literal": 0.152,
+        "story": 0.195
+      },
+      "consultant": {
+        "literal": 0.184,
+        "story": 0.188
+      },
+      "saboteur": {
+        "literal": 0.133,
+        "story": 0.176
+      },
+      "altruist": {
+        "literal": 0.412,
+        "story": 0.354
+      },
+      "bard": {
+        "literal": 0.085,
+        "story": 0.179
+      }
+    },
+    "gemini-2.5-flash": {
+      "baseline": {
+        "literal": 0.019,
+        "story": 0.224
+      },
+      "consultant": {
+        "literal": 0.052,
+        "story": 0.208
+      },
+      "saboteur": {
+        "literal": 0.068,
+        "story": 0.183
+      },
+      "altruist": {
+        "literal": 0.542,
+        "story": 0.59
+      },
+      "bard": {
+        "literal": 0.051,
+        "story": 0.08
+      }
+    },
+    "qwen3.8-27b": {
+      "baseline": {
+        "literal": 0.002,
+        "story": 0.053
+      },
+      "consultant": {
+        "literal": 0.006,
+        "story": 0.064
+      },
+      "saboteur": {
+        "literal": 0.008,
+        "story": 0.125
+      },
+      "altruist": {
+        "literal": 0.493,
+        "story": 0.572
+      },
+      "bard": {
+        "literal": 0.002,
+        "story": 0.155
       }
     }
   },
   "deviation_rate_overall_by_framing": {
-    "llama-3.3-70b": {
-      "literal": 0.198,
-      "story": 0.226
-    },
-    "gemini-2.5-flash": {
-      "literal": 0.15,
-      "story": 0.263
-    },
     "qwen3-32b": {
-      "literal": 0.124,
-      "story": 0.108
+      "literal": 0.12,
+      "story": 0.091
     },
     "qwen3-8b": {
-      "literal": 0.155,
-      "story": 0.137
+      "literal": 0.144,
+      "story": 0.123
+    },
+    "llama-3.3-70b": {
+      "literal": 0.193,
+      "story": 0.218
+    },
+    "gemini-2.5-flash": {
+      "literal": 0.146,
+      "story": 0.257
+    },
+    "qwen3.8-27b": {
+      "literal": 0.102,
+      "story": 0.194
     }
   }
 }
