@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona Deviation Harness — Results</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #0f1117; color: #e2e8f0;
+       padding: 2rem; font-size: 14px; }
+h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; color: #f0f4ff; }
+.subtitle { color: #94a3b8; margin-bottom: 2rem; }
+h2 { font-size: 1.1rem; font-weight: 600; margin: 2.5rem 0 0.75rem; color: #cbd5e1;
+     border-bottom: 1px solid #2d3748; padding-bottom: 0.4rem; }
+h3 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: #94a3b8; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem; margin-bottom: 1rem; }
+.card { background: #1e2535; border-radius: 8px; padding: 1.2rem; }
+.card .val { font-size: 2rem; font-weight: 700; color: #818cf8; }
+.card .label { font-size: 0.78rem; color: #64748b; margin-top: 0.25rem; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; }
+th { background: #1e2535; padding: 0.5rem 0.75rem; text-align: left;
+     font-size: 0.78rem; font-weight: 600; color: #94a3b8; white-space: nowrap; }
+td { padding: 0.45rem 0.75rem; border-bottom: 1px solid #1e2535;
+     font-size: 0.82rem; }
+tr:hover td { background: #1e2535; }
+.section { background: #161b27; border-radius: 10px; padding: 1.5rem;
+           margin-bottom: 1.5rem; }
+.tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+       font-size: 0.72rem; font-weight: 600; }
+.tag-m { background: #312e81; color: #a5b4fc; }
+.tag-n { background: #134e4a; color: #5eead4; }
+.bar-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.bar { height: 10px; border-radius: 3px; background: #818cf8; min-width: 2px; }
+canvas { max-height: 320px; }
+</style>
+</head>
+<body>
+<h1>Persona Deviation Harness</h1>
+<p class="subtitle">Iterated Prisoner's Dilemma · inject_optimal=True · 4 models · 800 trials</p>
+<div class="section"><h2>Overview</h2><div class="grid"><div class="card"><div class="val">4</div><div class="label">Models tested</div></div><div class="card"><div class="val">800</div><div class="label">Total trials</div></div><div class="card"><div class="val">656</div><div class="label">Trials with game play</div></div><div class="card"><div class="val">5903</div><div class="label">Individual rounds logged</div></div><div class="card"><div class="val">18.0%</div><div class="label">Persona-check skip rate</div></div></div></div>
+<div class="section">
+<h2>Run Summary</h2>
+<table><thead><tr><th>Model</th><th>Frame</th><th>inject_optimal</th><th>Trials</th><th>Played</th><th>Skip rate</th><th>Mean deviation</th><th>Mean payoff cost</th></tr></thead><tbody><tr><td><b>deepseek-r1-0528</b></td><td><span class="tag tag-m">matrix</span></td><td>✓</td><td>63</td><td>63</td><td>0.0%</td><td>20.5%</td><td>+1.3</td></tr><tr><td><b>deepseek-r1-0528</b></td><td><span class="tag tag-n">narrative</span></td><td>✓</td><td>99</td><td>79</td><td>20.2%</td><td>26.0%</td><td>+2.8</td></tr><tr><td><b>deepseek-v3.2</b></td><td><span class="tag tag-m">matrix</span></td><td>✓</td><td>100</td><td>80</td><td>20.0%</td><td>18.8%</td><td>+2.0</td></tr><tr><td><b>deepseek-v3.2</b></td><td><span class="tag tag-n">narrative</span></td><td>✓</td><td>100</td><td>100</td><td>0.0%</td><td>10.7%</td><td>+1.5</td></tr><tr><td><b>mistral-large-2512</b></td><td><span class="tag tag-m">matrix</span></td><td>✓</td><td>100</td><td>80</td><td>20.0%</td><td>27.5%</td><td>+2.2</td></tr><tr><td><b>mistral-large-2512</b></td><td><span class="tag tag-n">narrative</span></td><td>✓</td><td>100</td><td>80</td><td>20.0%</td><td>28.5%</td><td>+2.5</td></tr><tr><td><b>qwen3-8b</b></td><td><span class="tag tag-m">matrix</span></td><td>✓</td><td>94</td><td>94</td><td>0.0%</td><td>21.9%</td><td>+1.1</td></tr><tr><td><b>qwen3-8b</b></td><td><span class="tag tag-n">narrative</span></td><td>✓</td><td>100</td><td>80</td><td>20.0%</td><td>25.6%</td><td>+1.2</td></tr></tbody></table>
+</div>
+<div class="section">
+<h2>Persona Manipulation Checks</h2>
+<h3>Pass rate (green = failed check = model didn't adopt persona)</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(127,127,80);color:#111">50.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(127,127,80);color:#111">50.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td style="background:rgb(255,0,80);color:#111">0.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(127,127,80);color:#111">50.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td><td style="background:rgb(0,255,80);color:#111">100.0%</td>
+</tr>
+</tbody></table>
+<h3>Check-A mean score (0–3, higher = more in-persona)</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(14,240,80);color:#111">2.83</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(33,221,80);color:#111">2.60</td><td style="background:rgb(25,229,80);color:#111">2.70</td><td style="background:rgb(0,255,80);color:#111">3.00</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(0,255,80);color:#111">3.00</td><td style="background:rgb(8,246,80);color:#111">2.90</td><td style="background:rgb(0,255,80);color:#111">3.00</td>
+</tr>
+</tbody></table>
+</div>
+<div class="section">
+<h2>Deviation from Optimal Play</h2>
+<h3>Mean deviation rate by model × persona (all frames)</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(37,217,80);color:#111">14.7%</td><td style="background:rgb(38,216,80);color:#111">15.3%</td><td style="background:rgb(44,210,80);color:#111">17.6%</td><td style="background:rgb(175,79,80);color:#111">68.7%</td><td style="background:rgb(19,235,80);color:#111">7.8%</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(0,255,80);color:#111">0.0%</td><td style="background:rgb(1,253,80);color:#111">0.5%</td><td style="background:rgb(16,238,80);color:#111">6.4%</td><td style="background:rgb(132,122,80);color:#111">52.0%</td><td style="background:rgb(14,240,80);color:#111">5.6%</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td>—</td><td style="background:rgb(2,252,80);color:#111">0.8%</td><td style="background:rgb(52,202,80);color:#111">20.7%</td><td style="background:rgb(165,89,80);color:#111">64.8%</td><td style="background:rgb(65,189,80);color:#111">25.6%</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(16,238,80);color:#111">6.4%</td><td style="background:rgb(27,227,80);color:#111">10.7%</td><td style="background:rgb(66,188,80);color:#111">26.1%</td><td style="background:rgb(150,104,80);color:#111">59.1%</td><td style="background:rgb(11,243,80);color:#111">4.4%</td>
+</tr>
+</tbody></table>
+<h3>Mean deviation rate by model × frame</h3>
+<table><thead><tr><th></th><th>matrix</th><th>narrative</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(52,202,80);color:#111">20.5%</td><td style="background:rgb(66,188,80);color:#111">26.0%</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(47,207,80);color:#111">18.8%</td><td style="background:rgb(27,227,80);color:#111">10.7%</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td style="background:rgb(70,184,80);color:#111">27.5%</td><td style="background:rgb(72,182,80);color:#111">28.5%</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(55,199,80);color:#111">21.9%</td><td style="background:rgb(65,189,80);color:#111">25.6%</td>
+</tr>
+</tbody></table>
+<h3>Deviation rate by persona and frame</h3>
+
+<canvas id="devBarChart"></canvas>
+<script>
+new Chart(document.getElementById('devBarChart'), {
+  type: 'bar',
+  data: { labels: ["baseline", "consultant", "saboteur", "altruist", "bard"], datasets: [{"label": "deepseek-r1-0528 / matrix", "data": [0.1474, 0.1435, 0.2035, 1.0, null], "backgroundColor": "#818cf8cc", "borderColor": "#818cf8", "borderWidth": 1}, {"label": "deepseek-r1-0528 / narrative", "data": [null, 0.1624, 0.1493, 0.6397, 0.0779], "backgroundColor": "#34d399cc", "borderColor": "#34d399", "borderWidth": 1}, {"label": "deepseek-v3.2 / matrix", "data": [null, 0.005, 0.1068, 0.5911, 0.05], "backgroundColor": "#818cf8cc", "borderColor": "#818cf8", "borderWidth": 1}, {"label": "deepseek-v3.2 / narrative", "data": [0.0, 0.005, 0.0211, 0.4481, 0.0618], "backgroundColor": "#34d399cc", "borderColor": "#34d399", "borderWidth": 1}, {"label": "mistral-large-2512 / matrix", "data": [null, 0.0112, 0.235, 0.6468, 0.2079], "backgroundColor": "#818cf8cc", "borderColor": "#818cf8", "borderWidth": 1}, {"label": "mistral-large-2512 / narrative", "data": [null, 0.0056, 0.1797, 0.6501, 0.3046], "backgroundColor": "#34d399cc", "borderColor": "#34d399", "borderWidth": 1}, {"label": "qwen3-8b / matrix", "data": [0.0643, 0.1254, 0.2638, 0.5728, 0.0071], "backgroundColor": "#818cf8cc", "borderColor": "#818cf8", "borderWidth": 1}, {"label": "qwen3-8b / narrative", "data": [null, 0.0893, 0.2575, 0.6085, 0.0701], "backgroundColor": "#34d399cc", "borderColor": "#34d399", "borderWidth": 1}] },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#cbd5e1' } },
+      title: { display: true, text: "Deviation rate by persona",
+                color: '#94a3b8' }
+    },
+    scales: {
+      x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e2535' } },
+      y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e2535' },
+            min: 0, max: 1 }
+    }
+  }
+});
+</script>
+<h3>Deviation rate by round number (all trials)</h3>
+
+<canvas id="devLineChart"></canvas>
+<script>
+new Chart(document.getElementById('devLineChart'), {
+  type: 'line',
+  data: { labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], datasets: [{"label": "deepseek-r1-0528", "data": [0.3082, 0.274, 0.274, 0.1301, 0.2123, 0.2207, 0.2276, 0.2708, 0.38, 0.16], "borderColor": "#818cf8", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "deepseek-v3.2", "data": [0.15, 0.1444, 0.1611, 0.1056, 0.1111, 0.1111, 0.1167, 0.1611, 0.2479, 0.1552], "borderColor": "#34d399", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "mistral-large-2512", "data": [0.2625, 0.2938, 0.2875, 0.2, 0.275, 0.2687, 0.275, 0.3375, 0.31, 0.4103], "borderColor": "#f472b6", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "qwen3-8b", "data": [0.1829, 0.1943, 0.2343, 0.2057, 0.2586, 0.2471, 0.2241, 0.2989, 0.2523, 0.2917], "borderColor": "#fbbf24", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}] },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { color: '#cbd5e1' } } },
+    scales: {
+      x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e2535' } },
+      y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e2535' }, min: 0 }
+    }
+  }
+});
+</script>
+</div>
+<div class="section">
+<h2>Payoff & Score</h2>
+<h3>Mean payoff cost from deviations (points lost vs optimal)</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(16,238,80);color:#111">+0.7</td><td style="background:rgb(21,233,80);color:#111">+0.8</td><td style="background:rgb(9,245,80);color:#111">+0.3</td><td style="background:rgb(255,0,80);color:#111">+9.8</td><td style="background:rgb(21,233,80);color:#111">+0.8</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(0,255,80);color:#111">+0.0</td><td style="background:rgb(0,255,80);color:#111">+0.0</td><td style="background:rgb(0,255,80);color:#111">-0.6</td><td style="background:rgb(195,59,80);color:#111">+7.5</td><td style="background:rgb(24,230,80);color:#111">+0.9</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td>—</td><td style="background:rgb(0,255,80);color:#111">-0.1</td><td style="background:rgb(0,255,80);color:#111">-2.2</td><td style="background:rgb(218,36,80);color:#111">+8.4</td><td style="background:rgb(85,169,80);color:#111">+3.3</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(2,252,80);color:#111">+0.1</td><td style="background:rgb(0,255,80);color:#111">-0.4</td><td style="background:rgb(0,255,80);color:#111">-2.6</td><td style="background:rgb(208,46,80);color:#111">+8.1</td><td style="background:rgb(0,255,80);color:#111">-0.1</td>
+</tr>
+</tbody></table>
+<h3>Mean score as fraction of optimal (higher = better)</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(52,202,80);color:#111">0.90</td><td style="background:rgb(53,201,80);color:#111">0.90</td><td style="background:rgb(59,195,80);color:#111">0.88</td><td style="background:rgb(255,0,80);color:#111">0.47</td><td style="background:rgb(17,237,80);color:#111">0.96</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(0,255,80);color:#111">1.00</td><td style="background:rgb(1,253,80);color:#111">1.00</td><td style="background:rgb(18,236,80);color:#111">0.96</td><td style="background:rgb(203,51,80);color:#111">0.60</td><td style="background:rgb(12,242,80);color:#111">0.98</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td>—</td><td style="background:rgb(1,253,80);color:#111">1.00</td><td style="background:rgb(54,200,80);color:#111">0.89</td><td style="background:rgb(255,0,80);color:#111">0.46</td><td style="background:rgb(80,174,80);color:#111">0.84</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(16,238,80);color:#111">0.97</td><td style="background:rgb(27,227,80);color:#111">0.95</td><td style="background:rgb(73,181,80);color:#111">0.86</td><td style="background:rgb(215,39,80);color:#111">0.58</td><td style="background:rgb(13,241,80);color:#111">0.97</td>
+</tr>
+</tbody></table>
+</div>
+<div class="section">
+<h2>Eval Awareness</h2>
+<h3>% of trials where model said it suspected it was being tested</h3>
+<table><thead><tr><th>Model</th><th>Frame</th><th>Suspected test?</th><th>Said it affected play?</th></tr></thead><tbody><tr><td><b>deepseek-r1-0528</b></td><td><span class="tag tag-m">matrix</span></td><td>13.0%</td><td>1.8%</td></tr><tr><td><b>deepseek-r1-0528</b></td><td><span class="tag tag-n">narrative</span></td><td>5.5%</td><td>1.3%</td></tr><tr><td><b>deepseek-v3.2</b></td><td><span class="tag tag-m">matrix</span></td><td>2.5%</td><td>1.2%</td></tr><tr><td><b>deepseek-v3.2</b></td><td><span class="tag tag-n">narrative</span></td><td>1.0%</td><td>0.0%</td></tr><tr><td><b>mistral-large-2512</b></td><td><span class="tag tag-m">matrix</span></td><td>100.0%</td><td>17.5%</td></tr><tr><td><b>mistral-large-2512</b></td><td><span class="tag tag-n">narrative</span></td><td>98.8%</td><td>20.0%</td></tr><tr><td><b>qwen3-8b</b></td><td><span class="tag tag-m">matrix</span></td><td>69.1%</td><td>10.6%</td></tr><tr><td><b>qwen3-8b</b></td><td><span class="tag tag-n">narrative</span></td><td>35.0%</td><td>6.2%</td></tr></tbody></table>
+<h3>Suspicion rate by model × persona</h3>
+<table><thead><tr><th></th><th>baseline</th><th>consultant</th><th>saboteur</th><th>altruist</th><th>bard</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(15,239,80);color:#111">6.2%</td><td style="background:rgb(55,199,80);color:#111">21.9%</td><td style="background:rgb(20,234,80);color:#111">8.1%</td><td style="background:rgb(0,255,80);color:#111">0.0%</td><td style="background:rgb(0,255,80);color:#111">0.0%</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(0,255,80);color:#111">0.0%</td><td style="background:rgb(0,255,80);color:#111">0.0%</td><td style="background:rgb(19,235,80);color:#111">7.5%</td><td style="background:rgb(0,255,80);color:#111">0.0%</td><td style="background:rgb(0,255,80);color:#111">0.0%</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td>—</td><td style="background:rgb(255,0,80);color:#111">100.0%</td><td style="background:rgb(255,0,80);color:#111">100.0%</td><td style="background:rgb(248,6,80);color:#111">97.5%</td><td style="background:rgb(255,0,80);color:#111">100.0%</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(216,38,80);color:#111">85.0%</td><td style="background:rgb(178,76,80);color:#111">70.0%</td><td style="background:rgb(165,89,80);color:#111">65.0%</td><td style="background:rgb(76,178,80);color:#111">30.0%</td><td style="background:rgb(75,179,80);color:#111">29.4%</td>
+</tr>
+</tbody></table>
+</div>
+<div class="section">
+<h2>Deviation Rate by Opponent Strategy</h2>
+<h3>Mean deviation rate per model × opponent</h3>
+<table><thead><tr><th></th><th>cheater</th><th>cooperator</th><th>copycat</th><th>detective</th></tr></thead><tbody>
+<tr><td><b>deepseek-r1-0528</b></td><td style="background:rgb(36,218,80);color:#111">14.3%</td><td style="background:rgb(57,197,80);color:#111">22.6%</td><td style="background:rgb(24,230,80);color:#111">9.4%</td><td style="background:rgb(123,131,80);color:#111">48.5%</td>
+</tr>
+<tr><td><b>deepseek-v3.2</b></td><td style="background:rgb(29,225,80);color:#111">11.4%</td><td style="background:rgb(66,188,80);color:#111">26.2%</td><td style="background:rgb(17,237,80);color:#111">6.7%</td><td style="background:rgb(33,221,80);color:#111">13.0%</td>
+</tr>
+<tr><td><b>mistral-large-2512</b></td><td style="background:rgb(72,182,80);color:#111">28.4%</td><td style="background:rgb(106,148,80);color:#111">41.7%</td><td style="background:rgb(34,220,80);color:#111">13.7%</td><td style="background:rgb(72,182,80);color:#111">28.3%</td>
+</tr>
+<tr><td><b>qwen3-8b</b></td><td style="background:rgb(50,204,80);color:#111">19.8%</td><td style="background:rgb(56,198,80);color:#111">22.2%</td><td style="background:rgb(47,207,80);color:#111">18.5%</td><td style="background:rgb(89,165,80);color:#111">35.2%</td>
+</tr>
+</tbody></table>
+</div>
+</body>
+</html>
