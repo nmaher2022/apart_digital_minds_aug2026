@@ -1,0 +1,98 @@
+Resuming with seed=602534306 (recorded in runs_cross_persona_injection/qwen3-32b/run_meta.json)
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=2 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=0 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=1 -- already completed
+[skip] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=2 -- already completed
+[1/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=5 -- ok
+[2/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=5 -- ok
+[3/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=4 -- ok
+[4/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=3 -- ok
+[5/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cheater framing=literal rep=3 -- ok
+[6/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=5 -- ok
+[7/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=4 -- ok
+[8/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=copycat framing=literal rep=3 -- ok
+[9/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=4 -- ok
+[10/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=3 -- ok
+[11/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=4 -- ok
+[12/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=4 -- ok
+[13/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=5 -- ok
+[14/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=cooperator framing=literal rep=5 -- ok
+[15/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=4 -- ok
+[16/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cheater framing=literal rep=5 -- ok
+[17/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=5 -- ok
+[18/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=4 -- ok
+[19/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=cooperator framing=literal rep=3 -- ok
+[20/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=5 -- ok
+[21/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=5 -- ok
+[22/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cooperator framing=literal rep=3 -- ok
+[23/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=5 -- ok
+[24/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=4 -- ok
+[25/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=3 -- ok
+[26/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=3 -- ok
+[27/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=5 -- ok
+[28/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=4 -- ok
+[29/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=copycat framing=literal rep=3 -- ok
+[30/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=cheater framing=literal rep=3 -- ok
+[31/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=copycat framing=literal rep=4 -- ok
+[32/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=baseline opponent=detective framing=literal rep=3 -- ok
+[33/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=3 -- ok
+[34/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=3 -- ok
+[35/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=3 -- ok
+[36/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=4 -- ok
+[37/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=4 -- ok
+[38/48 pending, 96 total] model=qwen/qwen3-32b system_persona=baseline context_persona=altruist opponent=detective framing=literal rep=3 -- ok
+[39/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cooperator framing=literal rep=5 -- ok
+[40/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=5 -- ok
+[41/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=4 -- ok
+[42/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=cheater framing=literal rep=4 -- ok
+[43/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=5 -- ok
+[44/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=5 -- ok
+[45/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=copycat framing=literal rep=5 -- ok
+[46/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=baseline opponent=detective framing=literal rep=4 -- ok
+[47/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=4 -- ok
+[48/48 pending, 96 total] model=qwen/qwen3-32b system_persona=altruist context_persona=altruist opponent=detective framing=literal rep=3 -- ok
+Done. Results under runs_cross_persona_injection/qwen3-32b
