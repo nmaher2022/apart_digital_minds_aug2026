@@ -44,9 +44,9 @@ a single model's output or (default use case here) the parent directory
 holding all 5 models' subdirectories, since this script recurses.
 
 Usage:
-    python3 analysis_cross_persona_injection.py --out-dir runs_cross_persona_injection
-    python3 analysis_cross_persona_injection.py --out-dir runs_cross_persona_injection \\
-        --json-out runs_cross_persona_injection/analysis.json
+    python3 analysis_cross_persona_injection.py --out-dir runs/runs_cross_persona_injection
+    python3 analysis_cross_persona_injection.py --out-dir runs/runs_cross_persona_injection \\
+        --json-out runs/runs_cross_persona_injection/analysis.json
 """
 
 from __future__ import annotations

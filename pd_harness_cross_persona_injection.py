@@ -50,12 +50,12 @@ Usage:
     python3 pd_harness_cross_persona_injection.py --model qwen/qwen3-32b \\
         --opponents cooperator cheater copycat detective \\
         --system-personas baseline altruist --context-personas baseline altruist \\
-        --reps 3 --out-dir runs_cross_persona_injection/qwen3-32b
+        --reps 3 --out-dir runs/runs_cross_persona_injection/qwen3-32b
 
     # single quick smoke test, one cell, one rep, short game:
     python3 pd_harness_cross_persona_injection.py --model qwen/qwen3-32b \\
         --opponents cooperator --system-personas baseline --context-personas altruist \\
-        --reps 1 --max-rounds 6 --out-dir runs_cross_persona_injection/smoke
+        --reps 1 --max-rounds 6 --out-dir runs/runs_cross_persona_injection/smoke
 """
 
 from __future__ import annotations
